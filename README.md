@@ -4,91 +4,144 @@
      ============================================================ -->
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SECTION 1 — HERO BANNER + AURORA HEADER
+     SECTION 1 — HERO: Cinematic Dark Intro
      ═══════════════════════════════════════════════════════════════ -->
+
+<!-- Top Edge Glow -->
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:1a0a2e,50:e94560,100:0f3460&height=55&section=header&reversal=false&stroke=e94560&strokeWidth=0" width="100%" />
+
 <div align="center">
 
-<!-- Animated Gradient Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d1a,25:1a1a2e,50:16213e,75:0f3460,100:1a0a2e&height=300&section=header&text=LUNA%20NOIR&fontSize=80&fontColor=e94560&fontAlignY=32&desc=Full-Stack%20Developer%20%7C%20Open%20Source%20Architect%20%7C%20Life%20OS%20Creator&descAlignY=52&descSize=20&animation=twinkling" />
-
-<!-- Typing Animation — Multi-line -->
-<a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=26&duration=2800&pause=800&color=E94560&vCenter=true&width=900&height=50&lines=%E2%96%B6+Building+the+future+one+commit+at+a+time;%E2%96%B6+Next.js+15+%7C+TypeScript+%7C+Full-Stack+Engineering;%E2%96%B6+Creator+of+Life+OS+%F0%9F%8C%99;%E2%96%B6+Open+Source+Advocate+%F0%9F%94%A5;%E2%96%B6+Privacy-first+%7C+Local-first+%7C+User-first" alt="Typing SVG" />
+<!-- Avatar + Glowing Ring -->
+<a href="https://github.com/lunanoir21">
+  <img src="https://raw.githubusercontent.com/lunanoir21/lunanoir21/main/assets/luna-noir-avatar.png" width="120" align="center" onerror="this.style.display='none'" />
 </a>
 
-<!-- Profile Views + Visitors Badge Row -->
+<!-- Cinematic Title -->
 <br>
-<img src="https://komarev.com/ghpvc/?username=lunanoir21&label=PROFILE+VIEWS&color=e94560&style=for-the-badge&labelColor=0d1117" alt="Profile Views" />
+<p>
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=52&duration=4000&pause=100&color=E94560&center=true&vCenter=true&width=600&height=70&lines=LUNA+NOIR" alt="Luna Noir" />
+</p>
+
+<!-- Role Tags — Chip Style -->
+<img src="https://img.shields.io/badge/%E2%8E%87_Full--Stack_Developer-0d1117?style=for-the-badge&logo=codeberg&logoColor=e94560&labelColor=1a1a2e&color=e94560" alt="Full-Stack" />
 &nbsp;
-<img src="https://img.shields.io/badge/Focus-Full_Stack-e94560?style=for-the-badge&logo=devdotto&logoColor=white&labelColor=0d1117" alt="Focus" />
+<img src="https://img.shields.io/badge/%E2%8E%87_Open_Source_Architect-0d1117?style=for-the-badge&logo=opensourceinitiative&logoColor=3178C6&labelColor=1a1a2e&color=3178C6" alt="OSS" />
 &nbsp;
-<img src="https://img.shields.io/badge/Status-Available-brightgreen?style=for-the-badge&logo=probot&logoColor=white&labelColor=0d1117" alt="Status" />
+<img src="https://img.shields.io/badge/%E2%8E%87_Life_OS_Creator-0d1117?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTIgMmwtMy4wOSA2LjI2TDIgOS4yN2w1IDQuODdMMTUuODIgMjFMMTIgMTQuMzRMMjAuMTggMjFsLTEuODItNi44Nkw1IDkuMjdsNi45MS0xLjAxTDEyIDJ6Ii8+PC9zdmc+&logoColor=06B6D4&labelColor=1a1a2e&color=06B6D4" alt="Life OS" />
+
+<br><br>
+
+<!-- Typing Subtitle -->
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=2800&pause=800&color=8B949E&center=true&vCenter=true&width=700&height=35&lines=Building+the+future+one+commit+at+a+time;Next.js+15+%C2%B7+TypeScript+%C2%B7+Privacy-First;Creator+of+Life+OS+%F0%9F%8C%99;Open+Source+Advocate+%F0%9F%94%A5;Local-first+%7C+User-first+%7C+Trust-first" alt="Typing SVG" />
+</a>
+
+<br>
+
+<!-- Status Dashboard Row -->
+<table width="100%">
+<tr>
+<td align="center" width="25%">
+  <img src="https://komarev.com/ghpvc/?username=lunanoir21&label=VISITORS&color=e94560&style=flat-square&labelColor=1a1a2e" alt="Visitors" />
+</td>
+<td align="center" width="25%">
+  <img src="https://img.shields.io/badge/STATUS-Open_to_Collab-brightgreen?style=flat-square&logo=handshake&logoColor=white&labelColor=1a1a2e&color=238636" alt="Status" />
+</td>
+<td align="center" width="25%">
+  <img src="https://img.shields.io/badge/FOCUS-Full_Stack-e94560?style=flat-square&logo=devdotto&logoColor=e94560&labelColor=1a1a2e" alt="Focus" />
+</td>
+<td align="center" width="25%">
+  <img src="https://img.shields.io/badge/TZ-Europe%2FIstanbul-58a6ff?style=flat-square&logo=world&logoColor=58a6ff&labelColor=1a1a2e&color=1a1a2e" alt="Timezone" />
+</td>
+</tr>
+</table>
 
 </div>
 
+<!-- Divider: Gradient Line -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=e94560&height=1&section=header&width=100%" />
+
 <!-- ═══════════════════════════════════════════════════════════════
-     SECTION 2 — NAVIGATION BAR
+     SECTION 2 — NAVIGATION: Minimal Icon Bar
      ═══════════════════════════════════════════════════════════════ -->
 <div align="center">
 
-[![About](https://img.shields.io/badge/%F0%9F%91%8B_About-Me-e94560?style=flat-square&labelColor=0d1117)](#-about-me)
-[![Tech Stack](https://img.shields.io/badge/%F0%9F%9B%A0_Tech-Stack-3178C6?style=flat-square&labelColor=0d1117)](#-tech-stack)
-[![Projects](https://img.shields.io/badge/%F0%9F%9A%80_Projects-Featured-06B6D4?style=flat-square&labelColor=0d1117)](#-featured-projects)
-[![Stats](https://img.shields.io/badge/%F0%9F%93%8A_Stats-Analytics-e94560?style=flat-square&labelColor=0d1117)](#-github-analytics)
-[![Connect](https://img.shields.io/badge/%F0%9F%93%A1_Connect-Links-5865F2?style=flat-square&labelColor=0d1117)](#-connect-with-me)
+<a href="#-about-me"><img src="https://img.shields.io/badge/%E2%97%88_About-e94560?style=flat-square&labelColor=0d1117" /></a>
+<a href="#-tech-stack"><img src="https://img.shields.io/badge/%E2%97%88_Stack-3178C6?style=flat-square&labelColor=0d1117" /></a>
+<a href="#-featured-projects"><img src="https://img.shields.io/badge/%E2%97%88_Projects-06B6D4?style=flat-square&labelColor=0d1117" /></a>
+<a href="#-github-analytics"><img src="https://img.shields.io/badge/%E2%97%88_Stats-e94560?style=flat-square&labelColor=0d1117" /></a>
+<a href="#-connect-with-me"><img src="https://img.shields.io/badge/%E2%97%88_Connect-5865F2?style=flat-square&labelColor=0d1117" /></a>
 
 </div>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=e94560&height=1&section=header&width=100%" />
 
 <!-- ═══════════════════════════════════════════════════════════════
-     SECTION 3 — ABOUT ME (Terminal Style)
+     SECTION 3 — ABOUT ME: Developer Card Layout
      ═══════════════════════════════════════════════════════════════ -->
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Milky%20Way.png" alt="Milky Way" width="32" /> About Me
 
-<table>
+<table width="100%">
 <tr>
-<td width="55%">
+<td width="50%">
 
-```bash
-lunanoir21@github:~$ cat profile.yaml
+<!-- Identity Card -->
+<img src="https://img.shields.io/badge/lunanoir21%40github%3A~%24-whoami-00FF41?style=flat-square&logo=gnometerminal&logoColor=00FF41&labelColor=0d1117&color=0d1117" width="100%" />
 
-name: Luna Noir
-role: Full-Stack Developer
-location: "Europe/Istanbul"
-philosophy: |
-  "Build tools that respect user privacy
-   and data ownership — because the best
-   software is software you can trust."
-current_focus: Life OS Project
-learning:
-  - Advanced TypeScript Patterns
-  - WebAssembly & WASI
-  - Rust for Systems Programming
-  - Edge Computing & CDN Architectures
-goal_2026: |
-  Grow Life OS into a thriving
-  open-source community of 1000+ contributors
-open_to: Collaborations & OSS Contributions
+```yaml
+name:     Luna Noir
+role:     Full-Stack Developer
+base:     Europe/Istanbul
+mission:  Privacy-first tools for everyone
 ```
 
+<details>
+<summary><b>More about me</b></summary>
+
+- 🔭 Currently building **[Life OS](https://github.com/lunanoir21/Life-os-project)** — a local-first personal OS
+- 🌱 Learning **Rust**, **WebAssembly**, **Advanced TypeScript patterns**
+- 💡 Philosophy: *"Build tools that respect user privacy and data ownership"*
+- 🎯 2026 Goal: Grow Life OS to **1,000+ contributors**
+- 📫 Reach me via **[GitHub Discussions](https://github.com/lunanoir21/Life-os-project/discussions)**
+- ⚡ Fun fact: I type at 120 WPM and my code compiles faster
+
+</details>
+
 </td>
-<td width="45%" align="center">
+<td width="50%" align="center">
 
 <!-- Terminal Animation -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=13&duration=1800&pause=400&color=00FF41&center=true&vCenter=true&width=380&height=220&lines=%E2%94%8C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%90;%E2%94%82+%F0%9F%8C%99+LUNA+NOIR+TERMINAL+%E2%94%82;%E2%94%9C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%A4;%E2%94%82+%24+git+clone+life-os+++++++++%E2%94%82;%E2%94%82+%E2%9C%93+Cloning+complete++++++++++%E2%94%82;%E2%94%82+%24+npm+install+++++++++++++++++%E2%94%82;%E2%94%82+%E2%9C%93+Packages+installed+++++++%E2%94%82;%E2%94%82+%24+npm+run+dev+++++++++++++++++%E2%94%82;%E2%94%82+%F0%9F%9A%80+Ready+on+localhost:3000++%E2%94%82;%E2%94%82+%24+%E2%9C%A8+Building+the+future...+++%E2%94%82;%E2%94%94%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%98" alt="Terminal" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=13&duration=1800&pause=400&color=00FF41&center=true&vCenter=true&width=420&height=200&lines=%E2%95%AD%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%95%AE;%E2%94%82+%F0%9F%8C%99+LUNA+NOIR+TERMINAL+v2+%E2%94%82;%E2%95%9E%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%95%A1;%E2%94%82+%24+git+clone+life-os++++++++++%E2%94%82;%E2%94%82+%E2%9C%93+Cloning+complete++++++++++++%E2%94%82;%E2%94%82+%24+npm+install++++++++++++++++++%E2%94%82;%E2%94%82+%E2%9C%93+Packages+installed++++++++++%E2%94%82;%E2%94%82+%24+npm+run+dev++++++++++++++++++%E2%94%82;%E2%94%82+%F0%9F%9A%80+Ready+on+localhost:3000++++%E2%94%82;%E2%94%82+%E2%9C%A8+Building+the+future...++++++%E2%94%82;%E2%95%B0%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%95%AF" alt="Terminal" />
 
 </td>
 </tr>
 </table>
 
-<!-- Quick Facts Cards -->
+<!-- Quick Facts — Card Grid -->
 <div align="center">
 
-| <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telescope.png" width="22" /> Currently Building | <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Seedling.png" width="22" /> Learning | <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" width="22" /> Philosophy | <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bullseye.png" width="22" /> 2026 Goal |
-|:---:|:---:|:---:|:---:|
-| [Life OS Project](https://github.com/lunanoir21/Life-os-project) | Rust, WASM, Advanced TS | *Privacy-first, local-first* | 1K+ OSS contributors |
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/%F0%9F%94%AD_Building-Life_OS-e94560?style=for-the-badge&labelColor=1a1a2e" /><br>
+<sub><a href="https://github.com/lunanoir21/Life-os-project"><b>Life OS Project</b></a></sub>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/%F0%9F%8C%B1_Learning-Rust_%7C_WASM_%7C_TS-3178C6?style=for-the-badge&labelColor=1a1a2e" /><br>
+<sub><b>Rust · WASM · Adv. TS</b></sub>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/%F0%9F%92%A1_Philosophy-Privacy_First-06B6D4?style=for-the-badge&labelColor=1a1a2e" /><br>
+<sub><i>Local-first · User-first</i></sub>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/%F0%9F%8E%AF_2026_Goal-1K%2B_Contributors-238636?style=for-the-badge&labelColor=1a1a2e" /><br>
+<sub><b>1,000+ Contributors</b></sub>
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -378,51 +431,4 @@ If you find my projects useful, consider supporting their development:
 [![Twitter/X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/lunanoir21)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/lunanoir21)
 [![Dev.to](https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white)](https://dev.to/lunanoir21)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lunanoir21@example.com)
-
-<br>
-
-<!-- Discord Presence -->
-<img src="https://lanyard.cnrad.dev/api/USER_ID?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&badge=true&activity=true" alt="Discord Presence" />
-
-</div>
-
----
-
-<!-- ═══════════════════════════════════════════════════════════════
-     SECTION 13 — FUN ZONE
-     ═══════════════════════════════════════════════════════════════ -->
-
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smileys/Party%20Popper.png" width="32" /> Fun Zone
-
-<div align="center">
-
-<!-- Joke Card -->
-<img src="https://readme-jokes.vercel.app/api?bgColor=0d1117&textColor=c9d1d9&accentColor=e94560&borderColor=e94560&hideBorder=false&quoteColor=c9d1d9" alt="Jokes Card" width="500" />
-
-<br><br>
-
-<!-- Random Dev Meme -->
-<img src="https://img.shields.io/badge/%F0%9F%91%BE_Dev_Motto-It_works_on_my_machine!-e94560?style=for-the-badge&labelColor=0d1117" />
-
-</div>
-
----
-
-<!-- ═══════════════════════════════════════════════════════════════
-     SECTION 14 — FOOTER
-     ═══════════════════════════════════════════════════════════════ -->
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a0a2e,50:0f3460,100:0d0d1a&height=120&section=footer" />
-
-<br>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=16&duration=3000&pause=1000&color=E94560&center=true&vCenter=true&width=500&lines=Thanks+for+visiting!+%E2%9C%A8;Star+%E2%AD%90+my+repos+if+you+like+them;Fork+%F0%9F%8D%B4+and+contribute;Let%27s+build+something+amazing+together+%F0%9F%92%9C" alt="Footer Typing" />
-
-<br><br>
-
-<sub>Built with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smileys/Red%20Heart.png" width="14" /> by <b>Luna Noir</b> — &copy; 2026</sub>
-
-</div>
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the
