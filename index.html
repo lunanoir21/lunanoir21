@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luna Noir</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --bg2: #0a0a0a;
+      --bg3: #111111;
+      --border: #1f1f1f;
+      --text: #e5e5e5;
+      --muted: #555555;
+      --accent: #ffffff;
+      --dim: #333333;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero {
+      padding: 120px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 460px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 24px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .hero-links a:hover { color: var(--accent); }
+
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    /* Projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-item {
+      background: var(--bg);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+
+    .project-item:hover { background: var(--bg3); }
+
+    .project-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .project-stack {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+      margin-top: 10px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      padding: 3px 9px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .badge.done  { border-color: #2a2a2a; color: #777; }
+    .badge.wip   { border-color: #222;    color: #555; }
+    .badge.plan  { border-color: #181818; color: #333; }
+
+    /* Languages */
+    .lang-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .lang-item {
+      background: var(--bg);
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.15s;
+    }
+
+    .lang-item:hover { background: var(--bg3); }
+
+    .lang-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .lang-desc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 520px) {
+      .project-item { grid-template-columns: 1fr; }
+      .project-meta { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="wrapper">
+
+  <div class="hero">
+    <p class="hero-label">lunanoir21</p>
+    <h1>Luna Noir</h1>
+    <p class="hero-role">Fullstack Vibe Coder</p>
+    <p>Building privacy-first, local-first software. Systems to applications.</p>
+    <div class="hero-links">
+      <a href="https://github.com/lunanoir21">github.com/lunanoir21</a>
+      <a href="mailto:lunanoir_1@protonmail.com">lunanoir_1@protonmail.com</a>
+    </div>
+  </div>
+
+  <section>
+    <p class="section-label">Favorite Languages</p>
+    <div class="lang-list">
+      <div class="lang-item">
+        <span class="lang-name">Rust</span>
+        <span class="lang-desc">systems · security · cli</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">TypeScript</span>
+        <span class="lang-desc">frontend · backend · full-stack</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Flutter</span>
+        <span class="lang-desc">mobile · cross-platform</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Projects</p>
+    <div class="projects">
+
+      <a class="project-item" href="https://github.com/lunanoir21/aurguard-project" target="_blank">
+        <div>
+          <div class="project-name">aurguard</div>
+          <div class="project-desc">AUR package security analyzer. Scans PKGBUILDs and .install scripts before you install anything.</div>
+          <div class="project-stack">Rust</div>
+        </div>
+        <div class="project-meta">
+          <span class="badge done">v1.0.0</span>
+        </div>
+      </a>
+
+      <a class="project-item" href="https://github.com/lunanoir21/dep-lens" target="_blank">
+        <div>
+          <div class="project-name">dep-lens</div>
+          <div class="project-desc">Multi-ecosystem dependency license scanner across 9 ecosystems with a fast ASCII TUI.</div>
+          <div class="project-stack">Rust · TypeScript</div>
+        </div>
+        <div class="project-meta">
+          <span class="badge wip">pre-release</span>
+        </div>
+      </a>
+
+      <a class="project-item" href="https://github.com/lunanoir21/Life-os-project" target="_blank">
+        <div>
+          <div class="project-name">Life OS</div>
+          <div class="project-desc">Local-first personal OS. Habits, finance, notes, workouts, calendar — fully self-hostable.</div>
+          <div class="project-stack">TypeScript · Next.js · Rust</div>
+        </div>
+        <div class="project-meta">
+          <span class="badge wip">pre-release</span>
+        </div>
+      </a>
+
+      <a class="project-item" href="https://github.com/lunanoir21/storyforge" target="_blank">
+        <div>
+          <div class="project-name">storyforge</div>
+          <div class="project-desc">Mobile storytelling app.</div>
+          <div class="project-stack">Flutter · Dart</div>
+        </div>
+        <div class="project-meta">
+          <span class="badge wip">wip</span>
+        </div>
+      </a>
+
+      <a class="project-item" href="https://github.com/lunanoir21/hypr-connect" target="_blank">
+        <div>
+          <div class="project-name">hypr-connect</div>
+          <div class="project-desc">Coming soon.</div>
+        </div>
+        <div class="project-meta">
+          <span class="badge plan">planned</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>Luna Noir</span>
+    <span>© 2026</span>
+  </footer>
+
+</div>
+
+<script>
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, dots = [];
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initDots() {
+    dots = [];
+    const count = Math.floor((W * H) / 14000);
+    for (let i = 0; i < count; i++) {
+      dots.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 0.9 + 0.2,
+        a: Math.random() * 0.2 + 0.04,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
+      });
+    }
+  }
+
+  let mx = W / 2, my = H / 2;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    const grd = ctx.createRadialGradient(mx, my, 0, mx, my, 500);
+    grd.addColorStop(0, 'rgba(255,255,255,0.022)');
+    grd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, W, H);
+
+    for (const d of dots) {
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${d.a})`;
+      ctx.fill();
+      d.x += d.vx; d.y += d.vy;
+      if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
+      if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const dx = dots[i].x - dots[j].x;
+        const dy = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 130) {
+          ctx.beginPath();
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.strokeStyle = `rgba(255,255,255,${0.045 * (1 - dist / 130)})`;
+          ctx.lineWidth = 0.4;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize(); initDots(); draw();
+  window.addEventListener('resize', () => { resize(); initDots(); });
+</script>
+
+</body>
+</html>
