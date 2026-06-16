@@ -1,6 +1,6 @@
 # Luna Noir
 
-Full-Stack Developer — Istanbul, Turkey
+Full-Stack Vibe-Coder 
 
 ---
 
