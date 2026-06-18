@@ -14,7 +14,7 @@
 <br/>
 
 <!-- PORTFOLIO BADGE — PROMINENT -->
-<a href="https://lunanoir21.github.io/">
+<a href="https://lunanoir21.github.io/lunanoir21/">
   <img src="https://img.shields.io/badge/🌐%20%20Portfolio%20%E2%86%92%20lunanoir21.github.io-%20?style=for-the-badge&labelColor=0d0d1f&color=4a2a7a&logoColor=b794f4" alt="Portfolio"/>
 </a>
 
