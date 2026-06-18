@@ -9,7 +9,7 @@
 <!-- TYPING ANIMATION -->
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2800&pause=900&color=b794f4&background=00000000&center=true&vCenter=true&multiline=false&repeat=true&width=700&height=45&lines=Building+privacy-first%2C+local-first+software.;Systems+%E2%86%92+Applications.+No+telemetry.;Rust+in+the+core%2C+TypeScript+at+the+edges.;Arch+Linux+%7C+Neovim+%7C+Zero+tracking.;Gizlilik+%C3%B6ncelikli+yaz%C4%B1l%C4%B1m+in%C5%9Fa+ediyorum.)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2800&pause=900&color=b794f4&background=00000000&center=true&vCenter=true&multiline=false&repeat=true&width=700&height=45&lines=Building+privacy-first%2C+local-first+software.;Systems+%E2%86%92+Applications.+No+telemetry.;Rust+in+the+core%2C+TypeScript+at+the+edges.;Gizlilik+%C3%B6ncelikli+yaz%C4%B1l%C4%B1m+in%C5%9Fa+ediyorum.)](https://git.io/typing-svg)
 
 <br/>
 
@@ -30,8 +30,6 @@
 </a>
 &nbsp;
 <img src="https://img.shields.io/badge/OS-Arch%20Linux-b794f4?style=flat-square&logo=arch-linux&logoColor=b794f4&labelColor=0d0d0d" />
-&nbsp;
-<img src="https://img.shields.io/badge/Editor-Neovim-b794f4?style=flat-square&logo=neovim&logoColor=57A143&labelColor=0d0d0d" />
 
 <br/><br/>
 
@@ -59,7 +57,6 @@ struct LunaNoir {
     stack:       ["Rust", "TypeScript",
                   "Next.js", "Tauri"],
     os:          "Arch Linux btw",
-    editor:      "Neovim (obviously)",
     trackers:    0,
 }
 ```
@@ -78,7 +75,6 @@ struct LunaNoir {
     yığın:     ["Rust", "TypeScript",
                 "Next.js", "Tauri"],
     işletim:   "Arch Linux btw",
-    editör:    "Neovim (tabii ki)",
     takipçi:   0,
 }
 ```
@@ -172,7 +168,7 @@ struct LunaNoir {
 ![TypeScript](https://img.shields.io/badge/TS-000?style=flat-square&logo=typescript&logoColor=3178c6)
 ![TUI](https://img.shields.io/badge/TUI-000?style=flat-square)
 
-**🇬🇧** Multi-ecosystem dependency license scanner across 9 ecosystems — npm, Cargo, Go, Python, Ruby, PHP… Scores commercial-use risk. Colorful Ink-based TUI.
+**🇬🇧** Multi-ecosystem dependency license scanner across 9 ecosystems — npm, Cargo, Go, Python, Ruby, PHP... Scores commercial-use risk. Colorful Ink-based TUI.
 
 **🇹🇷** 9 ekosistemde lisans tarayıcısı. Ticari kullanım riskini puanlar. Renkli TUI arayüzü.
 
