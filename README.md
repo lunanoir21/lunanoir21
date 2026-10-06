@@ -13,7 +13,7 @@
 
 **I'm not a developer.** I make tools and small projects together with AI, and I publish them so anyone curious can use them, learn from them or make them better. I decide what to build and how it should feel, then I run it, review it and fix what's wrong. Every project says openly that it was built with AI.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img alt="52 stars across 20 public repos" src="assets/stats-light.svg"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img alt="54 stars across 22 public repos" src="assets/stats-light.svg"></picture>
 
 ## What I've made
 
@@ -29,12 +29,12 @@
 
 | Project | Release | When | What changed |
 | --- | --- | --- | --- |
+| [scribe](https://github.com/lunanoir21/scribe/releases/tag/v0.2.1) | `v0.2.1` | today | Privacy fix: the Copy path handed the recognised screen text to sh -c 'printf %s "$1" / wl-copy' as a command-line argument, which other local users can read from /proc/<pid>/cmdline. The text now… |
 | [Widget Control](https://github.com/lunanoir21/desktop-widget-control/releases/tag/v0.2.1) | `v0.2.1` | 4 days ago | Outside text is always literal. DText, the one text control every widget uses, now sets textFormat: Text.PlainText, so a track title, artist or any other string that carries HTML (an <img> tag, say… |
 | [desktop-widget-control-omarchy](https://github.com/lunanoir21/desktop-widget-control-omarchy/releases/tag/v0.2.0) | `v0.2.0` | 5 days ago | Desktop Widget Control 0.2.0 packaged for Omarchy: adds the AI limits widget (Claude and Codex 5-hour and weekly limits as twin rings or LED dots), bounded network reads, and the first-run tour's s… |
 | [Tally](https://github.com/lunanoir21/tally-screentime/releases/tag/v0.1.0) | `v0.1.0` | 6 days ago | First release. Counts what has focus, and nothing else. Focused-window time per app and per day, with hourly buckets, session counts and the longest uninterrupted run; when you go idle the minutes… |
 | [Flare Notch](https://github.com/lunanoir21/flare-notch/releases/tag/v1.1.0) | `v1.1.0` | 8 days ago | A first-run setup wizard: the settings window used to open straight onto the normal tabs, with no path to change the language or say which providers to draw before the widget just started drawing a… |
 | [Inktype](https://github.com/lunanoir21/inktype/releases/tag/v0.1.0) | `v0.1.0` | 11 days ago | The first release of Inktype — free, open-source typing practice through real books. Typing console in the spirit of typelit: centred current line, nine glyph-accurate cursor shapes, pause/restart… |
-| [Dynamic Island](https://github.com/lunanoir21/quickshell-dynamic-island/releases/tag/2026.08.17) | `2026.08.17` | 19 days ago | YouTube covers, fixed for non-English locales Under locales like trTR.UTF-8, glibc's regex engine treats [A-Za-z] as collation-aware rather than a plain byte range. That silently broke the video-id… |
 
 ## Running Omarchy?
 

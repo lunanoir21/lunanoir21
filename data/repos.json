@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-06T06:24:42Z",
+ "generatedAt": "2026-10-06T15:58:46Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
-  "publicRepos": 20,
+  "publicRepos": 22,
   "joined": "2025-01-27T13:18:31Z"
  },
  "repos": [
@@ -352,6 +352,46 @@
    "size": 0
   },
   {
+   "name": "scribe",
+   "description": "Select and copy text from anywhere on your Hyprland screen, like Google Lens. A Quickshell module.",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "QML",
+   "topics": [
+    "hyprland",
+    "ocr",
+    "quickshell",
+    "tesseract",
+    "wayland"
+   ],
+   "license": "MIT",
+   "homepage": "https://lunanoir21.github.io/scribe/",
+   "created": "2026-10-06T10:18:28Z",
+   "pushed": "2026-10-06T12:14:00Z",
+   "size": 1924
+  },
+  {
+   "name": "scribe-omarchy",
+   "description": "Scribe packaged as an Omarchy shell plugin: select and copy text from anywhere on the screen, like Google Lens",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "QML",
+   "topics": [
+    "hyprland",
+    "ocr",
+    "omarchy",
+    "quickshell",
+    "wayland"
+   ],
+   "license": "MIT",
+   "homepage": "https://lunanoir21.github.io/scribe/",
+   "created": "2026-10-06T10:57:24Z",
+   "pushed": "2026-10-06T11:40:43Z",
+   "size": 627
+  },
+  {
    "name": "inktype",
    "description": "Free, open-source typing practice through real books — Project Gutenberg, Turkish Vikikaynak, effects, themes, stats. Vibe-coded.",
    "stars": 0,
@@ -392,7 +432,7 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-10-06T00:23:34Z",
+   "pushed": "2026-10-06T06:24:51Z",
    "size": 425
   },
   {
