@@ -393,3 +393,10 @@ dialog[open]{animation:dlg .35s cubic-bezier(.2,.7,.2,1)}
 @media (max-width:760px){.omr article{grid-template-columns:1fr}}
 
 .h2s{font-size:clamp(32px,4vw,48px)}
+
+/* header: never wraps into a stray second row */
+.top-r{margin-left:auto}
+.nav{gap:22px}
+@media (max-width:1240px){.nav{gap:16px;font-size:14px}.kbtn kbd{display:none}.kbtn{padding:0 11px}}
+@media (max-width:1160px){.top-in{row-gap:4px}.nav{order:3;width:100%;overflow-x:auto;gap:24px;padding-bottom:6px}}
+@media (max-width:640px){.phase{display:none}.top-r{width:100%;justify-content:space-between;margin-left:0}}
