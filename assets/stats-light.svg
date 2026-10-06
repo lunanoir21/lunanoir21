@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="112" viewBox="0 0 900 112" role="img" aria-label="52 stars, 20 public repos">
+<rect x=".5" y=".5" width="899" height="111" rx="14" fill="#ffffff" stroke="#d0d7de"/>
+<text x="36" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#0a0a0a">52</text>
+<text x="36" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">stars on public repos</text>
+<line x1="230" y1="26" x2="230" y2="86" stroke="#d0d7de"/>
+<text x="254" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#0a0a0a">20</text>
+<text x="254" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">public repos</text>
+<line x1="448" y1="26" x2="448" y2="86" stroke="#d0d7de"/>
+<text x="472" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#0a0a0a">v0.2.1</text>
+<text x="472" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">Widget Control · 4 days ago</text>
+<line x1="666" y1="26" x2="666" y2="86" stroke="#d0d7de"/>
+<text x="690" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#0a0a0a">today</text>
+<text x="690" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">last push</text>
+</svg>

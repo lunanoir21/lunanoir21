@@ -1,2002 +1,248 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="dark" />
-<meta name="theme-color" content="#000000" />
-<title>Luna Noir — AI-Assisted Vibe Coder</title>
-<meta name="description" content="Luna Noir (lunanoir21) — vibe coder. Every project here is built with AI and openly says so: local-first, telemetry-free, open source. QML, Rust, TypeScript, Go, Dart." />
-<meta name="author" content="Luna Noir" />
-<meta property="og:type" content="profile" />
-<meta property="og:title" content="Luna Noir — AI-Assisted Vibe Coder" />
-<meta property="og:description" content="Built with AI, reviewed by hand. Local-first, telemetry-free, open source." />
-<meta property="og:image" content="https://avatars.githubusercontent.com/u/196650154?v=4" />
-<meta property="og:url" content="https://lunanoir21.github.io/" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Luna Noir — AI-Assisted Vibe Coder" />
-<meta name="twitter:description" content="Built with AI, reviewed by hand. Local-first, telemetry-free, open source." />
-<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/196650154?v=4" />
-<link rel="icon" href="https://avatars.githubusercontent.com/u/196650154?v=4&s=64" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-/* ============================================================
-   Luna Noir — Personal GitHub Pages
-   Built with care, zero telemetry, local-first.
-   ============================================================ */
-
-:root {
-  --bg: #000000;
-  --bg-soft: #0a0a0a;
-  --bg-card: #0d0d0d;
-  --bg-elev: #111111;
-  --border: #1f1f1f;
-  --border-strong: #2a2a2a;
-  --fg: #e8e8e8;
-  --fg-muted: #888888;
-  --fg-dim: #555555;
-  --accent: #b794f4;
-  --accent-soft: #9558b2;
-  --accent-glow: rgba(183, 148, 244, 0.18);
-  --rust: #ce412b;
-  --ts: #3178c6;
-  --moon: #f0e9ff;
-  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --max-w: 1080px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-/* ---------- Starfield ---------- */
-.starfield {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(149, 88, 178, 0.08), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(183, 148, 244, 0.06), transparent 60%),
-    var(--bg);
-}
-.star {
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  opacity: 0.5;
-  animation: twinkle 4s ease-in-out infinite alternate;
-}
-@keyframes twinkle {
-  0%, 100% { opacity: 0.15; transform: scale(0.8); }
-  50%      { opacity: 0.9;  transform: scale(1.1); }
-}
-
-/* Moon */
-.moon {
-  position: fixed;
-  top: 8%;
-  right: -6%;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #2a2440 0%, #14101f 40%, #050409 100%);
-  box-shadow:
-    inset -40px -20px 60px rgba(0,0,0,0.85),
-    0 0 80px 20px rgba(183, 148, 244, 0.10),
-    0 0 180px 40px rgba(149, 88, 178, 0.06);
-  z-index: -1;
-  opacity: 0.55;
-  filter: blur(0.3px);
-}
-.moon::after {
-  content: '';
-  position: absolute;
-  inset: 12% 12% 50% 50%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 60% 40%, rgba(240, 233, 255, 0.18), transparent 70%);
-}
-
-/* ---------- Layout ---------- */
-.container {
-  width: 100%;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ---------- Nav ---------- */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  background: rgba(0,0,0,0.55);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
-  font-family: var(--mono);
-  font-size: 13px;
-}
-.nav-brand {
-  color: var(--fg);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.nav-brand::before {
-  content: '';
-  width: 8px; height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent);
-  animation: pulse 2s ease-in-out infinite alternate;
-}
-@keyframes pulse {
-  from { opacity: 0.6; }
-  to   { opacity: 1; }
-}
-.nav-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
-}
-.nav-links a {
-  color: var(--fg-muted);
-  text-decoration: none;
-  transition: color 0.15s ease;
-  position: relative;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--fg); }
-.nav-links a.active::before {
-  content: '~';
-  position: absolute;
-  left: -12px;
-  color: var(--accent);
-}
-.lang-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 3px;
-  font-family: var(--mono);
-  font-size: 12px;
-}
-.lang-toggle button {
-  background: transparent;
-  border: none;
-  color: var(--fg-muted);
-  padding: 4px 10px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: inherit;
-  transition: all 0.15s ease;
-}
-.lang-toggle button.active {
-  background: var(--accent-soft);
-  color: #fff;
-}
-.lang-toggle button:not(.active):hover { color: var(--fg); }
-
-/* ---------- Hero ---------- */
-.hero {
-  min-height: calc(100vh - 56px);
-  display: flex;
-  align-items: center;
-  padding: 60px 0 80px;
-  position: relative;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 60px;
-  align-items: center;
-  width: 100%;
-}
-.hero-tag {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hero-tag::before {
-  content: '';
-  width: 28px; height: 1px;
-  background: var(--accent);
-}
-.hero-title {
-  font-family: var(--mono);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 18px;
-  background: linear-gradient(180deg, #fff 0%, #b794f4 130%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.hero-sub {
-  font-family: var(--mono);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  color: var(--fg);
-  margin-bottom: 28px;
-  min-height: 1.6em;
-}
-.cursor {
-  display: inline-block;
-  width: 9px;
-  height: 1.1em;
-  background: var(--accent);
-  margin-left: 4px;
-  vertical-align: text-bottom;
-  animation: blink 1.05s steps(2, start) infinite;
-}
-@keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
-.hero-desc {
-  color: var(--fg-muted);
-  font-size: 1.05rem;
-  max-width: 540px;
-  margin-bottom: 32px;
-}
-.hero-cta {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.btn {
-  font-family: var(--mono);
-  font-size: 13px;
-  padding: 12px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
-  letter-spacing: 0.02em;
-}
-.btn-primary {
-  background: var(--fg);
-  color: var(--bg);
-}
-.btn-primary:hover {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 0 24px var(--accent-glow);
-  transform: translateY(-2px);
-}
-.btn-ghost {
-  background: transparent;
-  color: var(--fg);
-  border-color: var(--border-strong);
-}
-.btn-ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-.btn svg { width: 16px; height: 16px; }
-
-/* Hero portrait */
-.portrait {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.portrait-frame {
-  position: relative;
-  width: 280px; height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 40%, var(--bg-elev), var(--bg));
-  border: 1px solid var(--border-strong);
-  padding: 6px;
-  box-shadow:
-    0 0 0 1px rgba(183, 148, 244, 0.1),
-    0 0 60px rgba(149, 88, 178, 0.15),
-    inset 0 0 30px rgba(0,0,0,0.7);
-}
-.portrait-frame img {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  display: block;
-  filter: grayscale(15%) contrast(1.05);
-}
-.portrait-frame::after {
-  content: '';
-  position: absolute;
-  inset: -12px;
-  border: 1px dashed var(--border-strong);
-  border-radius: 50%;
-  animation: rotate 30s linear infinite;
-  opacity: 0.6;
-}
-@keyframes rotate { to { transform: rotate(360deg); } }
-.portrait-meta {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--fg-muted);
-  background: var(--bg);
-  padding: 4px 12px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-/* ---------- Sections ---------- */
-.section {
-  padding: 90px 0;
-  border-top: 1px solid var(--border);
-  position: relative;
-}
-.section-head {
-  margin-bottom: 48px;
-}
-.section-kicker {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.section-kicker::before {
-  content: '$ ';
-  color: var(--fg-dim);
-}
-.section-title {
-  font-family: var(--mono);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-.section-sub {
-  color: var(--fg-muted);
-  margin-top: 10px;
-  max-width: 640px;
-}
-
-/* About — terminal window */
-.terminal {
-  background: var(--bg-card);
-  border: 1px solid var(--border-strong);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(183, 148, 244, 0.04);
-}
-.terminal-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  background: var(--bg-elev);
-  border-bottom: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--fg-muted);
-}
-.term-dot {
-  width: 11px; height: 11px;
-  border-radius: 50%;
-  background: #2a2a2a;
-  border: 1px solid #3a3a3a;
-}
-.term-dot.r { background: #2a1a1a; border-color: #ff5f56; }
-.term-dot.y { background: #2a261a; border-color: #ffbd2e; }
-.term-dot.g { background: #1a2a1a; border-color: #27c93f; }
-.terminal-title {
-  margin-left: auto;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--fg-dim);
-}
-.terminal-body {
-  padding: 22px 24px;
-  font-family: var(--mono);
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: var(--fg);
-  overflow-x: auto;
-}
-.term-line { display: block; }
-.term-comment { color: var(--fg-dim); }
-.term-kw { color: #c792ea; }
-.term-type { color: #82aaff; }
-.term-str { color: #c3e88d; }
-.term-arrow { color: var(--fg-dim); }
-.term-prompt { color: var(--accent); }
-.term-field { color: #f78c6c; }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 32px;
-  align-items: stretch;
-}
-.about-aside {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.about-aside h3 {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.about-aside p {
-  color: var(--fg-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 6px;
-}
-.stat-cell {
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 14px;
-}
-.stat-cell .num {
-  font-family: var(--mono);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--fg);
-  display: block;
-}
-.stat-cell .lbl {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--fg-muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* ---------- Tech Stack ---------- */
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.tech-col h3 {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-.tech-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  list-style: none;
-}
-.tech-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-family: var(--mono);
-  font-size: 13px;
-  transition: all 0.2s ease;
-}
-.tech-item:hover {
-  border-color: var(--accent-soft);
-  background: var(--bg-elev);
-  transform: translateX(4px);
-}
-.tech-glyph {
-  width: 22px; height: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: var(--accent);
-}
-.tech-name {
-  color: var(--fg);
-  flex: 1;
-}
-.tech-meta {
-  color: var(--fg-dim);
-  font-size: 11px;
-}
-
-/* ---------- Projects ---------- */
-.proj-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.proj-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.25s ease;
-}
-.proj-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.proj-card:hover {
-  border-color: var(--border-strong);
-  background: var(--bg-elev);
-  transform: translateY(-3px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(183, 148, 244, 0.06);
-}
-.proj-card:hover::before { opacity: 1; }
-.proj-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-.proj-icon {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  flex-shrink: 0;
-}
-.proj-status {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  white-space: nowrap;
-}
-.proj-status.released { color: #27c93f; border-color: #1a2a1a; background: #0d1a0d; }
-.proj-status.pre      { color: #ffbd2e; border-color: #2a261a; background: #1a160d; }
-.proj-status.planned  { color: var(--fg-muted); }
-.proj-name {
-  font-family: var(--mono);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--fg);
-  letter-spacing: -0.01em;
-}
-.proj-name .accent { color: var(--accent); }
-.proj-desc {
-  color: var(--fg-muted);
-  font-size: 0.94rem;
-  line-height: 1.65;
-  flex: 1;
-}
-.proj-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-.proj-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  padding: 3px 9px;
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  color: var(--fg-muted);
-}
-.proj-tag.rust { color: #ff6b4a; border-color: #2a1a1a; }
-.proj-tag.ts   { color: #5fa6e8; border-color: #1a2433; }
-.proj-tag.next { color: #fff; border-color: #333; }
-.proj-tag.tauri { color: #ffc131; border-color: #2a241a; }
-.proj-foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--fg-dim);
-}
-.proj-foot .arrow {
-  color: var(--accent);
-  transition: transform 0.2s ease;
-}
-.proj-card:hover .proj-foot .arrow { transform: translateX(4px); }
-
-/* ---------- Activity ---------- */
-.activity-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 24px;
-}
-.activity-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.activity-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-}
-.activity-card.full {
-  grid-column: 1 / -1;
-}
-.activity-caption {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--fg-muted);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.activity-caption::before {
-  content: '#';
-  color: var(--accent);
-}
-
-/* ---------- Contact ---------- */
-.contact {
-  text-align: center;
-  padding: 120px 0;
-  border-top: 1px solid var(--border);
-  position: relative;
-}
-.contact-kicker {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.contact-title {
-  font-family: var(--mono);
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 22px;
-  background: linear-gradient(180deg, #fff 0%, #b794f4 130%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.contact-desc {
-  color: var(--fg-muted);
-  max-width: 520px;
-  margin: 0 auto 36px;
-  font-size: 1.05rem;
-}
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-/* ---------- Footer ---------- */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 30px 0;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--fg-dim);
-  text-align: center;
-}
-.footer .coffee { color: var(--accent); }
-.footer a { color: var(--fg-muted); text-decoration: none; }
-.footer a:hover { color: var(--accent); }
-
-/* ---------- Reveal animation ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: left; }
-  .portrait { order: -1; }
-  .portrait-frame { width: 200px; height: 200px; }
-  .about-grid { grid-template-columns: 1fr; }
-  .tech-grid { grid-template-columns: 1fr; gap: 32px; }
-  .proj-grid { grid-template-columns: 1fr; }
-  .activity-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
-  .moon { width: 200px; height: 200px; opacity: 0.4; }
-}
-@media (max-width: 480px) {
-  .container { padding: 0 18px; }
-  .section { padding: 60px 0; }
-  .hero { padding: 40px 0 60px; }
-  .contact { padding: 80px 0; }
-  .nav-inner { height: 50px; }
-  .terminal-body { padding: 16px; font-size: 12px; }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-  .star, .moon, .portrait-frame::after { display: none; }
-}
-::selection { background: var(--accent-soft); color: #fff; }
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-soft); }
-
-/* ---------- Inline SVG icons ---------- */
-.ico { width: 1em; height: 1em; display: block; flex-shrink: 0; }
-.tech-glyph .ico { width: 19px; height: 19px; }
-.proj-icon .ico { width: 22px; height: 22px; color: var(--accent); }
-.btn .ico { width: 16px; height: 16px; }
-
-/* ---------- How I build ---------- */
-.flow-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.flow-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 24px;
-  display: flex;
-  gap: 18px;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-}
-.flow-card:hover {
-  border-color: var(--border-strong);
-  background: var(--bg-elev);
-  transform: translateY(-2px);
-}
-.flow-ico {
-  width: 40px; height: 40px;
-  border-radius: 9px;
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--accent);
-}
-.flow-ico .ico { width: 19px; height: 19px; }
-.flow-card:hover .flow-ico { border-color: var(--accent-soft); }
-.flow-body { min-width: 0; }
-.flow-step {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--fg-dim);
-  letter-spacing: 0.18em;
-  display: block;
-  margin-bottom: 4px;
-}
-.flow-card h3 {
-  font-family: var(--mono);
-  font-size: 14px;
-  color: var(--fg);
-  letter-spacing: -0.01em;
-  margin-bottom: 8px;
-}
-.flow-card p {
-  color: var(--fg-muted);
-  font-size: 0.92rem;
-  line-height: 1.65;
-}
-.tool-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-}
-.tool-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--fg-muted);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 7px 14px;
-}
-.tool-chip .ico { width: 14px; height: 14px; }
-.tool-note {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--fg-dim);
-  margin-top: 14px;
-  line-height: 1.7;
-}
-
-/* ---------- Projects: footer meta ---------- */
-.proj-status.active { color: var(--accent); border-color: #241a33; background: #150f1f; }
-.proj-status.wip    { color: #7fa8dc; border-color: #1a2433; background: #0d131a; }
-.proj-tag.qml   { color: #6fd47c; border-color: #17281a; }
-.proj-tag.go    { color: #4fc7e8; border-color: #17262b; }
-.proj-tag.dart  { color: #6cc0f0; border-color: #17222b; }
-.foot-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.stars {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--fg-muted);
-}
-.stars .ico { width: 11px; height: 11px; color: var(--accent); }
-.foot-sep { color: var(--border-strong); }
-
-/* ---------- Whoami: split list ---------- */
-.split-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.split-list li {
-  display: flex;
-  gap: 11px;
-  align-items: flex-start;
-  color: var(--fg-muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-.split-ico {
-  flex-shrink: 0;
-  width: 20px; height: 20px;
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--border);
-  background: var(--bg-elev);
-  margin-top: 2px;
-}
-.split-ico .ico { width: 12px; height: 12px; }
-.split-ico.yes { color: #27c93f; border-color: #17281a; }
-.split-ico.ai  { color: var(--accent); border-color: #241a33; }
-.split-ico.no  { color: var(--fg-dim); }
-
-/* ---------- Whoami: metric strip ---------- */
-.metric-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 24px;
-}
-.metric {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-.metric:hover { border-color: var(--border-strong); background: var(--bg-elev); }
-.metric-ico {
-  position: absolute;
-  top: 16px; right: 16px;
-  color: var(--fg-dim);
-  transition: color 0.2s ease;
-}
-.metric:hover .metric-ico { color: var(--accent); }
-.metric-ico .ico { width: 16px; height: 16px; }
-.metric-num {
-  font-family: var(--mono);
-  font-size: 1.9rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--fg);
-  letter-spacing: -0.02em;
-}
-.metric-lbl {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--fg-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 6px;
-}
-.metric-sub {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--fg-dim);
-  margin-top: 2px;
-}
-
-/* ---------- Whoami: charts ---------- */
-.chart-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 16px;
-  margin-top: 16px;
-}
-.chart-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 22px 24px 18px;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-.chart-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 18px;
-}
-.chart-head h3 {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-.chart-note {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--fg-dim);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
-}
-.chart-note .ico { width: 11px; height: 11px; color: var(--accent); }
-.star-total { color: var(--fg); font-size: 13px; font-weight: 700; }
-.bar-list { display: flex; flex-direction: column; gap: 13px; flex: 1; }
-.bar-row {
-  display: grid;
-  grid-template-columns: 20px 92px 1fr 46px;
-  align-items: center;
-  gap: 10px;
-}
-.star-row { grid-template-columns: 118px 1fr 26px; }
-.row-ico { display: flex; align-items: center; justify-content: center; }
-.row-ico .ico { width: 15px; height: 15px; }
-.row-dot { width: 9px; height: 9px; border-radius: 50%; display: block; }
-.row-name {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--fg);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.row-val {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--fg-muted);
-  text-align: right;
-}
-.bar { display: block; overflow: visible; }
-.bar rect { transition: opacity 0.2s ease; }
-.bar-row:hover .bar rect { opacity: 0.78; }
-.chart-foot {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  line-height: 1.6;
-  color: var(--fg-dim);
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-}
-
-@media (max-width: 860px) {
-  .metric-row { grid-template-columns: repeat(2, 1fr); }
-  .chart-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-  .metric { padding: 16px; }
-  .metric-num { font-size: 1.6rem; }
-  .chart-card { padding: 18px 18px 14px; }
-  .bar-row { grid-template-columns: 18px 74px 1fr 42px; gap: 8px; }
-  .star-row { grid-template-columns: 96px 1fr 22px; }
-}
-
-/* ---------- Responsive (for the blocks above) ---------- */
-@media (max-width: 860px) {
-  .flow-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-  .flow-card { padding: 20px; gap: 14px; }
-  .tool-chip { padding: 6px 12px; }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#000000">
+<script>try{var m=JSON.parse(localStorage.getItem('luna-theme-v4')||'{}').mode;if(m==='light'||m==='dark')document.documentElement.dataset.mode=m}catch(e){}</script>
+<title>Luna Noir — I build with AI</title>
+<meta name="description" content="Luna Noir (lunanoir21) is not a developer. Tools and projects built together with AI, published in the open: Quickshell widgets, Rust tools, apps. No telemetry.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luna Noir — I build with AI">
+<meta property="og:description" content="Not a developer. Useful things built with AI, open source, no telemetry.">
+<meta property="og:url" content="https://lunanoir21.github.io/lunanoir21/">
+<meta property="og:image" content="https://lunanoir21.github.io/lunanoir21/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lunanoir21.github.io/lunanoir21/assets/og.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Luna Noir","alternateName":"lunanoir21","url":"https://lunanoir21.github.io/lunanoir21/","sameAs":["https://github.com/lunanoir21"],"description":"Builds tools and projects together with AI and publishes them as open source."}</script>
 </head>
 <body>
 
-<!-- Icon sprite — Simple Icons (CC0 1.0) + Lucide (ISC), inlined so the page makes no third-party icon requests -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="b-rust" viewBox="0 0 24 24"><path fill="currentColor" d="M23.8346 11.7033l-1.0073-.6236a13.7268 13.7268 0 00-.0283-.2936l.8656-.8069a.3483.3483 0 00-.1154-.578l-1.1066-.414a8.4958 8.4958 0 00-.087-.2856l.6904-.9587a.3462.3462 0 00-.2257-.5446l-1.1663-.1894a9.3574 9.3574 0 00-.1407-.2622l.49-1.0761a.3437.3437 0 00-.0274-.3361.3486.3486 0 00-.3006-.154l-1.1845.0416a6.7444 6.7444 0 00-.1873-.2268l.2723-1.153a.3472.3472 0 00-.417-.4172l-1.1532.2724a14.0183 14.0183 0 00-.2278-.1873l.0415-1.1845a.3442.3442 0 00-.49-.328l-1.076.491c-.0872-.0476-.1742-.0952-.2623-.1407l-.1903-1.1673A.3483.3483 0 0016.256.955l-.9597.6905a8.4867 8.4867 0 00-.2855-.086l-.414-1.1066a.3483.3483 0 00-.5781-.1154l-.8069.8666a9.2936 9.2936 0 00-.2936-.0284L12.2946.1683a.3462.3462 0 00-.5892 0l-.6236 1.0073a13.7383 13.7383 0 00-.2936.0284L9.9803.3374a.3462.3462 0 00-.578.1154l-.4141 1.1065c-.0962.0274-.1903.0567-.2855.086L7.744.955a.3483.3483 0 00-.5447.2258L7.009 2.348a9.3574 9.3574 0 00-.2622.1407l-1.0762-.491a.3462.3462 0 00-.49.328l.0416 1.1845a7.9826 7.9826 0 00-.2278.1873L3.8413 3.425a.3472.3472 0 00-.4171.4171l.2713 1.1531c-.0628.075-.1255.1509-.1863.2268l-1.1845-.0415a.3462.3462 0 00-.328.49l.491 1.0761a9.167 9.167 0 00-.1407.2622l-1.1662.1894a.3483.3483 0 00-.2258.5446l.6904.9587a13.303 13.303 0 00-.087.2855l-1.1065.414a.3483.3483 0 00-.1155.5781l.8656.807a9.2936 9.2936 0 00-.0283.2935l-1.0073.6236a.3442.3442 0 000 .5892l1.0073.6236c.008.0982.0182.1964.0283.2936l-.8656.8079a.3462.3462 0 00.1155.578l1.1065.4141c.0273.0962.0567.1914.087.2855l-.6904.9587a.3452.3452 0 00.2268.5447l1.1662.1893c.0456.088.0922.1751.1408.2622l-.491 1.0762a.3462.3462 0 00.328.49l1.1834-.0415c.0618.0769.1235.1528.1873.2277l-.2713 1.1541a.3462.3462 0 00.4171.4161l1.153-.2713c.075.0638.151.1255.2279.1863l-.0415 1.1845a.3442.3442 0 00.49.327l1.0761-.49c.087.0486.1741.0951.2622.1407l.1903 1.1662a.3483.3483 0 00.5447.2268l.9587-.6904a9.299 9.299 0 00.2855.087l.414 1.1066a.3452.3452 0 00.5781.1154l.8079-.8656c.0972.0111.1954.0203.2936.0294l.6236 1.0073a.3472.3472 0 00.5892 0l.6236-1.0073c.0982-.0091.1964-.0183.2936-.0294l.8069.8656a.3483.3483 0 00.578-.1154l.4141-1.1066a8.4626 8.4626 0 00.2855-.087l.9587.6904a.3452.3452 0 00.5447-.2268l.1903-1.1662c.088-.0456.1751-.0931.2622-.1407l1.0762.49a.3472.3472 0 00.49-.327l-.0415-1.1845a6.7267 6.7267 0 00.2267-.1863l1.1531.2713a.3472.3472 0 00.4171-.416l-.2713-1.1542c.0628-.0749.1255-.1508.1863-.2278l1.1845.0415a.3442.3442 0 00.328-.49l-.49-1.076c.0475-.0872.0951-.1742.1407-.2623l1.1662-.1893a.3483.3483 0 00.2258-.5447l-.6904-.9587.087-.2855 1.1066-.414a.3462.3462 0 00.1154-.5781l-.8656-.8079c.0101-.0972.0202-.1954.0283-.2936l1.0073-.6236a.3442.3442 0 000-.5892zm-6.7413 8.3551a.7138.7138 0 01.2986-1.396.714.714 0 11-.2997 1.396zm-.3422-2.3142a.649.649 0 00-.7715.5l-.3573 1.6685c-1.1035.501-2.3285.7795-3.6193.7795a8.7368 8.7368 0 01-3.6951-.814l-.3574-1.6684a.648.648 0 00-.7714-.499l-1.473.3158a8.7216 8.7216 0 01-.7613-.898h7.1676c.081 0 .1356-.0141.1356-.088v-2.536c0-.074-.0536-.0881-.1356-.0881h-2.0966v-1.6077h2.2677c.2065 0 1.1065.0587 1.394 1.2088.0901.3533.2875 1.5044.4232 1.8729.1346.413.6833 1.2381 1.2685 1.2381h3.5716a.7492.7492 0 00.1296-.0131 8.7874 8.7874 0 01-.8119.9526zM6.8369 20.024a.714.714 0 11-.2997-1.396.714.714 0 01.2997 1.396zM4.1177 8.9972a.7137.7137 0 11-1.304.5791.7137.7137 0 011.304-.579zm-.8352 1.9813l1.5347-.6824a.65.65 0 00.33-.8585l-.3158-.7147h1.2432v5.6025H3.5669a8.7753 8.7753 0 01-.2834-3.348zm6.7343-.5437V8.7836h2.9601c.153 0 1.0792.1772 1.0792.8697 0 .575-.7107.7815-1.2948.7815zm10.7574 1.4862c0 .2187-.008.4363-.0243.651h-.9c-.09 0-.1265.0586-.1265.1477v.413c0 .973-.5487 1.1846-1.0296 1.2382-.4576.0517-.9648-.1913-1.0275-.4717-.2704-1.5186-.7198-1.8436-1.4305-2.4034.8817-.5599 1.799-1.386 1.799-2.4915 0-1.1936-.819-1.9458-1.3769-2.3153-.7825-.5163-1.6491-.6195-1.883-.6195H5.4682a8.7651 8.7651 0 014.907-2.7699l1.0974 1.151a.648.648 0 00.9182.0213l1.227-1.1743a8.7753 8.7753 0 016.0044 4.2762l-.8403 1.8982a.652.652 0 00.33.8585l1.6178.7188c.0283.2875.0425.577.0425.8717zm-9.3006-9.5993a.7128.7128 0 11.984 1.0316.7137.7137 0 01-.984-1.0316zm8.3389 6.71a.7107.7107 0 01.9395-.3625.7137.7137 0 11-.9405.3635z"/></symbol>
-  <symbol id="b-typescript" viewBox="0 0 24 24"><path fill="currentColor" d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></symbol>
-  <symbol id="b-qt" viewBox="0 0 24 24"><path fill="currentColor" d="M21.693 3.162H3.33L0 6.49v14.348h20.671L24 17.51V3.162zM12.785 18.4l-1.562.728-1.35-2.217c-.196.057-.499.09-.924.09-1.579 0-2.683-.425-3.305-1.276-.622-.85-.932-2.2-.932-4.033 0-1.84.319-3.206.949-4.098.63-.892 1.726-1.341 3.288-1.341 1.562 0 2.658.441 3.28 1.333.63.883.94 2.25.94 4.098 0 1.219-.13 2.2-.384 2.945-.261.752-.679 1.325-1.268 1.718zm4.736-1.587c-.858 0-1.447-.196-1.766-.59-.32-.392-.483-1.136-.483-2.232v-3.534H14.11V9.051h1.162V6.843h1.644V9.05h2.094v1.415h-2.094v3.346c0 .622.05 1.03.14 1.227.09.204.326.303.695.303l1.243-.05.073 1.326c-.67.13-1.186.196-1.546.196zm-8.58-9.08c-.95 0-1.604.311-1.963.94-.352.63-.532 1.629-.532 3.011 0 1.374.172 2.364.515 2.953.344.589 1.006.892 1.98.892.973 0 1.628-.295 1.971-.876.335-.58.507-1.57.507-2.953 0-1.39-.172-2.396-.523-3.026-.352-.63-1.006-.94-1.955-.94Z"/></symbol>
-  <symbol id="b-go" viewBox="0 0 24 24"><path fill="currentColor" d="M1.811 10.231c-.047 0-.058-.023-.035-.059l.246-.315c.023-.035.081-.058.128-.058h4.172c.046 0 .058.035.035.07l-.199.303c-.023.036-.082.07-.117.07zM.047 11.306c-.047 0-.059-.023-.035-.058l.245-.316c.023-.035.082-.058.129-.058h5.328c.047 0 .07.035.058.07l-.093.28c-.012.047-.058.07-.105.07zm2.828 1.075c-.047 0-.059-.035-.035-.07l.163-.292c.023-.035.07-.07.117-.07h2.337c.047 0 .07.035.07.082l-.023.28c0 .047-.047.082-.082.082zm12.129-2.36c-.736.187-1.239.327-1.963.514-.176.046-.187.058-.34-.117-.174-.199-.303-.327-.548-.444-.737-.362-1.45-.257-2.115.175-.795.514-1.204 1.274-1.192 2.22.011.935.654 1.706 1.577 1.835.795.105 1.46-.175 1.987-.77.105-.13.198-.27.315-.434H10.47c-.245 0-.304-.152-.222-.35.152-.362.432-.97.596-1.274a.315.315 0 01.292-.187h4.253c-.023.316-.023.631-.07.947a4.983 4.983 0 01-.958 2.29c-.841 1.11-1.94 1.8-3.33 1.986-1.145.152-2.209-.07-3.143-.77-.865-.655-1.356-1.52-1.484-2.595-.152-1.274.222-2.419.993-3.424.83-1.086 1.928-1.776 3.272-2.02 1.098-.2 2.15-.07 3.096.571.62.41 1.063.97 1.356 1.648.07.105.023.164-.117.2m3.868 6.461c-1.064-.024-2.034-.328-2.852-1.029a3.665 3.665 0 01-1.262-2.255c-.21-1.32.152-2.489.947-3.529.853-1.122 1.881-1.706 3.272-1.95 1.192-.21 2.314-.095 3.33.595.923.63 1.496 1.484 1.648 2.605.198 1.578-.257 2.863-1.344 3.962-.771.783-1.718 1.273-2.805 1.495-.315.06-.63.07-.934.106zm2.78-4.72c-.011-.153-.011-.27-.034-.387-.21-1.157-1.274-1.81-2.384-1.554-1.087.245-1.788.935-2.045 2.033-.21.912.234 1.835 1.075 2.21.643.28 1.285.244 1.905-.07.923-.48 1.425-1.228 1.484-2.233z"/></symbol>
-  <symbol id="b-dart" viewBox="0 0 24 24"><path fill="currentColor" d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/></symbol>
-  <symbol id="b-nextdotjs" viewBox="0 0 24 24"><path fill="currentColor" d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></symbol>
-  <symbol id="b-react" viewBox="0 0 24 24"><path fill="currentColor" d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></symbol>
-  <symbol id="b-tauri" viewBox="0 0 24 24"><path fill="currentColor" d="M13.912 0a8.72 8.72 0 0 0-8.308 6.139c1.05-.515 2.18-.845 3.342-.976 2.415-3.363 7.4-3.412 9.88-.097 2.48 3.315 1.025 8.084-2.883 9.45a6.131 6.131 0 0 1-.3 2.762 8.72 8.72 0 0 0 3.01-1.225A8.72 8.72 0 0 0 13.913 0zm.082 6.451a2.284 2.284 0 1 0-.15 4.566 2.284 2.284 0 0 0 .15-4.566zm-5.629.27a8.72 8.72 0 0 0-3.031 1.235 8.72 8.72 0 1 0 13.06 9.9131 10.173 10.174 0 0 1-3.343.965 6.125 6.125 0 1 1-7.028-9.343 6.114 6.115 0 0 1 .342-2.772zm1.713 6.27a2.284 2.284 0 0 0-2.284 2.283 2.284 2.284 0 0 0 2.284 2.284 2.284 2.284 0 0 0 2.284-2.284 2.284 2.284 0 0 0-2.284-2.284z"/></symbol>
-  <symbol id="b-flutter" viewBox="0 0 24 24"><path fill="currentColor" d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></symbol>
-  <symbol id="b-nodedotjs" viewBox="0 0 24 24"><path fill="currentColor" d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></symbol>
-  <symbol id="b-archlinux" viewBox="0 0 24 24"><path fill="currentColor" d="M11.39.605C10.376 3.092 9.764 4.72 8.635 7.132c.693.734 1.543 1.589 2.923 2.554-1.484-.61-2.496-1.224-3.252-1.86C6.86 10.842 4.596 15.138 0 23.395c3.612-2.085 6.412-3.37 9.021-3.862a6.61 6.61 0 01-.171-1.547l.003-.115c.058-2.315 1.261-4.095 2.687-3.973 1.426.12 2.534 2.096 2.478 4.409a6.52 6.52 0 01-.146 1.243c2.58.505 5.352 1.787 8.914 3.844-.702-1.293-1.33-2.459-1.929-3.57-.943-.73-1.926-1.682-3.933-2.713 1.38.359 2.367.772 3.137 1.234-6.09-11.334-6.582-12.84-8.67-17.74zM22.898 21.36v-.623h-.234v-.084h.562v.084h-.234v.623h.331v-.707h.142l.167.5.034.107a2.26 2.26 0 01.038-.114l.17-.493H24v.707h-.091v-.593l-.206.593h-.084l-.205-.602v.602h-.091"/></symbol>
-  <symbol id="b-hyprland" viewBox="0 0 24 24"><path fill="currentColor" d="M13.0998.001c.071.0753.1162.1116.1476.1576.5693.8424 1.13 1.691 1.7078 2.5277.3326.4816.6866.9486 1.0416 1.4141.3433.451.7058.8869 1.0494 1.3378.3975.5215.8003 1.0402 1.1696 1.5813.473.6933.9496 1.388 1.3588 2.1188.348.6213.626 1.285.8919 1.9477.1882.4691.3144.9646.4491 1.4537.0624.2267.0799.4659.1163.6994.0449.2858.1211.5717.1258.8583.0125.7465.0773 1.4954-.0528 2.2386-.1433.8195-.3832 1.6041-.74 2.3609-.3607.7646-.7978 1.4708-1.3328 2.1241-.4848.5921-1.054 1.0812-1.6697 1.5296-.452.329-.93.6085-1.4387.8306-.4577.1996-.9293.3597-1.4148.4951-1.0961.3052-2.2076.3722-3.3269.2934-.6747-.0474-1.3574-.1301-2-.3729-.5284-.1996-1.0606-.3967-1.5657-.6462-.3988-.1968-.781-.4435-1.131-.7183-.4591-.3604-.9097-.7418-1.3072-1.167-.356-.3808-.6644-.8153-.941-1.2587-.2916-.468-.5486-.9629-.7693-1.4687-.2385-.546-.3925-1.121-.518-1.71-.1953-.9164-.1322-1.8336-.0923-2.748.0229-.525.1615-1.0504.2945-1.5634.14-.541.3094-1.0786.5147-1.5983.2057-.5205.4445-1.0324.718-1.5204.3432-.6124.7218-1.2066 1.1121-1.7905.3543-.5304.7372-1.0423 1.1218-1.5513.3098-.41.6477-.7988.9614-1.206.3172-.4116.6224-.8326.9293-1.2522.3247-.4441.652-.8865.9656-1.3385.3979-.5728.781-1.156 1.1753-1.7314.0563-.0823.1383-.1475.2082-.2206.0139.0078.0278.0157.042.0235.003.0631.0082.1262.0082.1893.0004.9386.0053 1.8771-.006 2.8157-.0019.1376-.0578.2905-.1327.4085-.303.4795-.6127.9553-.9403 1.4184-.3105.4388-.6459.8601-.9703 1.289-.2673.3532-.5336.7068-.8027 1.0587-.1868.2441-.3829.4812-.5654.7286-.2552.3465-.5115.6933-.7496 1.0515-.2873.432-.57.8684-.828 1.3179-.1847.3215-.3302.6662-.4845 1.0041-.0856.1875-.1644.3793-.2267.5754-.1105.3479-.199.7026-.3094 1.0505-.3109.9774-.245 1.983-.1754 2.9764.0353.5044.2178 1.0035.3707 1.4933.2142.6858.5817 1.294.9963 1.88.283.4003.6042.762.9675 1.0822.299.263.6238.5051.9649.71.3882.2332.7924.4553 1.2163.6085.4523.1637.9303.2849 1.4073.3451.5678.0717 1.1464.0563 1.72.0834.5325.025 1.049-.0816 1.5659-.1832.6562-.129 1.2558-.412 1.8386-.7222.6969-.3707 1.2826-.8958 1.7955-1.4875.5244-.605.9646-1.285 1.2448-2.0319.2955-.7878.5418-1.603.5044-2.4688-.0203-.468.0053-.939-.0378-1.4041-.0317-.3426-.129-.6813-.2196-1.016-.1062-.3932-.215-.7878-.3622-1.1667-.1465-.3775-.3336-.7396-.5175-1.1014-.163-.3205-.3323-.6388-.5226-.9432a16.5743 16.5743 0 0 0-.7372-1.0848c-.3939-.5311-.8106-1.0451-1.2088-1.5727-.4662-.6177-.9314-1.2362-1.382-1.8654-.3889-.5425-.7596-1.0982-1.1303-1.6536-.0595-.0891-.107-.2064-.108-.3108-.0082-1.0156-.0053-2.0312-.0046-3.0467 0-.0339.0086-.0681.0206-.1583z"/></symbol>
-  <symbol id="b-wayland" viewBox="0 0 24 24"><path fill="currentColor" d="M23.982 12c0 9.224-9.985 14.989-17.973 10.377A11.982 11.982 0 0 1 .018 12c0-3.386 1.346-6.306 3.444-8.418v.675l.553 3.413v1.07l.077 1.365c-.23 0-.344.053-.344.159v.09l.344-.09h.076v2.366c.178 1.578.509 2.981.992 4.21.05.864.146 1.297.286 1.297.229.864.394 1.297.496 1.297a5.494 5.494 0 0 0 2.422 1.865c.344 0 .63-.432.859-1.296.292-1.866.528-3.004.706-3.414.165.167.451.281.858.342v-.091c0-.152-.26-.311-.782-.478.14-.728.33-1.35.572-1.866.038-.88.49-2.1 1.354-3.663l.344.09c.05.714.146 1.305.286 1.776.521 1.061.782 2.063.782 3.003 0 .364.407 1.585 1.22 3.663.204 1.366.465 2.17.783 2.412h.152c.42 0 .916-.538 1.488-1.615.56-1.214 1.011-1.889 1.354-2.025 0-.106-.12-.16-.362-.16v-.09c.19 0 .286-.054.286-.16v-.068l-.076-.091.801-.319c0-.273-.095-.41-.286-.41v-.09h.572v-.16c-.292 0-.483-.159-.572-.477h.133v-.319l-.076-.091c.432 0 .649-.083.649-.25v-.069h-.134v-.09c.153 0 .267-.16.343-.478-.42-.137-.629-.273-.629-.41l.553-1.615c0-.82.146-1.715.439-2.685.33-.94.566-1.965.706-3.072.304-1.064.617-1.787.938-2.17A11.979 11.979 0 0 1 23.982 12Zm-5.99-10.377c.587.34 1.138.724 1.65 1.148a33.45 33.45 0 0 0-.157 1.736c-.458 1.077-.96 2.594-1.507 4.55h-1.411l-.725.07v.181h.362l.286-.09 1.202.158v.092c-.343 1.183-.553 1.774-.63 1.774-.445 2.215-.8 3.322-1.068 3.322h-.229c-.318-.288-.674-.88-1.068-1.774a.861.861 0 0 0-.21-.57L13.42 9.855c-.216-1-.502-1.752-.858-2.252-.115-.334-.305-.5-.572-.5h-.134c-.42 0-.826.295-1.22.887l.076.25c-.178.607-.465 1.312-.859 2.116-.61 1.775-1.01 2.662-1.201 2.662h-.153l-.286-.227c-.483-1.305-.814-3.224-.992-5.757h-.134v-.16h.058a1.33 1.33 0 0 1 .515-.75v-.069l-.077-.09-.076.09-.076-.09-.344.09h-.152c-.09 0-.23-.348-.42-1.046v-.183h.496v-.16h-.648c-.139-.698-.545-1.53-1.218-2.494.296-.206.601-.398.915-.577h.016l.077.068.438-.068h.783c.228 0 .464.083.705.25.115-.152.33-.235.649-.25v-.16h-2.38c3.11-1.667 6.947-1.99 10.51-.392l-.443.142v.16c.24 0 .4-.095.482-.284.368.166.734.354 1.095.562Zm3.477 3.203h-.134l.035-.295.179.23-.08.065ZM9.719 1.595h.572l.133.159.363-.16.42.069.438-.068v-.16H9.72v.16Zm3.7 1.297v.159l.21.09v-.09l.076-.091c.14 0 .21-.053.21-.16v-.068h-.21l-.286.16Zm-1.144.887h-.058l-.076-.068-.42.227v.16c.61-.137.916-.266.916-.387V3.62l-.362.159Zm-2.842.978c0 .167-.051.25-.153.25v.16c.598-.197 1.03-.417 1.297-.66V4.44l-1.144.318Zm4.482.57v.068l.153.182h.076l.134-.182v-.069l-.077-.09-.286.09Zm2.785.159v.09h.076l.134-.181v-.069h-.076l-.134.16Zm-1.354 1.206.152.25c.23 0 .37-.084.42-.25l-.286-.228c-.19.076-.286.152-.286.228Zm1.85.978v.091h.153l.057-.091v-.068l-.057-.091-.153.159Zm-3.128.978v.091h.21l.362-.34v-.07c-.382.077-.572.183-.572.32ZM2.24 12.13v.341h.153c.14-.106.305-.41.496-.91v-.068h-.076l-.573.637Zm9.328 3.413v.159l.076.091.572-.341v-.16h-.076l-.572.25Zm-7.267.887.21.82h.152l-.229-.888h-.133v.068Zm7.63 1.07.133.227h.076l.076-.068-.228-.25h-.058v.09Z"/></symbol>
-  <symbol id="b-sqlite" viewBox="0 0 24 24"><path fill="currentColor" d="M21.678.521c-1.032-.92-2.28-.55-3.513.544a8.71 8.71 0 0 0-.547.535c-2.109 2.237-4.066 6.38-4.674 9.544.237.48.422 1.093.544 1.561a13.044 13.044 0 0 1 .164.703s-.019-.071-.096-.296l-.05-.146a1.689 1.689 0 0 0-.033-.08c-.138-.32-.518-.995-.686-1.289-.143.423-.27.818-.376 1.176.484.884.778 2.4.778 2.4s-.025-.099-.147-.442c-.107-.303-.644-1.244-.772-1.464-.217.804-.304 1.346-.226 1.478.152.256.296.698.422 1.186.286 1.1.485 2.44.485 2.44l.017.224a22.41 22.41 0 0 0 .056 2.748c.095 1.146.273 2.13.5 2.657l.155-.084c-.334-1.038-.47-2.399-.41-3.967.09-2.398.642-5.29 1.661-8.304 1.723-4.55 4.113-8.201 6.3-9.945-1.993 1.8-4.692 7.63-5.5 9.788-.904 2.416-1.545 4.684-1.931 6.857.666-2.037 2.821-2.912 2.821-2.912s1.057-1.304 2.292-3.166c-.74.169-1.955.458-2.362.629-.6.251-.762.337-.762.337s1.945-1.184 3.613-1.72C21.695 7.9 24.195 2.767 21.678.521m-18.573.543A1.842 1.842 0 0 0 1.27 2.9v16.608a1.84 1.84 0 0 0 1.835 1.834h9.418a22.953 22.953 0 0 1-.052-2.707c-.006-.062-.011-.141-.016-.2a27.01 27.01 0 0 0-.473-2.378c-.121-.47-.275-.898-.369-1.057-.116-.197-.098-.31-.097-.432 0-.12.015-.245.037-.386a9.98 9.98 0 0 1 .234-1.045l.217-.028c-.017-.035-.014-.065-.031-.097l-.041-.381a32.8 32.8 0 0 1 .382-1.194l.2-.019c-.008-.016-.01-.038-.018-.053l-.043-.316c.63-3.28 2.587-7.443 4.8-9.791.066-.069.133-.128.198-.194Z"/></symbol>
-  <symbol id="b-docker" viewBox="0 0 24 24"><path fill="currentColor" d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></symbol>
-  <symbol id="b-git" viewBox="0 0 24 24"><path fill="currentColor" d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></symbol>
-  <symbol id="b-claude" viewBox="0 0 24 24"><path fill="currentColor" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol>
-  <symbol id="b-githubactions" viewBox="0 0 24 24"><path fill="currentColor" d="M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.504.504 0 0 1-.354.146zm9.353-.147l1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001zM4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85zm2.03-2.436L4 6.602V3.406l2.557 1.61zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3h-2.08a3.503 3.503 0 0 1-3.46 3 3.502 3.502 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.502 3.502 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.008 5.008 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.482 2.482 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.502 3.502 0 0 1 3.46 3h2.08a3.503 3.503 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5zm-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5zM5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4zm9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm12 0c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3.002c-.007.001-.013.005-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.503 3.503 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5zm-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5z"/></symbol>
-  <symbol id="b-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
-  <symbol id="b-protonmail" viewBox="0 0 24 24"><path fill="currentColor" d="m15.24 8.998 3.656-3.073v15.81H2.482C1.11 21.735 0 20.609 0 19.223V6.944l7.58 6.38a2.186 2.186 0 0 0 2.871-.042l4.792-4.284h-.003zm-5.456 3.538 1.809-1.616a2.438 2.438 0 0 1-1.178-.533L.905 2.395A.552.552 0 0 0 0 2.826v2.811l8.226 6.923a1.186 1.186 0 0 0 1.558-.024zM23.871 2.463a.551.551 0 0 0-.776-.068l-3.199 2.688v16.653h1.623c1.371 0 2.481-1.127 2.481-2.513V2.824a.551.551 0 0 0-.129-.36z"/></symbol>
-  <symbol id="b-gnubash" viewBox="0 0 24 24"><path fill="currentColor" d="M21.038,4.9l-7.577-4.498C13.009,0.134,12.505,0,12,0c-0.505,0-1.009,0.134-1.462,0.403L2.961,4.9 C2.057,5.437,1.5,6.429,1.5,7.503v8.995c0,1.073,0.557,2.066,1.462,2.603l7.577,4.497C10.991,23.866,11.495,24,12,24 c0.505,0,1.009-0.134,1.461-0.402l7.577-4.497c0.904-0.537,1.462-1.529,1.462-2.603V7.503C22.5,6.429,21.943,5.437,21.038,4.9z M15.17,18.946l0.013,0.646c0.001,0.078-0.05,0.167-0.111,0.198l-0.383,0.22c-0.061,0.031-0.111-0.007-0.112-0.085L14.57,19.29 c-0.328,0.136-0.66,0.169-0.872,0.084c-0.04-0.016-0.057-0.075-0.041-0.142l0.139-0.584c0.011-0.046,0.036-0.092,0.069-0.121 c0.012-0.011,0.024-0.02,0.036-0.026c0.022-0.011,0.043-0.014,0.062-0.006c0.229,0.077,0.521,0.041,0.802-0.101 c0.357-0.181,0.596-0.545,0.592-0.907c-0.003-0.328-0.181-0.465-0.613-0.468c-0.55,0.001-1.064-0.107-1.072-0.917 c-0.007-0.667,0.34-1.361,0.889-1.8l-0.007-0.652c-0.001-0.08,0.048-0.168,0.111-0.2l0.37-0.236 c0.061-0.031,0.111,0.007,0.112,0.087l0.006,0.653c0.273-0.109,0.511-0.138,0.726-0.088c0.047,0.012,0.067,0.076,0.048,0.151 l-0.144,0.578c-0.011,0.044-0.036,0.088-0.065,0.116c-0.012,0.012-0.025,0.021-0.038,0.028c-0.019,0.01-0.038,0.013-0.057,0.009 c-0.098-0.022-0.332-0.073-0.699,0.113c-0.385,0.195-0.52,0.53-0.517,0.778c0.003,0.297,0.155,0.387,0.681,0.396 c0.7,0.012,1.003,0.318,1.01,1.023C16.105,17.747,15.736,18.491,15.17,18.946z M19.143,17.859c0,0.06-0.008,0.116-0.058,0.145 l-1.916,1.164c-0.05,0.029-0.09,0.004-0.09-0.056v-0.494c0-0.06,0.037-0.093,0.087-0.122l1.887-1.129 c0.05-0.029,0.09-0.004,0.09,0.056V17.859z M20.459,6.797l-7.168,4.427c-0.894,0.523-1.553,1.109-1.553,2.187v8.833 c0,0.645,0.26,1.063,0.66,1.184c-0.131,0.023-0.264,0.039-0.398,0.039c-0.42,0-0.833-0.114-1.197-0.33L3.226,18.64 c-0.741-0.44-1.201-1.261-1.201-2.142V7.503c0-0.881,0.46-1.702,1.201-2.142l7.577-4.498c0.363-0.216,0.777-0.33,1.197-0.33 c0.419,0,0.833,0.114,1.197,0.33l7.577,4.498c0.624,0.371,1.046,1.013,1.164,1.732C21.686,6.557,21.12,6.411,20.459,6.797z"/></symbol>
-  <symbol id="l-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></symbol>
-  <symbol id="l-scan-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2" /> <path d="M17 3h2a2 2 0 0 1 2 2v2" /> <path d="M21 17v2a2 2 0 0 1-2 2h-2" /> <path d="M7 21H5a2 2 0 0 1-2-2v-2" /> <circle cx="12" cy="12" r="3" /> <path d="m16 16-1.9-1.9" /></symbol>
-  <symbol id="l-layout-dashboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></symbol>
-  <symbol id="l-folder-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="5" x="14" y="17" rx="1" /> <path d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v2.5" /> <path d="M20 17v-2a2 2 0 1 0-4 0v2" /></symbol>
-  <symbol id="l-monitor-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" /> <path d="M10 19v-3.96 3.15" /> <path d="M7 19h5" /> <rect width="6" height="10" x="16" y="12" rx="2" /></symbol>
-  <symbol id="l-message-square-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.5V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16.286a.71.71 0 0 0 1.212.502l2.202-2.202A2 2 0 0 1 6.828 19H10" /> <path d="M20 15v-2a2 2 0 0 0-4 0v2" /> <rect x="14" y="15" width="8" height="5" rx="1" /></symbol>
-  <symbol id="l-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol>
-  <symbol id="l-file-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <circle cx="11.5" cy="14.5" r="2.5" /> <path d="M13.3 16.3 15 18" /></symbol>
-  <symbol id="l-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19h8" /> <path d="m4 17 6-6-6-6" /></symbol>
-  <symbol id="l-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></symbol>
-  <symbol id="l-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></symbol>
-  <symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol>
-  <symbol id="l-code-xml" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4" /> <path d="m6 8-4 4 4 4" /> <path d="m14.5 4-5 16" /></symbol>
-  <symbol id="l-calendar-days" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /> <path d="M8 13h.01" /> <path d="M12 13h.01" /> <path d="M16 13h.01" /> <path d="M8 17h.01" /> <path d="M12 17h.01" /> <path d="M16 17h.01" /></symbol>
-  <symbol id="l-folder-git-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 19a5 5 0 0 1-5-5v8" /> <path d="M9 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v5" /> <circle cx="13" cy="12" r="2" /> <circle cx="20" cy="19" r="2" /></symbol>
-  <symbol id="l-island" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 11v2"/><path d="M10.5 9.5v5"/><path d="M14 10.5v3"/><path d="M17.5 11v2"/></symbol>
-  <symbol id="l-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.42l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.95z"/></symbol>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="mark" viewBox="0 0 120 120"><path d="M101.16 75.56A44 44 0 1 1 61.46 16.02A36 36 0 1 0 101.16 75.56Z" fill="currentColor"/><g stroke="var(--cut, #000)" stroke-width="3" stroke-linecap="butt"><line x1="46.2" y1="63.9" x2="14.1" y2="79.9"/><line x1="42.5" y1="48" x2="11.5" y2="48"/><line x1="46.2" y1="32.1" x2="26.9" y2="22.5"/></g></symbol>
+<symbol id="ico-star" viewBox="0 0 16 16"><polygon points="8,1.5 10,6 14.8,6.4 11.2,9.6 12.3,14.3 8,11.8 3.7,14.3 4.8,9.6 1.2,6.4 6,6" fill="currentColor"/></symbol>
+<symbol id="ico-out" viewBox="0 0 16 16"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="ico-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs>
 </svg>
 
-<!-- Background -->
-<div class="starfield" id="starfield"></div>
-<div class="moon" aria-hidden="true"></div>
+<canvas id="sky" class="sky" aria-hidden="true"></canvas>
 
-<!-- Navigation -->
-<nav class="nav">
-  <div class="container nav-inner">
-    <a href="#top" class="nav-brand">luna_noir</a>
-    <ul class="nav-links">
-      <li><a href="#about" data-nav="about">about</a></li>
-      <li><a href="#process" data-nav="process">process</a></li>
-      <li><a href="#stack" data-nav="stack">stack</a></li>
-      <li><a href="#projects" data-nav="projects">projects</a></li>
-      <li><a href="#activity" data-nav="activity">activity</a></li>
-      <li><a href="#contact" data-nav="contact">contact</a></li>
-    </ul>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="tr">TR</button>
-    </div>
-  </div>
+<!-- the falling feather: a nod to Cabanel's fallen angel, drifts down as you scroll -->
+<svg id="feather" class="feather" width="30" height="64" viewBox="-15 0 30 64" aria-hidden="true"><path d="M0 0C11 15 11 42 0 64C-11 42 -11 15 0 0Z" fill="currentColor"/><line x1="0" y1="10" x2="0" y2="58" style="stroke:var(--ink)" stroke-width="1.6" stroke-linecap="round"/></svg>
+
+<a class="skip" href="#projects"><span class="en">Skip to projects</span><span class="tr">Projelere atla</span></a>
+
+<header class="top">
+<div class="wrap top-in">
+<a class="brand" href="#top" aria-label="Luna Noir">
+<svg class="brand-mark" width="26" height="26" aria-hidden="true"><use href="#mark"/></svg>
+<span>Luna Noir</span>
+</a>
+<nav class="nav" aria-label="Main">
+<a href="#projects"><span class="en">Projects</span><span class="tr">Projeler</span></a>
+<a href="#activity"><span class="en">Shipped</span><span class="tr">Yayınlananlar</span></a>
+<a href="#measured"><span class="en">Measured</span><span class="tr">Ölçülen</span></a>
+<a href="#how"><span class="en">How I build</span><span class="tr">Nasıl yapıyorum</span></a>
+<a href="#faq"><span class="en">FAQ</span><span class="tr">SSS</span></a>
+<a href="#contact"><span class="en">Contact</span><span class="tr">İletişim</span></a>
 </nav>
-
-<a id="top"></a>
-
-<!-- Hero -->
-<header class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-tag" data-en="Vibe coder · AI-assisted · Local-first" data-tr="Vibe coder · Yapay zeka destekli · Yerel-önce">Vibe coder · AI-assisted · Local-first</div>
-        <h1 class="hero-title">Luna Noir</h1>
-        <p class="hero-sub"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
-        <p class="hero-desc" data-en="I'm a vibe coder, and every project on this page was built with AI — I don't pretend otherwise. What I bring is the part the model cannot do on its own: the spec, the architecture calls, the review, the tests, and the decision to ship. What comes out is real, working, open-source software." data-tr="Ben bir vibe coder'ım ve bu sayfadaki her proje yapay zeka ile inşa edildi — aksini iddia etmiyorum. Benim kattığım şey, modelin tek başına yapamadığı kısım: şartname, mimari kararlar, inceleme, testler ve yayına alma kararı. Ortaya çıkan şey gerçek, çalışan, açık kaynak yazılım.">
-          I'm a vibe coder, and every project on this page was built with AI — I don't pretend otherwise. What I bring is the part the model cannot do on its own: the spec, the architecture calls, the review, the tests, and the decision to ship. What comes out is real, working, open-source software.
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://github.com/lunanoir21" target="_blank" rel="noopener">
-            <svg class="ico" aria-hidden="true"><use href="#b-github"/></svg>
-            <span data-en="View GitHub" data-tr="GitHub'a bak">View GitHub</span>
-          </a>
-          <a class="btn btn-ghost" href="#projects">
-            <span data-en="Explore projects" data-tr="Projeleri keşfet">Explore projects</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-      <div class="portrait">
-        <div class="portrait-frame">
-          <img src="https://avatars.githubusercontent.com/u/196650154?v=4" alt="Luna Noir avatar" loading="eager" />
-        </div>
-        <div class="portrait-meta">@lunanoir21 · arch + hyprland</div>
-      </div>
-    </div>
-  </div>
+<div class="top-r">
+<svg class="phase" viewBox="-12 -12 24 24" width="24" height="24" role="img" aria-label="Scroll progress as a moon phase"><title>Scroll progress</title><circle r="10"/><path id="phase"/></svg>
+<button type="button" class="kbtn" id="cpOpen" aria-label="Search and commands"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><kbd>Ctrl K</kbd></button>
+<div class="mode" role="group" aria-label="Color mode">
+<button type="button" data-mode="auto" aria-pressed="true" aria-label="Match system" title="Match system"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="8" rx="1.5"/><path d="M6 14h4M8 11v3"/></svg></button>
+<button type="button" data-mode="light" aria-pressed="false" aria-label="Light" title="Light"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></svg></button>
+<button type="button" data-mode="dark" aria-pressed="false" aria-label="Dark" title="Dark"><svg viewBox="0 0 16 16"><path d="M13 9.5A5.5 5.5 0 0 1 6.5 3a5.5 5.5 0 1 0 6.5 6.5z"/></svg></button>
+</div>
+<div class="lang" role="group" aria-label="Language">
+<button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+<button type="button" data-set-lang="tr" aria-pressed="false">TR</button>
+</div>
+</div>
+</div>
 </header>
 
-<!-- About -->
-<section class="section" id="about">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-kicker">cat about.md</div>
-      <h2 class="section-title" data-en="Whoami" data-tr="Kimim ben">Whoami</h2>
-      <p class="section-sub" data-en="A vibe coder who uses AI seriously — and says so out loud. Everything below is measured, not claimed: the numbers come straight from the GitHub API over my own repos." data-tr="Yapay zekayı ciddi biçimde kullanan — ve bunu açıkça söyleyen — bir vibe coder. Aşağıdaki her şey iddia değil, ölçüm: sayılar doğrudan GitHub API'sinden, kendi repolarım üzerinden geliyor.">
-        A vibe coder who uses AI seriously — and says so out loud. Everything below is measured, not claimed: the numbers come straight from the GitHub API over my own repos.
-      </p>
-    </div>
+<main id="top">
 
-    <div class="about-grid">
-      <div class="terminal reveal">
-        <div class="terminal-bar">
-          <span class="term-dot r"></span>
-          <span class="term-dot y"></span>
-          <span class="term-dot g"></span>
-          <span class="terminal-title">~/luna-noir/about.rs</span>
-        </div>
-        <pre class="terminal-body"><code><span class="term-comment">// 🇬🇧 English</span>
-<span class="term-kw">struct</span> <span class="term-type">LunaNoir</span> {
-    <span class="term-field">role</span>:      <span class="term-str">"Vibe Coder"</span>,
-    <span class="term-field">method</span>:    <span class="term-str">"AI-assisted, spec-first"</span>,
-    <span class="term-field">honest</span>:    <span class="term-str">"every repo here was built with AI"</span>,
-    <span class="term-field">my_part</span>:   [<span class="term-str">"spec"</span>, <span class="term-str">"architecture"</span>, <span class="term-str">"review"</span>,
-                <span class="term-str">"tests"</span>, <span class="term-str">"release"</span>],
-    <span class="term-field">stack</span>:     [<span class="term-str">"QML"</span>, <span class="term-str">"Rust"</span>, <span class="term-str">"TypeScript"</span>, <span class="term-str">"Go"</span>, <span class="term-str">"Dart"</span>],
-    <span class="term-field">desktop</span>:   <span class="term-str">"Arch Linux + Hyprland"</span>,
-    <span class="term-field">telemetry</span>: <span class="term-kw">None</span>,
-}
-
-<span class="term-comment">// 🇹🇷 Türkçe</span>
-<span class="term-comment">// rol: "Vibe Coder"</span>
-<span class="term-comment">// yöntem: "yapay zeka destekli, önce şartname"</span>
-<span class="term-comment">// dürüstçe: "buradaki her repo yapay zeka ile inşa edildi"</span>
-<span class="term-comment">// benim payım: [şartname, mimari, inceleme, test, sürüm]</span></code></pre>
-      </div>
-
-      <aside class="about-aside reveal">
-        <div>
-          <h3 data-en="On AI, openly" data-tr="Yapay zeka, açıkça">On AI, openly</h3>
-          <p data-en="I don't hand-write most of the code in these repos — AI does, and I'm not going to claim otherwise. Using it well is its own skill: writing a spec precise enough to build against, catching what the model gets wrong, refusing the shortcut that looks fine and isn't, and testing until the thing actually runs." data-tr="Bu repolardaki kodun çoğunu elle yazmıyorum — onu yapay zeka yazıyor ve aksini iddia edecek değilim. Onu iyi kullanmak başlı başına bir beceri: üzerine inşa edilebilecek kadar net bir şartname yazmak, modelin yanıldığı yeri yakalamak, iyi görünen ama aslında olmayan kestirmeyi reddetmek ve iş gerçekten çalışana kadar test etmek.">
-            I don't hand-write most of the code in these repos — AI does, and I'm not going to claim otherwise. Using it well is its own skill: writing a spec precise enough to build against, catching what the model gets wrong, refusing the shortcut that looks fine and isn't, and testing until the thing actually runs.
-          </p>
-        </div>
-        <div>
-          <h3 data-en="Who does what" data-tr="Kim ne yapıyor">Who does what</h3>
-          <ul class="split-list">
-            <li><span class="split-ico yes"><svg class="ico" aria-hidden="true"><use href="#l-check"/></svg></span><span data-en="Mine: the spec, the architecture calls, the review, the tests, the release." data-tr="Benim: şartname, mimari kararlar, inceleme, testler, sürüm.">Mine: the spec, the architecture calls, the review, the tests, the release.</span></li>
-            <li><span class="split-ico ai"><svg class="ico" aria-hidden="true"><use href="#l-sparkles"/></svg></span><span data-en="The model's: the implementation — written in small steps, steered file by file." data-tr="Modelin: uygulama — küçük adımlarla yazılıyor, dosya dosya yönlendiriliyor.">The model's: the implementation — written in small steps, steered file by file.</span></li>
-            <li><span class="split-ico no"><svg class="ico" aria-hidden="true"><use href="#l-x"/></svg></span><span data-en="Nobody's: the pretending. I'd rather show the workflow than take credit for a diff I didn't type." data-tr="Kimsenin değil: rol yapmak. Yazmadığım bir diff'in kredisini almaktansa iş akışını göstermeyi tercih ederim.">Nobody's: the pretending. I'd rather show the workflow than take credit for a diff I didn't type.</span></li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-
-    <div class="metric-row">
-        <div class="metric reveal">
-          <span class="metric-ico"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg></span>
-          <span class="metric-num" data-stat="stars">11</span>
-          <span class="metric-lbl" data-en="total stars" data-tr="yıldız">total stars</span>
-          <span class="metric-sub" data-en="across every public repo" data-tr="tüm açık repolarda">across every public repo</span>
-        </div>
-        <div class="metric reveal">
-          <span class="metric-ico"><svg class="ico" aria-hidden="true"><use href="#l-folder-git-2"/></svg></span>
-          <span class="metric-num" data-stat="repos">11</span>
-          <span class="metric-lbl" data-en="public repos" data-tr="açık repo">public repos</span>
-          <span class="metric-sub" data-en="all open source" data-tr="hepsi açık kaynak">all open source</span>
-        </div>
-        <div class="metric reveal">
-          <span class="metric-ico"><svg class="ico" aria-hidden="true"><use href="#l-code-xml"/></svg></span>
-          <span class="metric-num">7.35 MB</span>
-          <span class="metric-lbl" data-en="of source" data-tr="kaynak kod">of source</span>
-          <span class="metric-sub" data-en="16 languages detected" data-tr="16 dil tespit edildi">16 languages detected</span>
-        </div>
-        <div class="metric reveal">
-          <span class="metric-ico"><svg class="ico" aria-hidden="true"><use href="#l-calendar-days"/></svg></span>
-          <span class="metric-num" data-stat="days">93</span>
-          <span class="metric-lbl" data-en="days building" data-tr="gündür inşada">days building</span>
-          <span class="metric-sub" data-en="since 3 June 2026" data-tr="3 Haziran 2026'dan beri">since 3 June 2026</span>
-        </div>
-    </div>
-
-    <div class="chart-grid">
-      <figure class="chart-card reveal">
-        <figcaption class="chart-head">
-          <h3 data-en="Code by language" data-tr="Dile göre kod">Code by language</h3>
-          <span class="chart-note" data-en="share of 7.35 MB" data-tr="7,35 MB'ın payı">share of 7.35 MB</span>
-        </figcaption>
-        <div class="bar-list">
-          <div class="bar-row">
-            <span class="row-ico"><svg class="ico" style="color:#DEA584" aria-hidden="true"><use href="#b-rust"/></svg></span>
-            <span class="row-name">Rust</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="Rust: 31.49% of the source, 2.31 MB">
-              <title>Rust — 2.31 MB · 31.49%</title>
-              <rect x="0" y="0" height="10" rx="5" width="100.0%" fill="#E9714A"/>
-            </svg>
-            <span class="row-val">31.5%</span>
-          </div>
-          <div class="bar-row">
-            <span class="row-ico"><svg class="ico" style="color:#41CD52" aria-hidden="true"><use href="#b-qt"/></svg></span>
-            <span class="row-name">QML</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="QML: 31.3% of the source, 2.30 MB">
-              <title>QML — 2.30 MB · 31.3%</title>
-              <rect x="0" y="0" height="10" rx="5" width="99.4%" fill="#7BE08A"/>
-            </svg>
-            <span class="row-val">31.3%</span>
-          </div>
-          <div class="bar-row">
-            <span class="row-ico"><svg class="ico" style="color:#3178C6" aria-hidden="true"><use href="#b-typescript"/></svg></span>
-            <span class="row-name">TypeScript</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="TypeScript: 21.96% of the source, 1.61 MB">
-              <title>TypeScript — 1.61 MB · 21.96%</title>
-              <rect x="0" y="0" height="10" rx="5" width="69.7%" fill="#3178C6"/>
-            </svg>
-            <span class="row-val">22.0%</span>
-          </div>
-          <div class="bar-row">
-            <span class="row-ico"><svg class="ico" style="color:#2DA9E8" aria-hidden="true"><use href="#b-dart"/></svg></span>
-            <span class="row-name">Dart</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="Dart: 7.73% of the source, 582 KB">
-              <title>Dart — 582 KB · 7.73%</title>
-              <rect x="0" y="0" height="10" rx="5" width="24.5%" fill="#5FE0D6"/>
-            </svg>
-            <span class="row-val">7.7%</span>
-          </div>
-          <div class="bar-row">
-            <span class="row-ico"><svg class="ico" style="color:#4EAA25" aria-hidden="true"><use href="#b-gnubash"/></svg></span>
-            <span class="row-name">Shell</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="Shell: 2.83% of the source, 213 KB">
-              <title>Shell — 213 KB · 2.83%</title>
-              <rect x="0" y="0" height="10" rx="5" width="9.0%" fill="#B794F4"/>
-            </svg>
-            <span class="row-val">2.8%</span>
-          </div>
-          <div class="bar-row">
-            <span class="row-ico"><span class="row-dot" style="background:#6B6B6B"></span></span>
-            <span class="row-name" data-en="Other" data-tr="Diğer">Other</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="Other: 4.69% of the source, 353 KB">
-              <title>Other — 353 KB · 4.69%</title>
-              <rect x="0" y="0" height="10" rx="5" width="14.9%" fill="#6B6B6B"/>
-            </svg>
-            <span class="row-val">4.7%</span>
-          </div>
-        </div>
-        <figcaption class="chart-foot" data-en="Bytes reported by GitHub across 10 source repos, forks excluded · measured 4 September 2026." data-tr="10 kaynak repo genelinde GitHub'ın bildirdiği bayt sayıları, forklar hariç · 4 Eylül 2026 ölçümü.">
-          Bytes reported by GitHub across 10 source repos, forks excluded · measured 4 September 2026.
-        </figcaption>
-      </figure>
-
-      <figure class="chart-card reveal">
-        <figcaption class="chart-head">
-          <h3 data-en="Stars" data-tr="Yıldızlar">Stars</h3>
-          <span class="chart-note"><span class="star-total" data-stat="stars">11</span> <svg class="ico" aria-hidden="true"><use href="#l-star"/></svg></span>
-        </figcaption>
-        <div class="bar-list" id="star-chart">
-          <div class="bar-row star-row" data-repo="quickshell-dynamic-island">
-            <span class="row-name mono">dynamic-island</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="dynamic-island: 5 stars">
-              <title>dynamic-island — 5 ★</title>
-              <rect x="0" y="0" height="10" rx="5" width="100%" fill="var(--accent)"/>
-            </svg>
-            <span class="row-val">5</span>
-          </div>
-          <div class="bar-row star-row" data-repo="Life-os-project">
-            <span class="row-name mono">Life OS</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="Life OS: 3 stars">
-              <title>Life OS — 3 ★</title>
-              <rect x="0" y="0" height="10" rx="5" width="60%" fill="var(--accent)"/>
-            </svg>
-            <span class="row-val">3</span>
-          </div>
-          <div class="bar-row star-row" data-repo="aurguard-project">
-            <span class="row-name mono">aurguard</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="aurguard: 1 stars">
-              <title>aurguard — 1 ★</title>
-              <rect x="0" y="0" height="10" rx="5" width="20%" fill="var(--accent)"/>
-            </svg>
-            <span class="row-val">1</span>
-          </div>
-          <div class="bar-row star-row" data-repo="dep-lens">
-            <span class="row-name mono">dep-lens</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="dep-lens: 1 stars">
-              <title>dep-lens — 1 ★</title>
-              <rect x="0" y="0" height="10" rx="5" width="20%" fill="var(--accent)"/>
-            </svg>
-            <span class="row-val">1</span>
-          </div>
-          <div class="bar-row star-row" data-repo="hypr-connect">
-            <span class="row-name mono">hypr-connect</span>
-            <svg class="bar" width="100%" height="10" role="img" aria-label="hypr-connect: 1 stars">
-              <title>hypr-connect — 1 ★</title>
-              <rect x="0" y="0" height="10" rx="5" width="20%" fill="var(--accent)"/>
-            </svg>
-            <span class="row-val">1</span>
-          </div>
-        </div>
-        <figcaption class="chart-foot" data-en="Every repo with at least one star, refreshed from the GitHub API on load." data-tr="En az bir yıldızı olan her repo; sayfa açılırken GitHub API'sinden tazeleniyor.">
-          Every repo with at least one star, refreshed from the GitHub API on load.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
+<section class="hero" id="hero">
+<div class="moon-wrap" id="moonwrap" aria-hidden="true"></div>
+<div class="wrap hero-in">
+<p class="eyebrow">LUNANOIR21 · VIBE CODER · OPEN SOURCE</p>
+<h1 class="display" id="display">
+<span class="en">I'm not a developer.<br><em>I build useful things with AI.</em></span>
+<span class="tr">Yazılımcı değilim.<br><em>Yapay zekâyla işe yarar şeyler yapıyorum.</em></span>
+</h1>
+<p class="lede">
+<span class="en">I make tools and small projects together with AI, and I put them out in the open so anyone curious can use them, learn from them or make them better.</span>
+<span class="tr">Yapay zekâyla birlikte araçlar ve küçük projeler yapıyorum. Meraklı herkes kullansın, bir şey öğrensin ya da daha iyi hâle getirsin diye hepsini açık yayınlıyorum.</span>
+</p>
+<div class="cta">
+<a class="btn btn-solid" href="#projects"><span class="en">See what I've made</span><span class="tr">Yaptıklarıma bak</span></a>
+<a class="btn btn-line" href="https://github.com/lunanoir21" rel="noopener"><span class="en">Follow on GitHub</span><span class="tr">GitHub'da takip et</span></a>
+</div>
+<p class="hero-meta mono"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#ico-star"/></svg><span data-total-stars>52</span> <span class="en">stars</span><span class="tr">yıldız</span> <i>·</i> <span data-total-repos>20</span> <span class="en">public repos</span><span class="tr">açık repo</span> <i>·</i> <span class="en">no telemetry</span><span class="tr">telemetri yok</span></p>
+<p class="today mono" id="today" aria-live="polite"></p>
+</div>
+<a class="scrollcue" href="#about" aria-label="Scroll"><span></span></a>
 </section>
 
-<!-- How I build -->
-<section class="section" id="process">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-kicker">cat how-i-build.md</div>
-      <h2 class="section-title" data-en="How I build" data-tr="Nasıl inşa ediyorum">How I build</h2>
-      <p class="section-sub" data-en="The honest version of the workflow. The AI writes the code; the judgement around it is mine. This is what that looks like on every project below." data-tr="İş akışının dürüst hâli. Kodu yapay zeka yazıyor; etrafındaki muhakeme bana ait. Aşağıdaki her projede bu, pratikte şöyle görünüyor.">
-        The honest version of the workflow. The AI writes the code; the judgement around it is mine. This is what that looks like on every project below.
-      </p>
-    </div>
-    <div class="flow-grid">
-      <div class="flow-card reveal">
-        <div class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#l-file-search"/></svg></div>
-        <div class="flow-body">
-          <span class="flow-step">01</span>
-          <h3 data-en="Spec before code" data-tr="Koddan önce şartname">Spec before code</h3>
-          <p data-en="Every repo starts as documents, not prompts — RULES.md, PLAN.md, TASKS.md, ARCHITECTURE.md. Constraints, threat model and the definition of done are written down before a single line is generated, so the model builds toward a target instead of guessing at one." data-tr="Her repo prompt'la değil, belgelerle başlıyor — RULES.md, PLAN.md, TASKS.md, ARCHITECTURE.md. Kısıtlar, tehdit modeli ve “bitti” tanımı tek satır üretilmeden önce yazılıyor; böylece model tahmin etmek yerine belirli bir hedefe doğru inşa ediyor.">Every repo starts as documents, not prompts — RULES.md, PLAN.md, TASKS.md, ARCHITECTURE.md. Constraints, threat model and the definition of done are written down before a single line is generated, so the model builds toward a target instead of guessing at one.</p>
-        </div>
-      </div>
-      <div class="flow-card reveal">
-        <div class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#l-sparkles"/></svg></div>
-        <div class="flow-body">
-          <span class="flow-step">02</span>
-          <h3 data-en="AI writes the implementation" data-tr="Uygulamayı yapay zeka yazıyor">AI writes the implementation</h3>
-          <p data-en="This is the part I am open about: most of the code in these repos is model-generated — in small reviewed steps, never one giant dump. I steer it file by file and decision by decision, and I throw away far more than I keep." data-tr="Açıkça söylediğim kısım bu: bu repolardaki kodun çoğu model tarafından üretildi — tek seferlik dev bir yığın olarak değil, incelenen küçük adımlarla. Onu dosya dosya, karar karar yönlendiriyorum ve tuttuğumdan çok daha fazlasını çöpe atıyorum.">This is the part I am open about: most of the code in these repos is model-generated — in small reviewed steps, never one giant dump. I steer it file by file and decision by decision, and I throw away far more than I keep.</p>
-        </div>
-      </div>
-      <div class="flow-card reveal">
-        <div class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#l-terminal"/></svg></div>
-        <div class="flow-body">
-          <span class="flow-step">03</span>
-          <h3 data-en="Review, then prove it" data-tr="İncele, sonra kanıtla">Review, then prove it</h3>
-          <p data-en="Generated code is not trusted code. cargo test --workspace, clippy -D warnings, strict tsc, flutter analyze — and then actually running it on my own machine. If I cannot explain what a file does, it does not get committed." data-tr="Üretilmiş kod, güvenilir kod değildir. cargo test --workspace, clippy -D warnings, katı tsc, flutter analyze — ve ardından her şeyi kendi makinemde gerçekten çalıştırmak. Bir dosyanın ne yaptığını açıklayamıyorsam, o dosya commit'lenmiyor.">Generated code is not trusted code. cargo test --workspace, clippy -D warnings, strict tsc, flutter analyze — and then actually running it on my own machine. If I cannot explain what a file does, it does not get committed.</p>
-        </div>
-      </div>
-      <div class="flow-card reveal">
-        <div class="flow-ico"><svg class="ico" aria-hidden="true"><use href="#l-package"/></svg></div>
-        <div class="flow-body">
-          <span class="flow-step">04</span>
-          <h3 data-en="Ship it and own it" data-tr="Yayınla ve sahiplen">Ship it and own it</h3>
-          <p data-en="Releases, docs, changelogs, GitHub Pages, issues — that part is on me, not the model. If something ships broken, it is my name on it. Which is exactly why steps 01–03 are not optional." data-tr="Sürümler, dokümanlar, changelog'lar, GitHub Pages, issue'lar — bu kısım modelin değil, benim işim. Bozuk bir şey yayınlanırsa, üstünde benim adım var. 01–03 adımlarının pazarlık konusu olmamasının sebebi tam olarak bu.">Releases, docs, changelogs, GitHub Pages, issues — that part is on me, not the model. If something ships broken, it is my name on it. Which is exactly why steps 01–03 are not optional.</p>
-        </div>
-      </div>
-    </div>
-    <div class="tool-row reveal">
-      <span class="tool-chip"><svg class="ico" style="color:#D97757" aria-hidden="true"><use href="#b-claude"/></svg>Claude</span>
-      <span class="tool-chip"><svg class="ico" style="color:#F05032" aria-hidden="true"><use href="#b-git"/></svg>Git</span>
-      <span class="tool-chip"><svg class="ico" style="color:#2088FF" aria-hidden="true"><use href="#b-githubactions"/></svg>GitHub Actions</span>
-      <span class="tool-chip"><svg class="ico" style="color:#1793D1" aria-hidden="true"><use href="#b-archlinux"/></svg>Arch Linux</span>
-      <span class="tool-chip"><svg class="ico" style="color:#58E1FF" aria-hidden="true"><use href="#b-hyprland"/></svg>Hyprland</span>
-    </div>
-    <p class="tool-note reveal" data-en="// Claude is used as a pair programmer, not an autopilot — it proposes, I decide, CI proves it." data-tr="// Claude otopilot olarak değil, eş programcı olarak kullanılıyor — o önerir, ben karar veririm, CI kanıtlar.">
-      // Claude is used as a pair programmer, not an autopilot — it proposes, I decide, CI proves it.
-    </p>
-  </div>
+<section class="band" id="about">
+<!-- handwritten L with a halo: visible, but kept in the background; it writes itself when you arrive -->
+<svg class="ghost-l sig" viewBox="0 0 140 170" aria-hidden="true"><path class="glyph" d="M101.9 158.0Q96.2 158.0 90.3 156.5Q84.3 154.9 79.1 152.8Q73.8 150.8 69.9 149.4Q62.8 146.9 56.6 144.4Q50.5 142.0 47.9 141.5Q34.9 138.1 29.5 138.1Q28.6 138.8 27.8 139.3Q27.0 139.7 26.1 139.9Q25.6 140.0 24.8 140.0Q22.4 140.0 22.4 138.4Q22.4 137.5 23.9 136.5Q25.0 136.0 26.4 135.9Q27.8 135.9 29.3 135.7Q32.4 133.0 35.1 128.9Q37.9 124.7 39.1 122.6Q40.1 120.7 41.1 118.9Q42.2 117.1 43.2 115.3Q41.1 115.9 38.8 116.3Q36.5 116.8 34.4 116.8Q30.5 116.8 27.3 115.2Q24.2 113.6 24.2 109.3Q24.2 106.5 26.7 104.1Q29.1 101.6 31.8 101.6Q33.4 101.6 33.4 103.0Q33.4 103.8 32.2 103.8Q30.7 103.8 29.5 105.5Q28.3 107.3 28.3 109.2Q28.3 110.5 29.2 111.8Q30.1 113.0 32.2 113.3Q34.2 113.7 36.5 113.7Q40.4 113.7 44.4 112.6Q46.3 108.9 48.0 105.2Q49.7 101.5 51.3 97.9Q54.6 90.5 58.1 83.5Q61.6 76.5 65.0 71.0Q68.3 65.5 71.0 62.9Q76.1 58.0 81.3 56.0Q86.4 54.0 90.6 54.0Q91.4 54.0 92.2 54.1Q93.0 54.1 93.7 54.3Q98.7 55.1 100.7 57.7Q102.7 60.3 102.7 63.9Q102.7 65.8 102.3 67.8Q100.5 76.3 95.2 83.7Q89.9 91.0 82.4 97.0Q74.9 103.0 66.4 107.1Q57.9 111.3 49.8 113.2Q48.1 116.1 46.1 119.0Q44.2 121.9 41.9 124.7Q40.5 126.7 38.0 129.9Q35.4 133.0 32.8 135.7Q34.6 135.9 36.9 136.1Q39.1 136.3 41.6 136.7Q52.8 138.4 64.0 141.8Q75.2 145.3 86.2 148.1Q89.3 148.9 95.0 150.1Q100.7 151.3 105.6 151.3Q110.5 151.3 113.0 149.5Q115.0 148.3 115.0 146.2Q115.0 144.6 113.5 143.5Q112.7 142.8 112.7 142.4Q112.7 141.1 114.4 142.0Q116.1 143.2 116.8 144.8Q117.6 146.5 117.6 148.2Q117.6 150.2 116.8 151.9Q116.1 153.6 115.0 154.2Q109.5 158.0 101.9 158.0ZM51.8 110.1Q66.7 103.7 78.0 94.4Q89.3 85.1 95.8 70.0Q98.0 65.3 98.0 61.8Q98.0 59.0 96.2 57.4Q95.3 56.1 93.1 56.1Q88.7 56.1 84.0 59.2Q80.0 62.2 76.4 67.0Q72.9 71.8 69.8 77.2Q66.7 82.6 64.4 87.3Q62.0 92.1 60.4 94.9Q59.3 97.1 57.1 101.2Q54.9 105.4 51.8 110.1Z"/><path class="halo" pathLength="1" d="M42 24C54 10 104 8 112 20C116 30 86 34 60 30C42 27 42 24 52 20"/></svg>
+<div class="wrap about">
+<p class="label"><span class="en">Read this first</span><span class="tr">Önce bunu oku</span></p>
+<div class="about-body">
+<p class="statement">
+<span class="en">I'm definitely not a programmer. I just like making things that are useful, and AI lets me.</span>
+<span class="tr">Kesinlikle bir yazılımcı değilim. Sadece işe yarayan şeyler yapmayı seviyorum ve yapay zekâ buna izin veriyor.</span>
+</p>
+<p>
+<span class="en">Every project here is built with AI and says so openly. I decide what to build and how it should feel, then I run it, review it and fix what's wrong. I publish it so people with the same curiosity can use it too. It won't always be perfect: tell me what's broken and I'll try to fix it.</span>
+<span class="tr">Buradaki her proje yapay zekâyla yapıldı ve bunu açıkça söylüyor. Ne yapılacağına ve nasıl hissettirmesi gerektiğine ben karar veriyorum, sonra çalıştırıyor, gözden geçiriyor ve bozuk olanı düzeltiyorum. Aynı merakı taşıyan insanlar da kullanabilsin diye yayınlıyorum. Her zaman kusursuz olmayacak: neyin bozuk olduğunu söyle, düzeltmeye çalışayım.</span>
+</p>
+</div>
+</div>
 </section>
 
-<!-- Tech Stack -->
-<section class="section" id="stack">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-kicker">ls ~/stack</div>
-      <h2 class="section-title" data-en="Tech Stack" data-tr="Teknoloji Yığını">Tech Stack</h2>
-      <p class="section-sub" data-en="What these repos are actually written in — taken from the languages GitHub reports on my own code, not from a wish list. Every logo below is an inlined SVG; nothing on this page is fetched from a third party." data-tr="Bu repoların gerçekte neyle yazıldığı — bir dilek listesinden değil, GitHub'ın kendi kodum üzerinde raporladığı dillerden alındı. Aşağıdaki her logo sayfaya gömülü SVG; bu sayfada hiçbir şey üçüncü bir taraftan çekilmiyor.">
-        What these repos are actually written in — taken from the languages GitHub reports on my own code, not from a wish list. Every logo below is an inlined SVG; nothing on this page is fetched from a third party.
-      </p>
-    </div>
-    <div class="tech-grid">
-      <div class="tech-col reveal">
-        <h3 data-en="Languages" data-tr="Diller">Languages</h3>
-        <ul class="tech-list">
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#41CD52" aria-hidden="true"><use href="#b-qt"/></svg></span><span class="tech-name">QML</span><span class="tech-meta" data-en="desktop shell" data-tr="masaüstü kabuğu">desktop shell</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#DEA584" aria-hidden="true"><use href="#b-rust"/></svg></span><span class="tech-name">Rust</span><span class="tech-meta" data-en="daemons, CLIs" data-tr="servisler, CLI">daemons, CLIs</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#3178C6" aria-hidden="true"><use href="#b-typescript"/></svg></span><span class="tech-name">TypeScript</span><span class="tech-meta" data-en="web, TUI" data-tr="web, TUI">web, TUI</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#00ADD8" aria-hidden="true"><use href="#b-go"/></svg></span><span class="tech-name">Go</span><span class="tech-meta" data-en="relay server" data-tr="relay sunucu">relay server</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#2DA9E8" aria-hidden="true"><use href="#b-dart"/></svg></span><span class="tech-name">Dart</span><span class="tech-meta" data-en="mobile" data-tr="mobil">mobile</span></li>
-        </ul>
-      </div>
-      <div class="tech-col reveal">
-        <h3 data-en="Frameworks" data-tr="Çerçeveler">Frameworks</h3>
-        <ul class="tech-list">
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#FFFFFF" aria-hidden="true"><use href="#b-nextdotjs"/></svg></span><span class="tech-name">Next.js 16</span><span class="tech-meta" data-en="web" data-tr="web">web</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#61DAFB" aria-hidden="true"><use href="#b-react"/></svg></span><span class="tech-name">React 19</span><span class="tech-meta" data-en="UI" data-tr="arayüz">UI</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#24C8D8" aria-hidden="true"><use href="#b-tauri"/></svg></span><span class="tech-name">Tauri v2</span><span class="tech-meta" data-en="desktop" data-tr="masaüstü">desktop</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#47C5FB" aria-hidden="true"><use href="#b-flutter"/></svg></span><span class="tech-name">Flutter</span><span class="tech-meta" data-en="mobile" data-tr="mobil">mobile</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#5FA04E" aria-hidden="true"><use href="#b-nodedotjs"/></svg></span><span class="tech-name">Node.js</span><span class="tech-meta" data-en="tooling" data-tr="araçlar">tooling</span></li>
-        </ul>
-      </div>
-      <div class="tech-col reveal">
-        <h3 data-en="Systems & tooling" data-tr="Sistem & araçlar">Systems & tooling</h3>
-        <ul class="tech-list">
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#1793D1" aria-hidden="true"><use href="#b-archlinux"/></svg></span><span class="tech-name">Arch Linux</span><span class="tech-meta" data-en="daily driver" data-tr="günlük sistem">daily driver</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#58E1FF" aria-hidden="true"><use href="#b-hyprland"/></svg></span><span class="tech-name">Hyprland</span><span class="tech-meta" data-en="compositor" data-tr="kompozitör">compositor</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#FFBC00" aria-hidden="true"><use href="#b-wayland"/></svg></span><span class="tech-name">Wayland</span><span class="tech-meta" data-en="display" data-tr="görüntü">display</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#4C9FD6" aria-hidden="true"><use href="#b-sqlite"/></svg></span><span class="tech-name">SQLite</span><span class="tech-meta" data-en="storage" data-tr="depolama">storage</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#2496ED" aria-hidden="true"><use href="#b-docker"/></svg></span><span class="tech-name">Docker</span><span class="tech-meta" data-en="deploy" data-tr="dağıtım">deploy</span></li>
-          <li class="tech-item"><span class="tech-glyph"><svg class="ico" style="color:#F05032" aria-hidden="true"><use href="#b-git"/></svg></span><span class="tech-name">Git</span><span class="tech-meta" data-en="vcs" data-tr="sürüm kontrol">vcs</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<section class="sec" id="projects">
+<div class="wrap">
+<div class="sec-head">
+<h2 class="h2"><span class="en">What I've made</span><span class="tr">Yaptıklarım</span></h2>
+<div class="chips" role="group" aria-label="Filter">
+<button type="button" class="chip" data-filter="all" aria-pressed="true"><span class="en">All</span><span class="tr">Hepsi</span></button>
+<button type="button" class="chip" data-filter="desktop" aria-pressed="false"><span class="en">Desktop</span><span class="tr">Masaüstü</span></button>
+<button type="button" class="chip" data-filter="tools" aria-pressed="false"><span class="en">Tools</span><span class="tr">Araçlar</span></button>
+<button type="button" class="chip" data-filter="apps" aria-pressed="false"><span class="en">Apps</span><span class="tr">Uygulamalar</span></button>
+</div>
+</div>
+<div class="tools">
+<label class="search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Search projects"><kbd>/</kbd></label>
+<select class="sel" id="sort" aria-label="Sort projects"></select>
+<span class="count" id="count" aria-live="polite"></span>
+<span class="fresh" data-fresh></span>
+</div>
+<div class="grid" id="grid"></div>
+<noscript><p class="mono">Projects: <a href="https://github.com/lunanoir21?tab=repositories">github.com/lunanoir21</a></p></noscript>
+</div>
 </section>
 
-<!-- Projects -->
-<section class="section" id="projects">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-kicker">ls ~/projects</div>
-      <h2 class="section-title" data-en="Projects" data-tr="Projeler">Projects</h2>
-      <p class="section-sub" data-en="Eight public repos, every one of them AI-built and open source. Star counts and dates below refresh straight from the GitHub API when this page loads, so nothing here goes stale." data-tr="Sekiz herkese açık repo; her biri yapay zeka ile inşa edildi ve açık kaynak. Aşağıdaki yıldız sayıları ve tarihler sayfa yüklenirken doğrudan GitHub API'sinden tazeleniyor; yani buradaki hiçbir şey eskimiyor.">
-        Eight public repos, every one of them AI-built and open source. Star counts and dates below refresh straight from the GitHub API when this page loads, so nothing here goes stale.
-      </p>
-    </div>
-
-    <div class="proj-grid">
-      <!-- quickshell-dynamic-island -->
-      <a class="proj-card reveal" data-repo="quickshell-dynamic-island" href="https://github.com/lunanoir21/quickshell-dynamic-island" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#l-island"/></svg></div>
-          <span class="proj-status released" data-en="v1.0.0 · released" data-tr="v1.0.0 · yayında">v1.0.0 · released</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">dynamic</span>-island</h3>
-          <p class="proj-desc" data-en="A monochrome Dynamic Island for Hyprland, built on Quickshell. One always-on-top surface carrying MPRIS media with a cava-driven spectrum, notifications, timers and alarms, a pixel-art clock, and live mic/camera privacy indicators. No accent colour anywhere." data-tr="Hyprland için Quickshell üzerine kurulu monokrom bir Dynamic Island. Tek bir hep-üstte yüzey: cava beslemeli spektrumla MPRIS medya, bildirimler, zamanlayıcılar ve alarmlar, pixel-art saat ve canlı mikrofon/kamera gizlilik göstergeleri. Hiçbir yerde vurgu rengi yok.">
-            A monochrome Dynamic Island for Hyprland, built on Quickshell. One always-on-top surface carrying MPRIS media with a cava-driven spectrum, notifications, timers and alarms, a pixel-art clock, and live mic/camera privacy indicators. No accent colour anywhere.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag qml">QML</span>
-          <span class="proj-tag">Quickshell</span>
-          <span class="proj-tag">Hyprland</span>
-          <span class="proj-tag">Wayland</span>
-          <span class="proj-tag">MIT</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">5</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-09-02" data-tr="güncellendi 2026-09-02">updated 2026-09-02</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <!-- Life-os-project -->
-      <a class="proj-card reveal" data-repo="Life-os-project" href="https://github.com/lunanoir21/Life-os-project" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#l-layout-dashboard"/></svg></div>
-          <span class="proj-status pre" data-en="pre-release" data-tr="ön sürüm">pre-release</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">Life</span> OS</h3>
-          <p class="proj-desc" data-en="Local-first personal life OS — habits, finance, journal, workouts, recipes, goals and calendar in one self-hostable app. Next.js 16 and React 19 on the surface, a Rust backend underneath, packaged for the desktop with Tauri." data-tr="Yerel-önce kişisel yaşam işletim sistemi — alışkanlıklar, finans, günlük, antrenmanlar, tarifler, hedefler ve takvim; tek ve kendi sunucunuzda barındırılabilir bir uygulamada. Yüzeyde Next.js 16 ve React 19, altında Rust arka yüz, masaüstü için Tauri ile paketlendi.">
-            Local-first personal life OS — habits, finance, journal, workouts, recipes, goals and calendar in one self-hostable app. Next.js 16 and React 19 on the surface, a Rust backend underneath, packaged for the desktop with Tauri.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag next">Next.js 16</span>
-          <span class="proj-tag ts">TypeScript</span>
-          <span class="proj-tag rust">Rust</span>
-          <span class="proj-tag tauri">Tauri</span>
-          <span class="proj-tag">MIT</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">3</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-06-08" data-tr="güncellendi 2026-06-08">updated 2026-06-08</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <!-- connectible-project -->
-      <a class="proj-card reveal" data-repo="connectible-project" href="https://github.com/lunanoir21/connectible-project" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#l-monitor-smartphone"/></svg></div>
-          <span class="proj-status pre" data-en="pre-release" data-tr="ön sürüm">pre-release</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">connect</span>ible</h3>
-          <p class="proj-desc" data-en="A KDE Connect alternative over gRPC and TLS 1.3. Pair a phone and a desktop on the same LAN to sync the clipboard, send files, mirror notifications and drive one machine's mouse and keyboard from the other — end-to-end encrypted, LAN only, no cloud." data-tr="gRPC ve TLS 1.3 üzerinden bir KDE Connect alternatifi. Telefonu ve masaüstünü aynı yerel ağda eşleyip pano senkronu, dosya transferi, bildirim yansıtma ve bir makinenin fare/klavyesini diğerinden sürme — uçtan uca şifreli, yalnızca yerel ağ, bulut yok.">
-            A KDE Connect alternative over gRPC and TLS 1.3. Pair a phone and a desktop on the same LAN to sync the clipboard, send files, mirror notifications and drive one machine's mouse and keyboard from the other — end-to-end encrypted, LAN only, no cloud.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag rust">Rust</span>
-          <span class="proj-tag dart">Flutter</span>
-          <span class="proj-tag tauri">Tauri</span>
-          <span class="proj-tag">gRPC</span>
-          <span class="proj-tag">TLS 1.3</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">0</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-07-23" data-tr="güncellendi 2026-07-23">updated 2026-07-23</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <!-- orca-project -->
-      <a class="proj-card reveal" data-repo="orca-project" href="https://github.com/lunanoir21/orca-project" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#l-folder-lock"/></svg></div>
-          <span class="proj-status pre" data-en="pre-release" data-tr="ön sürüm">pre-release</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">orc</span>a</h3>
-          <p class="proj-desc" data-en="A security-focused Linux file manager written in Rust — Wayland-first, dual-pane, Dolphin-inspired. age-encrypted vaults with Argon2id key derivation, ripgrep-backed content search, and a sandboxed Lua plugin API with a hard boundary around vault internals." data-tr="Rust ile yazılmış, güvenlik odaklı bir Linux dosya yöneticisi — Wayland öncelikli, çift panelli, Dolphin'den ilhamlı. Argon2id anahtar türetmeli, age ile şifreli kasalar; ripgrep destekli içerik araması ve kasa içine geçirimsiz sınırı olan, kum havuzuna alınmış Lua eklenti API'si.">
-            A security-focused Linux file manager written in Rust — Wayland-first, dual-pane, Dolphin-inspired. age-encrypted vaults with Argon2id key derivation, ripgrep-backed content search, and a sandboxed Lua plugin API with a hard boundary around vault internals.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag rust">Rust</span>
-          <span class="proj-tag">GTK4</span>
-          <span class="proj-tag">Lua</span>
-          <span class="proj-tag">age</span>
-          <span class="proj-tag">GPL-3.0</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">0</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-06-20" data-tr="güncellendi 2026-06-20">updated 2026-06-20</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <!-- aurguard-project -->
-      <a class="proj-card reveal" data-repo="aurguard-project" href="https://github.com/lunanoir21/aurguard-project" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#l-shield-check"/></svg></div>
-          <span class="proj-status released" data-en="v1.0.0 · released" data-tr="v1.0.0 · yayında">v1.0.0 · released</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">aur</span>guard</h3>
-          <p class="proj-desc" data-en="A security guard for AUR packages. It fetches the PKGBUILD and .install scripts, runs static analysis fully offline, and shows you the risks before makepkg ever runs. Multilingual (en · tr · fr · es · az), no telemetry." data-tr="AUR paketleri için bir güvenlik nöbetçisi. PKGBUILD ve .install betiklerini çeker, tamamen çevrimdışı statik analiz yapar ve makepkg hiç çalışmadan önce riskleri gösterir. Çok dilli (en · tr · fr · es · az), telemetri yok.">
-            A security guard for AUR packages. It fetches the PKGBUILD and .install scripts, runs static analysis fully offline, and shows you the risks before makepkg ever runs. Multilingual (en · tr · fr · es · az), no telemetry.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag rust">Rust</span>
-          <span class="proj-tag">CLI</span>
-          <span class="proj-tag">AUR</span>
-          <span class="proj-tag">i18n</span>
-          <span class="proj-tag">MIT</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">1</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-07-03" data-tr="güncellendi 2026-07-03">updated 2026-07-03</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <!-- dep-lens -->
-      <a class="proj-card reveal" data-repo="dep-lens" href="https://github.com/lunanoir21/dep-lens" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#l-scan-search"/></svg></div>
-          <span class="proj-status pre" data-en="pre-release" data-tr="ön sürüm">pre-release</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">dep</span>-lens</h3>
-          <p class="proj-desc" data-en="Scans dependencies across nine ecosystems, classifies every license, scores commercial-use risk, and lets you browse the whole result in a fast ASCII TUI. Rust core with a Node.js/Ink wrapper." data-tr="Dokuz ekosistem genelinde bağımlılıkları tarar, her lisansı sınıflandırır, ticari kullanım riskini puanlar ve tüm sonucu hızlı bir ASCII TUI içinde gezmenizi sağlar. Rust çekirdek, Node.js/Ink sarmalayıcı.">
-            Scans dependencies across nine ecosystems, classifies every license, scores commercial-use risk, and lets you browse the whole result in a fast ASCII TUI. Rust core with a Node.js/Ink wrapper.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag rust">Rust</span>
-          <span class="proj-tag ts">TypeScript</span>
-          <span class="proj-tag">TUI</span>
-          <span class="proj-tag">license</span>
-          <span class="proj-tag">MIT</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">1</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-06-21" data-tr="güncellendi 2026-06-21">updated 2026-06-21</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <!-- aether-dotfiles -->
-      <a class="proj-card reveal" data-repo="aether-dotfiles" href="https://github.com/lunanoir21/aether-dotfiles" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" style="color:#58E1FF" aria-hidden="true"><use href="#b-hyprland"/></svg></div>
-          <span class="proj-status active" data-en="active" data-tr="aktif">active</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">aether</span>-dotfiles</h3>
-          <p class="proj-desc" data-en="My Hyprland desktop, rebuilt from scratch: kitty, fish, a Turkish keyboard layout and an all-workspaces overview on SUPER+TAB. Laid out to mirror ~/.config exactly, with Dynamic Island carried in as a submodule rather than a copy." data-tr="Sıfırdan yeniden kurulan Hyprland masaüstüm: kitty, fish, Türkçe klavye düzeni ve SUPER+TAB ile tüm çalışma alanlarına genel bakış. Doğrudan ~/.config yapısını birebir yansıtacak şekilde düzenlendi; Dynamic Island kopya olarak değil, alt modül olarak dâhil.">
-            My Hyprland desktop, rebuilt from scratch: kitty, fish, a Turkish keyboard layout and an all-workspaces overview on SUPER+TAB. Laid out to mirror ~/.config exactly, with Dynamic Island carried in as a submodule rather than a copy.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag qml">QML</span>
-          <span class="proj-tag">Hyprland</span>
-          <span class="proj-tag">fish</span>
-          <span class="proj-tag">kitty</span>
-          <span class="proj-tag">Wayland</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">0</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-08-15" data-tr="güncellendi 2026-08-15">updated 2026-08-15</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <!-- nyx -->
-      <a class="proj-card reveal" data-repo="nyx" href="https://github.com/lunanoir21/nyx" target="_blank" rel="noopener">
-        <div class="proj-head">
-          <div class="proj-icon"><svg class="ico" aria-hidden="true"><use href="#l-message-square-lock"/></svg></div>
-          <span class="proj-status wip" data-en="early wip" data-tr="erken aşama">early wip</span>
-        </div>
-        <div>
-          <h3 class="proj-name"><span class="accent">ny</span>x</h3>
-          <p class="proj-desc" data-en="An early-stage messaging relay in Go — a WebSocket hub, a SQLite offline queue, and a public-key identity model with no passwords at all. End-to-end encryption through a libsignal sidecar and a Tauri client are next on the roadmap." data-tr="Go ile yazılan, erken aşamada bir mesajlaşma relay'i — WebSocket hub'ı, SQLite çevrimdışı kuyruğu ve hiç parola içermeyen, açık anahtar tabanlı bir kimlik modeli. libsignal yan servisiyle uçtan uca şifreleme ve Tauri istemcisi yol haritasında sıradaki adımlar.">
-            An early-stage messaging relay in Go — a WebSocket hub, a SQLite offline queue, and a public-key identity model with no passwords at all. End-to-end encryption through a libsignal sidecar and a Tauri client are next on the roadmap.
-          </p>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag go">Go</span>
-          <span class="proj-tag">SQLite</span>
-          <span class="proj-tag">WebSocket</span>
-          <span class="proj-tag">E2E</span>
-        </div>
-        <div class="proj-foot">
-          <span class="foot-meta">
-            <span class="stars"><svg class="ico" aria-hidden="true"><use href="#l-star"/></svg><span class="star-n">0</span></span>
-            <span class="foot-sep">·</span>
-            <span class="upd" data-en="updated 2026-08-08" data-tr="güncellendi 2026-08-08">updated 2026-08-08</span>
-          </span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-    </div>
-  </div>
+<section class="sec sec-act" id="activity">
+<div class="wrap">
+<h2 class="h2"><span class="en">Shipped</span><span class="tr">Yayınlananlar</span></h2>
+<p class="sub"><span class="en">New releases and the latest pushes, straight from GitHub.</span><span class="tr">Yeni sürümler ve son güncellemeler, doğrudan GitHub'dan.</span></p>
+<h3 class="shl"><span class="en">New releases</span><span class="tr">Yeni sürümler</span></h3>
+<ol class="act" id="rel"></ol>
+<h3 class="shl"><span class="en">Recent pushes</span><span class="tr">Son güncellemeler</span></h3>
+<ol class="act" id="act"></ol>
+</div>
 </section>
 
-<!-- Activity -->
-<section class="section" id="activity">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-kicker">git log --oneline -n 30</div>
-      <h2 class="section-title" data-en="Activity" data-tr="Aktivite">Activity</h2>
-      <p class="section-sub" data-en="Live cards rendered by GitHub itself. They are the only third-party requests this page makes — no analytics, no fingerprinting, nothing stored on you." data-tr="Doğrudan GitHub tarafından üretilen canlı kartlar. Bu sayfanın yaptığı tek üçüncü taraf istekleri bunlar — analitik yok, parmak izi yok, sizinle ilgili hiçbir şey saklanmıyor.">
-        Live cards rendered by GitHub itself. They are the only third-party requests this page makes — no analytics, no fingerprinting, nothing stored on you.
-      </p>
-    </div>
-    <div class="activity-grid">
-      <div class="activity-card reveal">
-        <div class="activity-caption" data-en="contributions overview" data-tr="katkı özeti">contributions overview</div>
-        <img src="https://github-readme-stats.vercel.app/api?username=lunanoir21&show_icons=true&theme=dark&bg_color=000000&border_color=1f1f1f&title_color=b794f4&text_color=888888&icon_color=b794f4&hide_border=false&count_private=true" alt="GitHub stats for lunanoir21" loading="lazy" />
-      </div>
-      <div class="activity-card reveal">
-        <div class="activity-caption" data-en="top languages" data-tr="en çok kullanılan diller">top languages</div>
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lunanoir21&layout=compact&theme=dark&bg_color=000000&border_color=1f1f1f&title_color=b794f4&text_color=888888&hide_border=false&langs_count=6" alt="Top languages for lunanoir21" loading="lazy" />
-      </div>
-      <div class="activity-card full reveal">
-        <div class="activity-caption" data-en="contribution graph — last 12 months" data-tr="katkı grafiği — son 12 ay">contribution graph — last 12 months</div>
-        <img src="https://github-readme-activity-graph.vercel.app/graph?username=lunanoir21&bg_color=000000&color=b794f4&line=9558b2&point=ffffff&area=true&area_color=1a1326&border_color=1f1f1f&hide_border=false" alt="Contribution graph for lunanoir21" loading="lazy" />
-      </div>
-    </div>
-  </div>
+<section class="sec sec-night" id="measured">
+<div class="wrap">
+<div class="sec-head" style="margin-bottom:0">
+<div>
+<h2 class="h2"><span class="en">Measured, not claimed</span><span class="tr">İddia değil, ölçüm</span></h2>
+<p class="sub"><span class="en">Every number here comes from the GitHub API. No estimates.</span><span class="tr">Buradaki her sayı GitHub API'den gelir. Tahmin yok.</span></p>
+</div>
+<span class="fresh" data-fresh></span>
+</div>
+
+<div class="stats">
+<div><b data-total-stars data-count>52</b><span><span class="en">stars across public repos</span><span class="tr">açık repolardaki yıldız</span></span></div>
+<div><b data-total-repos data-count>20</b><span><span class="en">public repos</span><span class="tr">açık repo</span></span></div>
+<div><b data-last-push>—</b><span><span class="en">last push</span><span class="tr">son güncelleme</span></span></div>
+</div>
+
+<div class="charts">
+<figure class="chart">
+<figcaption class="label"><span class="en">Stars per repo</span><span class="tr">Repo başına yıldız</span></figcaption>
+<ol class="bars" id="bars"></ol>
+</figure>
+<figure class="chart">
+<figcaption class="label"><span class="en">Languages by repo count</span><span class="tr">Repo sayısına göre diller</span></figcaption>
+<div class="lang-bar" id="langbar" role="img" aria-label="Languages"></div>
+<ul class="lang-key" id="langkey"></ul>
+</figure>
+<figure class="chart wide">
+<figcaption class="label"><span class="en">Repos started per month</span><span class="tr">Aylara göre başlanan repolar</span></figcaption>
+<ol class="cols" id="cols"></ol>
+</figure>
+</div>
+</div>
 </section>
 
-<!-- Contact -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="contact-kicker reveal">echo $CONTACT</div>
-    <h2 class="contact-title reveal" data-en="Let's build something" data-tr="Bir şeyler inşa edelim">Let's build something</h2>
-    <p class="contact-desc reveal" data-en="Open to collaboration on local-first tools, Rust and Go services, and Hyprland desktop work. If you want to build this way — with AI, and without pretending otherwise — even better. Email preferred, ProtonMail only." data-tr="Yerel-önce araçlar, Rust ve Go servisleri ve Hyprland masaüstü işleri üzerine işbirliğine açığım. Bu şekilde — yapay zekayla ve aksini iddia etmeden — inşa etmek istiyorsanız daha da iyi. Tercihen e-posta, yalnızca ProtonMail.">
-      Open to collaboration on local-first tools, Rust and Go services, and Hyprland desktop work. If you want to build this way — with AI, and without pretending otherwise — even better. Email preferred, ProtonMail only.
-    </p>
-    <div class="contact-links reveal">
-      <a class="btn btn-primary" href="https://github.com/lunanoir21" target="_blank" rel="noopener">
-        <svg class="ico" aria-hidden="true"><use href="#b-github"/></svg>
-        GitHub
-      </a>
-      <a class="btn btn-ghost" href="mailto:lunanoir_1@protonmail.com">
-        <svg class="ico" aria-hidden="true"><use href="#b-protonmail"/></svg>
-        ProtonMail
-      </a>
-      <a class="btn btn-ghost" href="https://lunanoir21.github.io/quickshell-dynamic-island/" target="_blank" rel="noopener">
-        <span data-en="Dynamic Island site" data-tr="Dynamic Island sitesi">Dynamic Island site</span>
-      </a>
-      <a class="btn btn-ghost" href="https://lunanoir21.github.io/Life-os-project/" target="_blank" rel="noopener">
-        <span data-en="Life OS demo" data-tr="Life OS demosu">Life OS demo</span>
-      </a>
-    </div>
-  </div>
+<section class="sec" id="how">
+<div class="wrap">
+<h2 class="h2"><span class="en">How I build, honestly</span><span class="tr">Nasıl yapıyorum, dürüstçe</span></h2>
+<div class="how">
+<article><p class="label"><span class="en">The code</span><span class="tr">Kod</span></p><h3 class="h3"><span class="en">AI writes it</span><span class="tr">Yapay zekâ yazıyor</span></h3><p><span class="en">I describe what I want and the AI builds it. I don't hide that, and I don't claim to be an engineer.</span><span class="tr">Ne istediğimi anlatıyorum, yapay zekâ yapıyor. Bunu saklamıyorum ve mühendis olduğumu iddia etmiyorum.</span></p></article>
+<article><p class="label"><span class="en">The judgment</span><span class="tr">Karar</span></p><h3 class="h3"><span class="en">I steer and review</span><span class="tr">Ben yönlendiriyor ve kontrol ediyorum</span></h3><p><span class="en">The ideas, the look and the decisions are mine. I run what I make on my own desktop and fix what feels wrong.</span><span class="tr">Fikirler, görünüm ve kararlar benim. Yaptıklarımı kendi masaüstümde çalıştırıyor, yanlış hissettireni düzeltiyorum.</span></p></article>
+<article><p class="label"><span class="en">The terms</span><span class="tr">Şartlar</span></p><h3 class="h3"><span class="en">Open and private</span><span class="tr">Açık ve gizli</span></h3><p><span class="en">Open source, local-first, no telemetry. Your data stays yours, and the code is there to read.</span><span class="tr">Açık kaynak, yerel öncelikli, telemetri yok. Verin senin kalır, kod da okunmak için orada.</span></p></article>
+</div>
+</div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <p><span class="coffee">☕</span> &nbsp;<span data-en="Built with AI, reviewed by hand" data-tr="Yapay zeka ile inşa edildi, elle incelendi">Built with AI, reviewed by hand</span> · <span>© 2026 Luna Noir</span> · <a href="https://github.com/lunanoir21">@lunanoir21</a></p>
-  </div>
+<section class="sec" id="faq" style="padding-top:24px">
+<div class="wrap">
+<h2 class="h2"><span class="en">Questions people ask</span><span class="tr">Sık sorulanlar</span></h2>
+<div class="faq">
+<details><summary><span class="en">Do you write the code yourself?</span><span class="tr">Kodu kendin mi yazıyorsun?</span></summary><p><span class="en">No. AI writes most of it. I decide what gets built and how it should feel, then run it, review it and fix what's wrong. That's why every project says it was built with AI.</span><span class="tr">Hayır. Kodun çoğunu yapay zekâ yazıyor. Ne yapılacağına ve nasıl hissettirmesi gerektiğine ben karar veriyorum, sonra çalıştırıyor, gözden geçiriyor ve bozuk olanı düzeltiyorum. Bu yüzden her proje yapay zekâyla yapıldığını söylüyor.</span></p></details>
+<details><summary><span class="en">Is it safe to run?</span><span class="tr">Çalıştırmak güvenli mi?</span></summary><p><span class="en">I run all of it on my own desktop, but I'm not a security professional. Everything is open source and local-first with no telemetry, so you can read the code before you trust it. Please do, especially for anything that touches your system.</span><span class="tr">Hepsini kendi masaüstümde çalıştırıyorum ama güvenlik uzmanı değilim. Her şey açık kaynak, yerel öncelikli ve telemetrisiz; güvenmeden önce kodu okuyabilirsin. Özellikle sisteme dokunan şeylerde lütfen oku.</span></p></details>
+<details><summary><span class="en">Something is broken. What now?</span><span class="tr">Bir şey bozuk. Ne yapmalıyım?</span></summary><p><span class="en">Open an issue on that project's GitHub page, or write to me. A short description and what you were doing is enough. I'll try to fix it.</span><span class="tr">O projenin GitHub sayfasında bir issue aç ya da bana yaz. Kısa bir açıklama ve ne yaptığın yeterli. Düzeltmeye çalışırım.</span></p></details>
+<details><summary><span class="en">Which systems do the desktop projects need?</span><span class="tr">Masaüstü projeleri hangi sistemi istiyor?</span></summary><p><span class="en">They are built on Quickshell and developed on Hyprland. Most need a compositor that supports wlr-layer-shell, so Hyprland, Sway, niri and similar. GNOME's Mutter does not. Several also ship as Omarchy plugins. Each project's page lists its exact requirements.</span><span class="tr">Quickshell üzerine kurulu ve Hyprland'de geliştiriliyor. Çoğu wlr-layer-shell destekleyen bir compositor ister: Hyprland, Sway, niri gibi. GNOME'un Mutter'ı desteklemiyor. Birçoğu Omarchy eklentisi olarak da var. Her projenin sayfasında tam gereksinimler yazıyor.</span></p></details>
+<details><summary><span class="en">Can I use or remix them?</span><span class="tr">Kullanabilir ya da değiştirebilir miyim?</span></summary><p><span class="en">Yes, that's why they're public. Check the license in each repo (it's shown on the project's details). Forks, fixes and ideas are welcome.</span><span class="tr">Evet, bu yüzden açık. Her reponun lisansına bak (projenin ayrıntılarında görünüyor). Fork, düzeltme ve fikirler memnuniyetle karşılanır.</span></p></details>
+</div>
+</div>
+</section>
+
+<section class="band band-end" id="contact">
+<div class="wrap contact">
+<div>
+<h2 class="h2"><span class="en">Found a bug? Have an idea?</span><span class="tr">Hata mı buldun? Fikrin mi var?</span></h2>
+<p class="sub"><span class="en">Open an issue on the project, or write to me.</span><span class="tr">Projenin Issues sayfasını aç ya da bana yaz.</span></p>
+</div>
+<div class="links">
+<a class="btn btn-solid" href="mailto:lunanoir_1@protonmail.com">lunanoir_1@protonmail.com</a>
+<button type="button" class="btn btn-line" id="copyMail"><span class="en">Copy email</span><span class="tr">E-postayı kopyala</span></button>
+<a class="btn btn-line" href="https://lunanoir21.github.io/" rel="noopener"><span class="en">Walk through my pixel world</span><span class="tr">Piksel dünyamda gez</span></a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="foot">
+<div class="wrap foot-in">
+<span class="sign">
+<svg class="sign-l sig" viewBox="0 0 140 170" width="26" height="32" aria-hidden="true"><path class="glyph" d="M101.9 158.0Q96.2 158.0 90.3 156.5Q84.3 154.9 79.1 152.8Q73.8 150.8 69.9 149.4Q62.8 146.9 56.6 144.4Q50.5 142.0 47.9 141.5Q34.9 138.1 29.5 138.1Q28.6 138.8 27.8 139.3Q27.0 139.7 26.1 139.9Q25.6 140.0 24.8 140.0Q22.4 140.0 22.4 138.4Q22.4 137.5 23.9 136.5Q25.0 136.0 26.4 135.9Q27.8 135.9 29.3 135.7Q32.4 133.0 35.1 128.9Q37.9 124.7 39.1 122.6Q40.1 120.7 41.1 118.9Q42.2 117.1 43.2 115.3Q41.1 115.9 38.8 116.3Q36.5 116.8 34.4 116.8Q30.5 116.8 27.3 115.2Q24.2 113.6 24.2 109.3Q24.2 106.5 26.7 104.1Q29.1 101.6 31.8 101.6Q33.4 101.6 33.4 103.0Q33.4 103.8 32.2 103.8Q30.7 103.8 29.5 105.5Q28.3 107.3 28.3 109.2Q28.3 110.5 29.2 111.8Q30.1 113.0 32.2 113.3Q34.2 113.7 36.5 113.7Q40.4 113.7 44.4 112.6Q46.3 108.9 48.0 105.2Q49.7 101.5 51.3 97.9Q54.6 90.5 58.1 83.5Q61.6 76.5 65.0 71.0Q68.3 65.5 71.0 62.9Q76.1 58.0 81.3 56.0Q86.4 54.0 90.6 54.0Q91.4 54.0 92.2 54.1Q93.0 54.1 93.7 54.3Q98.7 55.1 100.7 57.7Q102.7 60.3 102.7 63.9Q102.7 65.8 102.3 67.8Q100.5 76.3 95.2 83.7Q89.9 91.0 82.4 97.0Q74.9 103.0 66.4 107.1Q57.9 111.3 49.8 113.2Q48.1 116.1 46.1 119.0Q44.2 121.9 41.9 124.7Q40.5 126.7 38.0 129.9Q35.4 133.0 32.8 135.7Q34.6 135.9 36.9 136.1Q39.1 136.3 41.6 136.7Q52.8 138.4 64.0 141.8Q75.2 145.3 86.2 148.1Q89.3 148.9 95.0 150.1Q100.7 151.3 105.6 151.3Q110.5 151.3 113.0 149.5Q115.0 148.3 115.0 146.2Q115.0 144.6 113.5 143.5Q112.7 142.8 112.7 142.4Q112.7 141.1 114.4 142.0Q116.1 143.2 116.8 144.8Q117.6 146.5 117.6 148.2Q117.6 150.2 116.8 151.9Q116.1 153.6 115.0 154.2Q109.5 158.0 101.9 158.0ZM51.8 110.1Q66.7 103.7 78.0 94.4Q89.3 85.1 95.8 70.0Q98.0 65.3 98.0 61.8Q98.0 59.0 96.2 57.4Q95.3 56.1 93.1 56.1Q88.7 56.1 84.0 59.2Q80.0 62.2 76.4 67.0Q72.9 71.8 69.8 77.2Q66.7 82.6 64.4 87.3Q62.0 92.1 60.4 94.9Q59.3 97.1 57.1 101.2Q54.9 105.4 51.8 110.1Z"/><path class="halo" pathLength="1" d="M42 24C54 10 104 8 112 20C116 30 86 34 60 30C42 27 42 24 52 20"/></svg>
+<span>Luna Noir · <span class="en">built with AI, reviewed by hand</span><span class="tr">yapay zekâyla yapıldı, elle kontrol edildi</span></span>
+</span>
+<span class="foot-links"><span class="fresh" data-fresh></span><a href="https://github.com/lunanoir21" rel="noopener">GitHub</a><a href="https://github.com/lunanoir21?tab=repositories" rel="noopener"><span class="en">All repositories</span><span class="tr">Tüm repolar</span></a></span>
+</div>
 </footer>
 
-<script>
-(() => {
-  'use strict';
+<dialog id="pd" class="pd" aria-labelledby="pdName"></dialog>
 
-  /* ---------- Starfield ---------- */
-  const sf = document.getElementById('starfield');
-  if (sf) {
-    const n = window.innerWidth < 600 ? 60 : 140;
-    const frag = document.createDocumentFragment();
-    for (let i = 0; i < n; i++) {
-      const s = document.createElement('span');
-      s.className = 'star';
-      const size = Math.random() * 2 + 0.5;
-      s.style.width = size + 'px';
-      s.style.height = size + 'px';
-      s.style.left = Math.random() * 100 + '%';
-      s.style.top = Math.random() * 100 + '%';
-      s.style.animationDelay = (Math.random() * 4) + 's';
-      s.style.animationDuration = (3 + Math.random() * 4) + 's';
-      frag.appendChild(s);
-    }
-    sf.appendChild(frag);
-  }
+<dialog id="cp" class="cp" aria-label="Search and commands">
+<div class="cp-in">
+<input id="cpQ" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="cpList" aria-label="Search projects, sections and actions">
+<ul class="cp-list" id="cpList" role="listbox"></ul>
+<div class="cp-foot"><span>↑↓</span><span>Enter</span><span>Esc</span></div>
+</div>
+</dialog>
 
-  /* ---------- Typing animation ---------- */
-  const typed = document.getElementById('typed');
-  const phrasesByLang = {
-    en: [
-      'Built with AI. Reviewed by hand.',
-      'Vibe coder — spec first, ship after.',
-      'QML, Rust, TypeScript, Go, Dart.',
-      'Local-first. No telemetry. No excuses.'
-    ],
-    tr: [
-      'Yapay zeka ile inşa, elle inceleme.',
-      'Vibe coder — önce şartname, sonra sürüm.',
-      'QML, Rust, TypeScript, Go, Dart.',
-      'Yerel-önce. Telemetri yok. Bahane yok.'
-    ]
-  };
-  let lang = 'en';
-  let phraseIdx = 0, charIdx = 0, deleting = false;
+<div class="toast" id="toast" role="status"></div>
 
-  function tick() {
-    const phrases = phrasesByLang[lang];
-    const cur = phrases[phraseIdx];
-    if (!deleting) {
-      charIdx++;
-      typed.textContent = cur.slice(0, charIdx);
-      if (charIdx === cur.length) {
-        deleting = true;
-        setTimeout(tick, 1800);
-        return;
-      }
-      setTimeout(tick, 55 + Math.random() * 50);
-    } else {
-      charIdx--;
-      typed.textContent = cur.slice(0, charIdx);
-      if (charIdx === 0) {
-        deleting = false;
-        phraseIdx = (phraseIdx + 1) % phrases.length;
-        setTimeout(tick, 350);
-        return;
-      }
-      setTimeout(tick, 28);
-    }
-  }
-  if (typed) setTimeout(tick, 600);
 
-  /* ---------- Language toggle ---------- */
-  function applyLang(l) {
-    lang = l;
-    document.documentElement.lang = l;
-    document.querySelectorAll('[data-en]').forEach(el => {
-      const v = el.getAttribute('data-' + l);
-      if (v) el.textContent = v;
-    });
-    document.querySelectorAll('.lang-toggle button').forEach(b => {
-      b.classList.toggle('active', b.dataset.lang === l);
-    });
-    // Reset typing
-    if (typed) {
-      phraseIdx = 0; charIdx = 0; deleting = false;
-      typed.textContent = '';
-    }
-    try { localStorage.setItem('ln-lang', l); } catch (_) {}
-  }
-  document.querySelectorAll('.lang-toggle button').forEach(b => {
-    b.addEventListener('click', () => applyLang(b.dataset.lang));
-  });
-  // Restore
-  try {
-    const saved = localStorage.getItem('ln-lang');
-    if (saved === 'tr' || saved === 'en') applyLang(saved);
-  } catch (_) {}
 
-  /* ---------- Live numbers from GitHub (one request, nothing stored) ---------- */
-  (async () => {
-    try {
-      const res = await fetch('https://api.github.com/users/lunanoir21/repos?per_page=100&sort=updated');
-      if (!res.ok) return;
-      const repos = await res.json();
-      if (!Array.isArray(repos) || !repos.length) return;
-
-      const stars = repos.reduce((n, r) => n + (r.stargazers_count || 0), 0);
-      const setStat = (k, v) => {
-        document.querySelectorAll('[data-stat="' + k + '"]').forEach(el => { el.textContent = v; });
-      };
-      setStat('repos', repos.length);
-      setStat('stars', stars);
-
-      // days building, from the first repo I ever pushed
-      const first = repos.map(r => r.created_at).sort()[0];
-      if (first) {
-        const days = Math.floor((Date.now() - Date.parse(first)) / 86400000);
-        setStat('days', days);
-      }
-
-      // stars chart: rebuild the rows from live counts so the ranking stays true
-      const chart = document.getElementById('star-chart');
-      if (chart) {
-        const starred = repos.filter(r => r.stargazers_count > 0)
-                             .sort((a, b) => b.stargazers_count - a.stargazers_count)
-                             .slice(0, 6);
-        if (starred.length) {
-          const max = starred[0].stargazers_count;
-          const label = n => n.replace(/^quickshell-/, '').replace(/-project$/, '').replace(/^Life-os$/, 'Life OS');
-          chart.innerHTML = starred.map(r => {
-            const w = Math.round(r.stargazers_count / max * 100);
-            const nm = label(r.name);
-            return '<div class="bar-row star-row" data-repo="' + r.name + '">'
-              + '<span class="row-name mono">' + nm + '</span>'
-              + '<svg class="bar" width="100%" height="10" role="img" aria-label="' + nm + ': ' + r.stargazers_count + ' stars">'
-              + '<title>' + nm + ' \u2014 ' + r.stargazers_count + ' \u2605</title>'
-              + '<rect x="0" y="0" height="10" rx="5" width="' + w + '%" fill="var(--accent)"/></svg>'
-              + '<span class="row-val">' + r.stargazers_count + '</span></div>';
-          }).join('');
-        }
-      }
-
-      const byName = new Map(repos.map(r => [r.name, r]));
-      document.querySelectorAll('.proj-card[data-repo]').forEach(card => {
-        const r = byName.get(card.dataset.repo);
-        if (!r) return;
-        const n = card.querySelector('.star-n');
-        if (n) n.textContent = r.stargazers_count || 0;
-        const upd = card.querySelector('.upd');
-        if (upd && r.pushed_at) {
-          const d = r.pushed_at.slice(0, 10);
-          upd.setAttribute('data-en', 'updated ' + d);
-          upd.setAttribute('data-tr', 'g\u00fcncellendi ' + d);
-          upd.textContent = (lang === 'tr' ? 'g\u00fcncellendi ' : 'updated ') + d;
-        }
-      });
-    } catch (_) { /* offline or rate-limited: the values already in the HTML stand */ }
-  })();
-
-  /* ---------- Reveal on scroll ---------- */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  /* ---------- Active nav link ---------- */
-  const sections = ['about','process','stack','projects','activity','contact'].map(id => document.getElementById(id));
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const navIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(a => a.classList.toggle('active', a.dataset.nav === e.target.id));
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => s && navIO.observe(s));
-})();
-</script>
-
+<script src="assets/theme.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/fx.js"></script>
 </body>
 </html>

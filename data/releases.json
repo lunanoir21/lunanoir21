@@ -1,0 +1,149 @@
+{
+ "generatedAt": "2026-10-06T00:00:38Z",
+ "releases": [
+  {
+   "repo": "desktop-widget-control",
+   "tag": "v0.2.1",
+   "name": "Desktop Widget Control 0.2.1",
+   "published": "2026-10-01T16:54:37Z",
+   "prerelease": false,
+   "summary": "Outside text is always literal. DText, the one text control every widget uses, now sets textFormat: Text.PlainText, so a track title, artist or any other string that carries HTML (an <img> tag, say…",
+   "url": "https://github.com/lunanoir21/desktop-widget-control/releases/tag/v0.2.1"
+  },
+  {
+   "repo": "desktop-widget-control-omarchy",
+   "tag": "v0.2.0",
+   "name": "v0.2.0",
+   "published": "2026-09-30T23:21:22Z",
+   "prerelease": false,
+   "summary": "Desktop Widget Control 0.2.0 packaged for Omarchy: adds the AI limits widget (Claude and Codex 5-hour and weekly limits as twin rings or LED dots), bounded network reads, and the first-run tour's s…",
+   "url": "https://github.com/lunanoir21/desktop-widget-control-omarchy/releases/tag/v0.2.0"
+  },
+  {
+   "repo": "desktop-widget-control",
+   "tag": "v0.2.0",
+   "name": "Desktop Widget Control 0.2.0",
+   "published": "2026-09-30T23:20:46Z",
+   "prerelease": false,
+   "summary": "New module: AI limits, the 5-hour and weekly limits of Claude and Codex as twin rings (outer = 5 hours, inner = week) or LED dots, red above a warning level you set. Codex is read from its own sess…",
+   "url": "https://github.com/lunanoir21/desktop-widget-control/releases/tag/v0.2.0"
+  },
+  {
+   "repo": "desktop-widget-control",
+   "tag": "v0.1.3",
+   "name": "Desktop Widget Control 0.1.3",
+   "published": "2026-09-30T22:58:39Z",
+   "prerelease": false,
+   "summary": "Network reads are bounded. The weather widget and the city search now run curl through one helper (ui/js/Net.js): HTTPS only, a time limit, and a hard cap of 128 KiB on what is read back, enforced…",
+   "url": "https://github.com/lunanoir21/desktop-widget-control/releases/tag/v0.1.3"
+  },
+  {
+   "repo": "tally-screentime",
+   "tag": "v0.1.0",
+   "name": "tally-screentime 0.1.0",
+   "published": "2026-09-29T20:12:33Z",
+   "prerelease": false,
+   "summary": "First release. Counts what has focus, and nothing else. Focused-window time per app and per day, with hourly buckets, session counts and the longest uninterrupted run; when you go idle the minutes…",
+   "url": "https://github.com/lunanoir21/tally-screentime/releases/tag/v0.1.0"
+  },
+  {
+   "repo": "flare-notch",
+   "tag": "v1.1.0",
+   "name": "flare 1.1.0",
+   "published": "2026-09-27T20:11:34Z",
+   "prerelease": false,
+   "summary": "A first-run setup wizard: the settings window used to open straight onto the normal tabs, with no path to change the language or say which providers to draw before the widget just started drawing a…",
+   "url": "https://github.com/lunanoir21/flare-notch/releases/tag/v1.1.0"
+  },
+  {
+   "repo": "inktype",
+   "tag": "v0.1.0",
+   "name": "Inktype 0.1.0",
+   "published": "2026-09-24T21:21:20Z",
+   "prerelease": false,
+   "summary": "The first release of Inktype — free, open-source typing practice through real books. Typing console in the spirit of typelit: centred current line, nine glyph-accurate cursor shapes, pause/restart…",
+   "url": "https://github.com/lunanoir21/inktype/releases/tag/v0.1.0"
+  },
+  {
+   "repo": "flare-notch",
+   "tag": "v1.0.0",
+   "name": "flare 1.0.0",
+   "published": "2026-09-23T08:58:29Z",
+   "prerelease": false,
+   "summary": "flare is stable. From here on the config keys, the IPC calls and the JSON flare prints keep their meaning; new ones may be added, none will change More than one login: two Claude Code or Codex logi…",
+   "url": "https://github.com/lunanoir21/flare-notch/releases/tag/v1.0.0"
+  },
+  {
+   "repo": "flare-notch",
+   "tag": "v0.3.0",
+   "name": "flare 0.3.0",
+   "published": "2026-09-23T06:27:13Z",
+   "prerelease": false,
+   "summary": "Antigravity and Kiro: two more providers. Antigravity reads each model group's quota from its own status line capture (hooks/agy-statusline-capture.sh) and today's tokens and models from its conver…",
+   "url": "https://github.com/lunanoir21/flare-notch/releases/tag/v0.3.0"
+  },
+  {
+   "repo": "quickshell-dynamic-island",
+   "tag": "2026.08.17",
+   "name": "2026.08.17 — YouTube covers, fixed for non-English locales",
+   "published": "2026-09-16T19:41:26Z",
+   "prerelease": false,
+   "summary": "YouTube covers, fixed for non-English locales Under locales like trTR.UTF-8, glibc's regex engine treats [A-Za-z] as collation-aware rather than a plain byte range. That silently broke the video-id…",
+   "url": "https://github.com/lunanoir21/quickshell-dynamic-island/releases/tag/2026.08.17"
+  },
+  {
+   "repo": "quickshell-quay",
+   "tag": "v1.2.1",
+   "name": "Quay 1.2.1",
+   "published": "2026-09-16T06:16:45Z",
+   "prerelease": false,
+   "summary": "Unbounded application-directory scan. quayappfetcher.py walked ~/.local/share/applications, Flatpak and Nix profile directories — none of them fully under Quay's control — with no limit on file cou…",
+   "url": "https://github.com/lunanoir21/quickshell-quay/releases/tag/v1.2.1"
+  },
+  {
+   "repo": "quickshell-quay",
+   "tag": "v1.2.0",
+   "name": "Quay 1.2.0",
+   "published": "2026-09-15T17:28:59Z",
+   "prerelease": false,
+   "summary": "Three rail styles. Appearance → Style picks how the rail meets the screen edge. Floating, the default, keeps it off the edge by a gap you set. Flush runs a strip along the whole edge that flares in…",
+   "url": "https://github.com/lunanoir21/quickshell-quay/releases/tag/v1.2.0"
+  },
+  {
+   "repo": "quickshell-quay",
+   "tag": "v1.1.2",
+   "name": "Quay 1.1.2",
+   "published": "2026-09-14T21:19:36Z",
+   "prerelease": false,
+   "summary": "Available as an Omarchy plugin. quay-omarchy packages Quay for Omarchy's plugin marketplace as a service, alongside the same built-ins as background, lock, and notifications: omarchy plugin add htt…",
+   "url": "https://github.com/lunanoir21/quickshell-quay/releases/tag/v1.1.2"
+  },
+  {
+   "repo": "aurguard-project",
+   "tag": "v1.4.1",
+   "name": "v1.4.1",
+   "published": "2026-06-16T18:19:22Z",
+   "prerelease": false,
+   "summary": "",
+   "url": "https://github.com/lunanoir21/aurguard-project/releases/tag/v1.4.1"
+  },
+  {
+   "repo": "aurguard-project",
+   "tag": "v1.2.0",
+   "name": "v1.2.0",
+   "published": "2026-06-16T08:09:28Z",
+   "prerelease": false,
+   "summary": "",
+   "url": "https://github.com/lunanoir21/aurguard-project/releases/tag/v1.2.0"
+  },
+  {
+   "repo": "aurguard-project",
+   "tag": "v1.0.0",
+   "name": "v1.0.0",
+   "published": "2026-06-15T20:29:29Z",
+   "prerelease": false,
+   "summary": "",
+   "url": "https://github.com/lunanoir21/aurguard-project/releases/tag/v1.0.0"
+  }
+ ]
+}
