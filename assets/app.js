@@ -218,7 +218,7 @@ ${IMG[p.repo] ? `<a class="shot" href="${linkFor(p.repo)}" rel="noopener" tabind
 <p>${both(p.en, p.tr)}${p.pre ? ` <span class="pre">${both('pre-release', 'ön sürüm')}</span>` : ''}</p>
 ${tags.length ? `<div class="card-sub">${tags.map((x) => `<span class="topic">${esc(x)}</span>`).join('')}</div>` : ''}
 ${p.omr ? `<div class="card-omr">${both('Also as an', 'Ayrıca')} <a href="${REPO(p.omr)}" rel="noopener">Omarchy plugin</a></div>` : ''}
-<div class="card-foot"><span class="meta"><span class="stars">${star()}<span>${r.stars}</span></span><span>${esc(p.tech)}</span>${r.pushed ? `<span>${esc(rel(r.pushed))}</span>` : ''}</span>
+<div class="card-foot"><span class="meta"><span class="stars" title="${esc(t().stars)}">${star()}<span>${r.stars}</span></span><span>${esc(p.tech)}</span>${r.pushed ? `<span>${esc(rel(r.pushed))}</span>` : ''}</span>
 <span class="acts"><button type="button" class="more" data-open="${p.repo}">${both('Details', 'Ayrıntılar')} <svg class="ico" width="12" height="12" aria-hidden="true"><use href="#ico-arrow"/></svg></button>${p.page ? `<a href="${PAGE(p.repo)}" rel="noopener">${both('Page', 'Sayfa')} ${out}</a>` : ''}<a href="${REPO(p.repo)}" rel="noopener">GitHub ${out}</a></span></div>
 </article>`;
   };
@@ -255,7 +255,7 @@ ${p.omr ? `<div class="card-omr">${both('Also as an', 'Ayrıca')} <a href="${REP
   const renderOmarchy = () => {
     $('#omr').innerHTML = PROJECTS.filter((p) => p.omr).map((p) => {
       const cmd = OM(p.omr), n = R(p.omr).stars;
-      return `<article><div><h3 class="omn"><a href="${REPO(p.omr)}" rel="noopener">${esc(p.name)}</a></h3><div class="omm"><span class="tag">${esc(OCAT[p.repo] || 'Plugin')}</span><span class="stars">${star(12)}<span>${n}</span></span><a href="${linkFor(p.repo)}" rel="noopener">${both('Project page', 'Proje sayfası')} ${out}</a></div></div>
+      return `<article><div><h3 class="omn"><a href="${REPO(p.omr)}" rel="noopener">${esc(p.name)}</a></h3><div class="omm"><span class="tag">${esc(OCAT[p.repo] || 'Plugin')}</span><span class="stars" title="${esc(t().stars)}">${star(12)}<span>${n}</span></span><a href="${linkFor(p.repo)}" rel="noopener">${both('Project page', 'Proje sayfası')} ${out}</a></div></div>
 <p class="omd">${both(p.en, p.tr)}</p>
 <div class="cmd"><span class="cl">${both('Install', 'Kurulum')}</span><code>${esc(cmd)}</code><button type="button" data-copy="${esc(cmd)}">${both('Copy', 'Kopyala')}</button></div></article>`;
     }).join('');
