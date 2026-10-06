@@ -64,6 +64,9 @@
   const moonBox = $('#moonwrap'), heroEl = $('#hero');
   const CRES = new Path2D('M18.84 75.56A44 44 0 1 0 58.54 16.02A36 36 0 1 1 18.84 75.56Z');
   const CUTS = [[73.8, 63.9, 105.9, 79.9, 0.9], [77.5, 48, 108.5, 48, 1.05], [73.8, 32.1, 93.1, 22.5, 1.2]];
+  const SHIMMER_EVERY = 7.5, SHIMMER_FOR = 3.2;
+  const GLINTS = [[-38, 0, 6.1], [22, 1.7, 7.3], [68, 3.4, 5.6], [112, 5.1, 6.8]];
+  const SPARK = new Path2D('M0,-1L.22,-.22L1,0L.22,.22L0,1L-.22,.22L-1,0L-.22,-.22Z');
   const t0 = performance.now();
   let moonAlpha = 1;
   const readMoonAlpha = () => { moonAlpha = parseFloat(getComputedStyle(moonBox).opacity); if (isNaN(moonAlpha)) moonAlpha = 1; };
@@ -77,8 +80,28 @@
     ctx.save();
     ctx.beginPath(); ctx.rect(hero.left, hero.top, hero.width, hero.height); ctx.clip();
     ctx.translate(r.left, r.top); ctx.scale(s, s);
-    ctx.fillStyle = `rgba(${moonRGB},${(.95 * moonAlpha * ease(el / 1.6)).toFixed(3)})`;
+    const I = .95 * moonAlpha * ease(el / 1.6);
+    ctx.fillStyle = `rgba(${moonRGB},${(I * (calm ? 1 : .94)).toFixed(3)})`;
     ctx.fill(CRES);
+    if (!calm && el > 2.4) {
+      /* passive shimmer: a soft band of light crosses the crescent every few seconds ... */
+      const tt = (el - 2.4) % SHIMMER_EVERY;
+      if (tt < SHIMMER_FOR) {
+        const k = tt / SHIMMER_FOR, e = k * k * (3 - 2 * k), cx = -50 + e * 220;
+        ctx.save(); ctx.clip(CRES); ctx.transform(1, 0, -.34, 1, 0, 0);
+        const g = ctx.createLinearGradient(cx - 26, 0, cx + 26, 0);
+        g.addColorStop(0, `rgba(${moonRGB},0)`); g.addColorStop(.5, `rgba(${moonRGB},${(I * Math.sin(Math.PI * k)).toFixed(3)})`); g.addColorStop(1, `rgba(${moonRGB},0)`);
+        ctx.fillStyle = g; ctx.fillRect(-120, -20, 360, 160); ctx.restore();
+      }
+      /* ... and little glints twinkle on the edge, each on its own slow rhythm */
+      GLINTS.forEach(([deg, off, per]) => {
+        const u = (((el - 2.4) + off) % per) / 1.9;
+        if (u < 0 || u >= 1) return;
+        const s = Math.sin(Math.PI * u), a = deg * Math.PI / 180;
+        ctx.save(); ctx.translate(60 + 44 * Math.cos(a), 60 + 44 * Math.sin(a)); ctx.scale(1 + 3.2 * s, 1 + 3.2 * s);
+        ctx.fillStyle = `rgba(${moonRGB},${(.95 * moonAlpha * s).toFixed(3)})`; ctx.fill(SPARK); ctx.restore();
+      });
+    }
     ctx.strokeStyle = inkColor; ctx.lineCap = 'butt';
     CUTS.forEach(([x1, y1, x2, y2, d]) => {
       ctx.lineWidth = 3 * ease((el - d) / 1.5);
