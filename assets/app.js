@@ -251,6 +251,16 @@ ${p.omr ? `<div class="card-omr">${both('Also as an', 'Ayrıca')} <a href="${REP
     $('#rel').innerHTML = rows.length ? rows.map((r) => `<li><a href="${esc(r.url)}" rel="noopener">${esc(labelOf(r.repo))}</a><span class="d">${esc(r.summary || r.name)}</span><span class="t">${esc(rel(r.published))}</span><span class="s">${esc(r.tag)}</span></li>`).join('') : `<li><span class="d">${esc(t().loading)}</span></li>`;
   };
 
+  const OCAT = { 'quickshell-dynamic-island': 'Widgets', 'quickshell-quay': 'Desktop', 'flare-notch': 'Widgets', 'tally-screentime': 'Widgets', 'desktop-widget-control': 'Widgets' };
+  const renderOmarchy = () => {
+    $('#omr').innerHTML = PROJECTS.filter((p) => p.omr).map((p) => {
+      const cmd = OM(p.omr), n = R(p.omr).stars;
+      return `<article><div><h3 class="omn"><a href="${REPO(p.omr)}" rel="noopener">${esc(p.name)}</a></h3><div class="omm"><span class="tag">${esc(OCAT[p.repo] || 'Plugin')}</span><span class="stars">${star(12)}<span>${n}</span></span><a href="${linkFor(p.repo)}" rel="noopener">${both('Project page', 'Proje sayfası')} ${out}</a></div></div>
+<p class="omd">${both(p.en, p.tr)}</p>
+<div class="cmd"><span class="cl">${both('Install', 'Kurulum')}</span><code>${esc(cmd)}</code><button type="button" data-copy="${esc(cmd)}">${both('Copy', 'Kopyala')}</button></div></article>`;
+    }).join('');
+  };
+
   /* ---------- today's moon: the real phase, computed from the date ---------- */
   const SYN = 29.530588853, REF = Date.UTC(2000, 0, 6, 18, 14);
   const PHASES = [[1.85, 'New moon', 'Yeni ay'], [5.54, 'Waxing crescent', 'Büyüyen hilal'], [9.22, 'First quarter', 'İlk dördün'], [12.91, 'Waxing gibbous', 'Büyüyen şişkin ay'], [16.61, 'Full moon', 'Dolunay'], [20.3, 'Waning gibbous', 'Küçülen şişkin ay'], [23.99, 'Last quarter', 'Son dördün'], [27.68, 'Waning crescent', 'Küçülen hilal'], [99, 'New moon', 'Yeni ay']];
@@ -340,7 +350,7 @@ ${(() => { const lr = D.rels.find((x) => x.repo === repo); return lr ? `<p class
   const go = (id) => () => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
   const buildItems = () => {
     const L = lang() === 'tr';
-    const nav = [['projects', 'Projeler', 'Projects'], ['activity', 'Etkinlik', 'Activity'], ['measured', 'Ölçülen', 'Measured'], ['how', 'Nasıl yapıyorum', 'How I build'], ['faq', 'SSS', 'FAQ'], ['contact', 'İletişim', 'Contact']];
+    const nav = [['projects', 'Projeler', 'Projects'], ['omarchy', 'Omarchy', 'Omarchy'], ['activity', 'Etkinlik', 'Activity'], ['measured', 'Ölçülen', 'Measured'], ['how', 'Nasıl yapıyorum', 'How I build'], ['faq', 'SSS', 'FAQ'], ['contact', 'İletişim', 'Contact']];
     items = nav.map(([id, tr, en]) => ({ label: L ? tr : en, hint: t().cpGo, run: go(id), kw: id }))
       .concat(PROJECTS.map((p) => ({ label: p.name, hint: t().cpProj, run: () => openProject(p.repo), kw: p.repo + ' ' + p.tech })))
       .concat([
@@ -378,6 +388,10 @@ ${(() => { const lr = D.rels.find((x) => x.repo === repo); return lr ? `<p class
     else if (e.key === '/' && !typing && !cp.open && !dlg.open) { e.preventDefault(); qEl.focus(); qEl.select(); }
   });
   $('#copyMail').addEventListener('click', copyMail);
+  $('#omr').addEventListener('click', async (e) => {
+    const cb = e.target.closest('[data-copy]'); if (!cb) return;
+    try { await navigator.clipboard.writeText(cb.dataset.copy); toast(t().copied2); } catch (err) { toast(t().copyFail); }
+  });
 
   /* ---------- reveal ---------- */
   const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.08 }) : null;
@@ -388,7 +402,7 @@ ${(() => { const lr = D.rels.find((x) => x.repo === repo); return lr ? `<p class
   addEventListener('scroll', onScroll, { passive: true });
 
   /* ---------- boot ---------- */
-  const renderAll = () => { renderTools(); renderGrid(); renderReleases(); renderActivity(); renderToday(); renderMeasured(); renderFresh(); if (dlg.open && current) openProject(current, false); };
+  const renderAll = () => { renderTools(); renderGrid(); renderReleases(); renderOmarchy(); renderActivity(); renderToday(); renderMeasured(); renderFresh(); if (dlg.open && current) openProject(current, false); };
   let saved = null; try { saved = localStorage.getItem('lang'); } catch (e) {}
   const boot = saved || (/^tr/i.test(navigator.language) ? 'tr' : 'en');
   root.dataset.lang = boot; root.lang = boot;

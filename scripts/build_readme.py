@@ -23,6 +23,8 @@ PROJECTS = [
     ("Life-os-project", "Life OS", "A local-first personal life OS.", True, "docs/screenshots/dashboard.jpg"),
     ("aurguard-project", "AURGuard", "Checks AUR packages before you install them.", True, "assets/install.gif"),
 ]
+OMARCHY = {"quickshell-dynamic-island": "dynamic-island-omarchy", "quickshell-quay": "quay-omarchy", "flare-notch": "flare-omarchy",
+           "tally-screentime": "tally-omarchy", "desktop-widget-control": "desktop-widget-control-omarchy"}
 MORE = [("petty", "petty", "a pixel-art pet for your terminal"), ("orca-project", "Orca", "a security-focused file manager (pre-release)"),
         ("connectible-project", "Connectible", "a KDE Connect alternative (pre-release)")]
 
@@ -114,6 +116,13 @@ def main():
             break
     releases = "| Project | Release | When | What changed |\n| --- | --- | --- | --- |\n" + "\n".join(rel_rows)
 
+    om_rows = []
+    for repo, name, desc, page, img in PROJECTS:
+        om = OMARCHY.get(repo)
+        if om:
+            om_rows.append(f'| [{name}](https://github.com/{USER}/{om}) | {desc} | `omarchy plugin add https://github.com/{USER}/{om}.git --enable` | ★ {by.get(om, {}).get("stars", 0)} |')
+    omarchy = "| Plugin | What it does | Install | Stars |\n| --- | --- | --- | --- |\n" + "\n".join(om_rows)
+
     readme = f"""<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
@@ -140,6 +149,14 @@ def main():
 ## New releases
 
 {releases}
+
+## Running Omarchy?
+
+Five of my projects are packaged as [Omarchy](https://omarchy.org) plugins. One command installs and enables each. Browse more in the [Omarchy plugin marketplace](https://plugins.omarchy.org/).
+
+{omarchy}
+
+<sub>Plugins run with your user's permissions and are not sandboxed. Mine are open source with no telemetry, but read the code before you enable any plugin.</sub>
 
 ## Stars
 

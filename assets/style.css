@@ -378,3 +378,18 @@ dialog[open]{animation:dlg .35s cubic-bezier(.2,.7,.2,1)}
   .cmd{grid-template-columns:minmax(0,1fr) auto}
   .cmd .cl{grid-column:1/-1}
 }
+
+/* ===== Omarchy plugins ===== */
+.sec-omr{padding-top:104px}
+.omr{margin-top:40px;border-top:1px solid var(--line)}
+.omr article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:14px 40px;padding:26px 4px;border-bottom:1px solid var(--line)}
+.omn{margin:0;font:var(--dw,400) 28px/1.1 var(--serif)}
+.omn a:hover{color:var(--moon)}
+.omm{display:flex;align-items:center;gap:14px;margin-top:8px;font:400 12.5px var(--mono);color:var(--dusk)}
+.omd{margin:0;color:var(--soft);font-size:15.5px}
+.omr .cmd{grid-column:1/-1}
+.omr-foot{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;margin-top:32px}
+.omr-note{margin:0;max-width:640px;font-size:14px;color:var(--dusk)}
+@media (max-width:760px){.omr article{grid-template-columns:1fr}}
+
+.h2s{font-size:clamp(32px,4vw,48px)}

@@ -36,6 +36,20 @@
 | [Inktype](https://github.com/lunanoir21/inktype/releases/tag/v0.1.0) | `v0.1.0` | 11 days ago | The first release of Inktype — free, open-source typing practice through real books. Typing console in the spirit of typelit: centred current line, nine glyph-accurate cursor shapes, pause/restart… |
 | [Dynamic Island](https://github.com/lunanoir21/quickshell-dynamic-island/releases/tag/2026.08.17) | `2026.08.17` | 19 days ago | YouTube covers, fixed for non-English locales Under locales like trTR.UTF-8, glibc's regex engine treats [A-Za-z] as collation-aware rather than a plain byte range. That silently broke the video-id… |
 
+## Running Omarchy?
+
+Five of my projects are packaged as [Omarchy](https://omarchy.org) plugins. One command installs and enables each. Browse more in the [Omarchy plugin marketplace](https://plugins.omarchy.org/).
+
+| Plugin | What it does | Install | Stars |
+| --- | --- | --- | --- |
+| [Dynamic Island](https://github.com/lunanoir21/dynamic-island-omarchy) | Monochrome Dynamic Island for Hyprland: media, timers, pixel clock, privacy indicators. | `omarchy plugin add https://github.com/lunanoir21/dynamic-island-omarchy.git --enable` | ★ 3 |
+| [Quay](https://github.com/lunanoir21/quay-omarchy) | A vertical, home-screen-style app launcher with live window previews. | `omarchy plugin add https://github.com/lunanoir21/quay-omarchy.git --enable` | ★ 2 |
+| [Flare Notch](https://github.com/lunanoir21/flare-omarchy) | Your AI coding limits on the screen edge. | `omarchy plugin add https://github.com/lunanoir21/flare-omarchy.git --enable` | ★ 3 |
+| [Tally](https://github.com/lunanoir21/tally-omarchy) | Screen time for Hyprland with PNG, PDF and HTML reports. | `omarchy plugin add https://github.com/lunanoir21/tally-omarchy.git --enable` | ★ 2 |
+| [Widget Control](https://github.com/lunanoir21/desktop-widget-control-omarchy) | Live desktop widgets with a full editor. | `omarchy plugin add https://github.com/lunanoir21/desktop-widget-control-omarchy.git --enable` | ★ 1 |
+
+<sub>Plugins run with your user's permissions and are not sandboxed. Mine are open source with no telemetry, but read the code before you enable any plugin.</sub>
+
 ## Stars
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stars-dark.svg"><img alt="Stars per repository" src="assets/stars-light.svg" width="900"></picture>
