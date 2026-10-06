@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-06T15:58:46Z",
+ "generatedAt": "2026-10-06T22:40:21Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
@@ -368,15 +368,15 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/scribe/",
    "created": "2026-10-06T10:18:28Z",
-   "pushed": "2026-10-06T12:14:00Z",
-   "size": 1924
+   "pushed": "2026-10-06T21:01:26Z",
+   "size": 3577
   },
   {
    "name": "scribe-omarchy",
    "description": "Scribe packaged as an Omarchy shell plugin: select and copy text from anywhere on the screen, like Google Lens",
    "stars": 1,
    "forks": 0,
-   "issues": 0,
+   "issues": 1,
    "language": "QML",
    "topics": [
     "hyprland",
@@ -388,8 +388,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/scribe/",
    "created": "2026-10-06T10:57:24Z",
-   "pushed": "2026-10-06T11:40:43Z",
-   "size": 627
+   "pushed": "2026-10-06T21:02:34Z",
+   "size": 672
   },
   {
    "name": "inktype",
@@ -432,8 +432,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-10-06T06:24:51Z",
-   "size": 425
+   "pushed": "2026-10-06T15:58:57Z",
+   "size": 431
   },
   {
    "name": "lunanoir21.github.io",

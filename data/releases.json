@@ -1,6 +1,15 @@
 {
- "generatedAt": "2026-10-06T15:58:46Z",
+ "generatedAt": "2026-10-06T22:40:21Z",
  "releases": [
+  {
+   "repo": "scribe",
+   "tag": "v0.3.0",
+   "name": "scribe 0.3.0",
+   "published": "2026-10-06T21:01:26Z",
+   "prerelease": false,
+   "summary": "Translation, a dictionary, smart actions, and better reading of hard backgrounds. New: translation (off by default) Switch it on in the settings panel (Translation > Enable translation). A card say…",
+   "url": "https://github.com/lunanoir21/scribe/releases/tag/v0.3.0"
+  },
   {
    "repo": "scribe",
    "tag": "v0.2.1",
