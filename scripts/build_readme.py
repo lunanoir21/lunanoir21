@@ -18,13 +18,14 @@ PROJECTS = [
     ("flare-notch", "Flare Notch", "Your AI coding limits on the screen edge.", True, "docs/screenshots/sessions.png"),
     ("tally-screentime", "Tally", "Screen time for Hyprland with PNG, PDF and HTML reports.", True, "docs/screenshots/hero.png"),
     ("desktop-widget-control", "Widget Control", "Live desktop widgets with a full editor.", True, "docs/screenshots/black/editor.webp"),
+    ("scribe", "Scribe", "Select and copy text from anywhere on your Hyprland screen, like Google Lens.", True, "preview.png"),
     ("dep-lens", "dep-lens", "Dependencies, licenses and commercial-use risk across 9 ecosystems.", True, "docs/assets/tui-screenshot.png"),
     ("inktype", "Inktype", "Free typing practice through real books.", True, "docs/screenshots/typing.png"),
     ("Life-os-project", "Life OS", "A local-first personal life OS.", True, "docs/screenshots/dashboard.jpg"),
     ("aurguard-project", "AURGuard", "Checks AUR packages before you install them.", True, "assets/install.gif"),
 ]
 OMARCHY = {"quickshell-dynamic-island": "dynamic-island-omarchy", "quickshell-quay": "quay-omarchy", "flare-notch": "flare-omarchy",
-           "tally-screentime": "tally-omarchy", "desktop-widget-control": "desktop-widget-control-omarchy"}
+           "tally-screentime": "tally-omarchy", "desktop-widget-control": "desktop-widget-control-omarchy", "scribe": "scribe-omarchy"}
 MORE = [("petty", "petty", "a pixel-art pet for your terminal"), ("orca-project", "Orca", "a security-focused file manager (pre-release)"),
         ("connectible-project", "Connectible", "a KDE Connect alternative (pre-release)")]
 
@@ -32,6 +33,9 @@ SANS = "ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
 MONO = "ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
 THEMES = {"dark": dict(bg="#000000", line="#30363d", fg="#ffffff", dim="#8b949e", bar="#ffffff", track="#21262d"),
           "light": dict(bg="#ffffff", line="#d0d7de", fg="#0a0a0a", dim="#57606a", bar="#0a0a0a", track="#eaeef2")}
+
+
+NUMWORD = {5: "Five", 6: "Six", 7: "Seven", 8: "Eight"}
 
 
 def ago(iso):
@@ -152,7 +156,7 @@ def main():
 
 ## Running Omarchy?
 
-Five of my projects are packaged as [Omarchy](https://omarchy.org) plugins. One command installs and enables each. Browse more in the [Omarchy plugin marketplace](https://plugins.omarchy.org/).
+{NUMWORD[len(om_rows)]} of my projects are packaged as [Omarchy](https://omarchy.org) plugins. One command installs and enables each. Browse more in the [Omarchy plugin marketplace](https://plugins.omarchy.org/).
 
 {omarchy}
 

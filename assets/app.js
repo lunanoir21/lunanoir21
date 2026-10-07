@@ -67,6 +67,14 @@
         ['Nine themes, Turkish and English. The layout is one JSON file that is picked up live.', 'Dokuz tema, Türkçe ve İngilizce. Yerleşim, canlı okunan tek bir JSON dosyası.'],
         ['Cheap to run: data sources only start while a widget needs them.', 'Ucuz çalışır: veri kaynakları yalnızca bir widget’ın ihtiyacı olduğunda başlar.'],
         ['One-line installer, plus an Omarchy plugin.', 'Tek satırlık kurulum ve ayrıca bir Omarchy eklentisi.']] },
+    { repo: 'scribe', name: 'Scribe', g: 'desktop', page: true, omr: 'scribe-omarchy', tech: 'QML',
+      en: 'Select and copy text from anywhere on your Hyprland screen, like Google Lens: drag a region, read it with Tesseract, copy or translate it.',
+      tr: 'Hyprland ekranının herhangi bir yerinden metin seç ve kopyala, Google Lens gibi: bir bölge sürükle, Tesseract ile oku, kopyala ya da çevir.',
+      hl: [['Drag over any region of the screen; the text is read on your machine and nothing leaves it.', 'Ekranın herhangi bir bölgesini sürükle; metin kendi bilgisayarında okunur, hiçbir şey dışarı çıkmaz.'],
+        ['Select words like real text, copy them, or join a paragraph back into one line.', 'Kelimeleri gerçek metin gibi seç, kopyala ya da bir paragrafı tek satıra birleştir.'],
+        ['Optional offline translation with a dictionary, and links, e-mails, phones and IBANs become buttons.', 'İsteğe bağlı çevrimdışı çeviri ve sözlük; bağlantı, e-posta, telefon ve IBAN düğmeye dönüşür.'],
+        ['Pick the scan animation you like: line, rows, shine, pixels, outline or focus.', 'Sevdiğin tarama animasyonunu seç: çizgi, satır, parıltı, piksel, çevre ya da odak.'],
+        ['English and Turkish interface, many reading languages, and an Omarchy plugin.', 'İngilizce ve Türkçe arayüz, birçok okuma dili ve bir Omarchy eklentisi.']] },
     { repo: 'aurguard-project', name: 'AURGuard', g: 'tools', page: true, tech: 'Rust',
       en: 'Security guard for AUR packages: analyzes PKGBUILD and .install scripts before you install. Multilingual, no telemetry.',
       tr: 'AUR paketleri için güvenlik bekçisi: kurmadan önce PKGBUILD ve .install betiklerini inceler. Çok dilli, telemetri yok.',
@@ -122,7 +130,7 @@
   const RAW = (repo, path) => `https://raw.githubusercontent.com/${USER}/${repo}/main/${path}`;
   const IMG = {
     'quickshell-dynamic-island': 'docs/cover.png', 'quickshell-quay': 'docs/screenshots/preview.png', 'flare-notch': 'docs/screenshots/sessions.png',
-    'tally-screentime': 'docs/screenshots/hero.png', 'desktop-widget-control': 'docs/screenshots/black/editor.webp', 'aurguard-project': 'assets/install.gif',
+    'tally-screentime': 'docs/screenshots/hero.png', 'desktop-widget-control': 'docs/screenshots/black/editor.webp', 'scribe': 'preview.png', 'aurguard-project': 'assets/install.gif',
     'dep-lens': 'docs/assets/tui-screenshot.png', 'inktype': 'docs/screenshots/typing.png', 'Life-os-project': 'docs/screenshots/dashboard.jpg'
   };
   /* install commands, copied from each README */
@@ -133,6 +141,7 @@
     'flare-notch': [['Omarchy', OM('flare-omarchy')], ['Manual', `git clone https://github.com/${USER}/flare-notch && cd flare-notch && ./install.sh`]],
     'tally-screentime': [['Omarchy', OM('tally-omarchy')]],
     'desktop-widget-control': [['One line', `curl -fsSL https://raw.githubusercontent.com/${USER}/desktop-widget-control/main/install.sh | sh`], ['Omarchy', OM('desktop-widget-control-omarchy')]],
+    'scribe': [['Omarchy', OM('scribe-omarchy')], ['Manual', `git clone https://github.com/${USER}/scribe`]],
     'aurguard-project': [['Cargo', 'cargo install aurguard'], ['npm', 'npm install -g aurguard']],
     'dep-lens': [['npm', 'npm install -g @lunanoir/dep-lens']],
     'petty': [['Cargo', `git clone https://github.com/${USER}/petty && cd petty && cargo install --path .`]]
@@ -251,7 +260,7 @@ ${p.omr ? `<div class="card-omr">${both('Also as an', 'Ayrıca')} <a href="${REP
     $('#rel').innerHTML = rows.length ? rows.map((r) => `<li><a href="${esc(r.url)}" rel="noopener">${esc(labelOf(r.repo))}</a><span class="d">${esc(r.summary || r.name)}</span><span class="t">${esc(rel(r.published))}</span><span class="s">${esc(r.tag)}</span></li>`).join('') : `<li><span class="d">${esc(t().loading)}</span></li>`;
   };
 
-  const OCAT = { 'quickshell-dynamic-island': 'Widgets', 'quickshell-quay': 'Desktop', 'flare-notch': 'Widgets', 'tally-screentime': 'Widgets', 'desktop-widget-control': 'Widgets' };
+  const OCAT = { 'quickshell-dynamic-island': 'Widgets', 'quickshell-quay': 'Desktop', 'flare-notch': 'Widgets', 'tally-screentime': 'Widgets', 'desktop-widget-control': 'Widgets', 'scribe': 'Widgets' };
   const renderOmarchy = () => {
     $('#omr').innerHTML = PROJECTS.filter((p) => p.omr).map((p) => {
       const cmd = OM(p.omr), n = R(p.omr).stars;
