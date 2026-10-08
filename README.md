@@ -30,9 +30,9 @@
 
 | Project | Release | When | What changed |
 | --- | --- | --- | --- |
-| [Scribe](https://github.com/lunanoir21/scribe/releases/tag/v0.3.0) | `v0.3.0` | yesterday | Translation, a dictionary, smart actions, and better reading of hard backgrounds. New: translation (off by default) Switch it on in the settings panel (Translation > Enable translation). A card say… |
+| [Scribe](https://github.com/lunanoir21/scribe/releases/tag/v0.4.0) | `v0.4.0` | today | A choice of scan animations, and less work per mouse move and per word. New: scan animation Pick the animation shown while a region is being read, in the settings panel (Scan animation): Line (the… |
 | [Widget Control](https://github.com/lunanoir21/desktop-widget-control/releases/tag/v0.2.1) | `v0.2.1` | 6 days ago | Outside text is always literal. DText, the one text control every widget uses, now sets textFormat: Text.PlainText, so a track title, artist or any other string that carries HTML (an <img> tag, say… |
-| [desktop-widget-control-omarchy](https://github.com/lunanoir21/desktop-widget-control-omarchy/releases/tag/v0.2.0) | `v0.2.0` | 6 days ago | Desktop Widget Control 0.2.0 packaged for Omarchy: adds the AI limits widget (Claude and Codex 5-hour and weekly limits as twin rings or LED dots), bounded network reads, and the first-run tour's s… |
+| [desktop-widget-control-omarchy](https://github.com/lunanoir21/desktop-widget-control-omarchy/releases/tag/v0.2.0) | `v0.2.0` | 7 days ago | Desktop Widget Control 0.2.0 packaged for Omarchy: adds the AI limits widget (Claude and Codex 5-hour and weekly limits as twin rings or LED dots), bounded network reads, and the first-run tour's s… |
 | [Tally](https://github.com/lunanoir21/tally-screentime/releases/tag/v0.1.0) | `v0.1.0` | 8 days ago | First release. Counts what has focus, and nothing else. Focused-window time per app and per day, with hourly buckets, session counts and the longest uninterrupted run; when you go idle the minutes… |
 | [Flare Notch](https://github.com/lunanoir21/flare-notch/releases/tag/v1.1.0) | `v1.1.0` | 10 days ago | A first-run setup wizard: the settings window used to open straight onto the normal tabs, with no path to change the language or say which providers to draw before the widget just started drawing a… |
 | [Inktype](https://github.com/lunanoir21/inktype/releases/tag/v0.1.0) | `v0.1.0` | 13 days ago | The first release of Inktype — free, open-source typing practice through real books. Typing console in the spirit of typelit: centred current line, nine glyph-accurate cursor shapes, pause/restart… |
@@ -70,4 +70,4 @@ Yapay zekâ kullanarak proje ve araçlar yapan biriyim. **Yazılımcı değilim*
 
 </details>
 
-<sub>This page refreshes itself every few hours with GitHub Actions: stars, releases and the gallery all come from the repos. Last refresh: 2026-10-07.</sub>
+<sub>This page refreshes itself every few hours with GitHub Actions: stars, releases and the gallery all come from the repos. Last refresh: 2026-10-08.</sub>

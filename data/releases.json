@@ -1,6 +1,15 @@
 {
- "generatedAt": "2026-10-07T22:32:59Z",
+ "generatedAt": "2026-10-08T01:02:03Z",
  "releases": [
+  {
+   "repo": "scribe",
+   "tag": "v0.4.0",
+   "name": "scribe 0.4.0",
+   "published": "2026-10-07T22:34:05Z",
+   "prerelease": false,
+   "summary": "A choice of scan animations, and less work per mouse move and per word. New: scan animation Pick the animation shown while a region is being read, in the settings panel (Scan animation): Line (the…",
+   "url": "https://github.com/lunanoir21/scribe/releases/tag/v0.4.0"
+  },
   {
    "repo": "scribe",
    "tag": "v0.3.0",
@@ -18,15 +27,6 @@
    "prerelease": false,
    "summary": "Privacy fix: the Copy path handed the recognised screen text to sh -c 'printf %s \"$1\" | wl-copy' as a command-line argument, which other local users can read from /proc/<pid>/cmdline. The text now…",
    "url": "https://github.com/lunanoir21/scribe/releases/tag/v0.2.1"
-  },
-  {
-   "repo": "scribe",
-   "tag": "v0.2.0",
-   "name": "scribe 0.2.0",
-   "published": "2026-10-06T10:55:50Z",
-   "prerelease": false,
-   "summary": "Security and robustness review, English interface, real screenshots. English and Turkish interface. The ui setting is auto (follows $LANG), tr or en, and the settings panel has a selector. The help…",
-   "url": "https://github.com/lunanoir21/scribe/releases/tag/v0.2.0"
   },
   {
    "repo": "desktop-widget-control",
