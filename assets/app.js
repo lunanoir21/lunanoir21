@@ -75,6 +75,14 @@
         ['Optional offline translation with a dictionary, and links, e-mails, phones and IBANs become buttons.', 'İsteğe bağlı çevrimdışı çeviri ve sözlük; bağlantı, e-posta, telefon ve IBAN düğmeye dönüşür.'],
         ['Pick the scan animation you like: line, rows, shine, pixels, outline or focus.', 'Sevdiğin tarama animasyonunu seç: çizgi, satır, parıltı, piksel, çevre ya da odak.'],
         ['English and Turkish interface, many reading languages, and an Omarchy plugin.', 'İngilizce ve Türkçe arayüz, birçok okuma dili ve bir Omarchy eklentisi.']] },
+    { repo: 'obscura', name: 'obscura', g: 'desktop', page: true, tech: 'Rust · QML',
+      en: 'A quiet OBS recording button for your Quickshell bar: a pill that opens while you record, a panel for the details and a shortcut that works anywhere.',
+      tr: 'Quickshell çubuğun için sessiz bir OBS kayıt düğmesi: kayıt sırasında açılan bir hap, ayrıntılar için bir panel ve her yerden çalışan bir kısayol.',
+      hl: [['The red dot lights only when OBS says the recording started; otherwise the pill says what is wrong.', 'Kırmızı nokta yalnızca OBS kaydın başladığını söylediğinde yanar; aksi hâlde hap neyin yanlış olduğunu söyler.'],
+        ['A panel for scenes, audio levels, replay buffer, folder chooser, file name, frame rate and resolution.', 'Sahneler, ses seviyeleri, replay buffer, klasör seçici, dosya adı, kare hızı ve çözünürlük için bir panel.'],
+        ['Frame rate options follow your screen: a 144 Hz display offers 120 and 144, a 60 Hz one does not offer 120.', 'Kare hızı seçenekleri ekranına uyar: 144 Hz ekran 120 ve 144 sunar, 60 Hz ekran 120 sunmaz.'],
+        ['obscura toggle works with the bar closed and opens OBS in the background if needed.', 'obscura toggle çubuk kapalıyken de çalışır, gerekirse OBS’i arka planda açar.'],
+        ['A themed screen-share picker for xdg-desktop-portal-hyprland, and hooks for after a recording is saved.', 'xdg-desktop-portal-hyprland için temalı ekran paylaşımı seçici ve kayıttan sonra çalışan kancalar.']] },
     { repo: 'aurguard-project', name: 'AURGuard', g: 'tools', page: true, tech: 'Rust',
       en: 'Security guard for AUR packages: analyzes PKGBUILD and .install scripts before you install. Multilingual, no telemetry.',
       tr: 'AUR paketleri için güvenlik bekçisi: kurmadan önce PKGBUILD ve .install betiklerini inceler. Çok dilli, telemetri yok.',
@@ -130,7 +138,7 @@
   const RAW = (repo, path) => `https://raw.githubusercontent.com/${USER}/${repo}/main/${path}`;
   const IMG = {
     'quickshell-dynamic-island': 'docs/cover.png', 'quickshell-quay': 'docs/screenshots/preview.png', 'flare-notch': 'docs/screenshots/sessions.png',
-    'tally-screentime': 'docs/screenshots/hero.png', 'desktop-widget-control': 'docs/screenshots/black/editor.webp', 'scribe': 'preview.png', 'aurguard-project': 'assets/install.gif',
+    'tally-screentime': 'docs/screenshots/hero.png', 'desktop-widget-control': 'docs/screenshots/black/editor.webp', 'scribe': 'preview.png', 'obscura': 'docs/cover.png', 'aurguard-project': 'assets/install.gif',
     'dep-lens': 'docs/assets/tui-screenshot.png', 'inktype': 'docs/screenshots/typing.png', 'Life-os-project': 'docs/screenshots/dashboard.jpg'
   };
   /* install commands, copied from each README */
@@ -142,6 +150,7 @@
     'tally-screentime': [['Omarchy', OM('tally-omarchy')]],
     'desktop-widget-control': [['One line', `curl -fsSL https://raw.githubusercontent.com/${USER}/desktop-widget-control/main/install.sh | sh`], ['Omarchy', OM('desktop-widget-control-omarchy')]],
     'scribe': [['Omarchy', OM('scribe-omarchy')], ['Manual', `git clone https://github.com/${USER}/scribe`]],
+    'obscura': [['Manual', `git clone https://github.com/${USER}/obscura && cd obscura && cargo build --release`]],
     'aurguard-project': [['Cargo', 'cargo install aurguard'], ['npm', 'npm install -g aurguard']],
     'dep-lens': [['npm', 'npm install -g @lunanoir/dep-lens']],
     'petty': [['Cargo', `git clone https://github.com/${USER}/petty && cd petty && cargo install --path .`]]

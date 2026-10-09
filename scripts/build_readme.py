@@ -19,6 +19,7 @@ PROJECTS = [
     ("tally-screentime", "Tally", "Screen time for Hyprland with PNG, PDF and HTML reports.", True, "docs/screenshots/hero.png"),
     ("desktop-widget-control", "Widget Control", "Live desktop widgets with a full editor.", True, "docs/screenshots/black/editor.webp"),
     ("scribe", "Scribe", "Select and copy text from anywhere on your Hyprland screen, like Google Lens.", True, "preview.png"),
+    ("obscura", "obscura", "A quiet OBS recording button for your Quickshell bar.", True, "docs/cover.png"),
     ("dep-lens", "dep-lens", "Dependencies, licenses and commercial-use risk across 9 ecosystems.", True, "docs/assets/tui-screenshot.png"),
     ("inktype", "Inktype", "Free typing practice through real books.", True, "docs/screenshots/typing.png"),
     ("Life-os-project", "Life OS", "A local-first personal life OS.", True, "docs/screenshots/dashboard.jpg"),

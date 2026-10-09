@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="112" viewBox="0 0 900 112" role="img" aria-label="55 stars, 22 public repos">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="112" viewBox="0 0 900 112" role="img" aria-label="56 stars, 23 public repos">
 <rect x=".5" y=".5" width="899" height="111" rx="14" fill="#000000" stroke="#30363d"/>
-<text x="36" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#ffffff">55</text>
+<text x="36" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#ffffff">56</text>
 <text x="36" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#8b949e">stars on public repos</text>
 <line x1="230" y1="26" x2="230" y2="86" stroke="#30363d"/>
-<text x="254" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#ffffff">22</text>
+<text x="254" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#ffffff">23</text>
 <text x="254" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#8b949e">public repos</text>
 <line x1="448" y1="26" x2="448" y2="86" stroke="#30363d"/>
 <text x="472" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#ffffff">v0.4.0</text>
-<text x="472" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#8b949e">Scribe · today</text>
+<text x="472" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#8b949e">Scribe · yesterday</text>
 <line x1="666" y1="26" x2="666" y2="86" stroke="#30363d"/>
 <text x="690" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#ffffff">today</text>
 <text x="690" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#8b949e">last push</text>

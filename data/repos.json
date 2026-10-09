@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-08T18:52:18Z",
+ "generatedAt": "2026-10-09T01:01:02Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
-  "publicRepos": 22,
+  "publicRepos": 23,
   "joined": "2025-01-27T13:18:31Z"
  },
  "repos": [
@@ -352,6 +352,38 @@
    "size": 0
   },
   {
+   "name": "obscura",
+   "description": "Thin OBS Studio control layer for Quickshell/Hyprland: bar pill, panel, shortcut",
+   "stars": 1,
+   "forks": 0,
+   "issues": 0,
+   "language": "QML",
+   "topics": [
+    "desktop-widget",
+    "hyprland",
+    "linux",
+    "obs",
+    "obs-studio",
+    "obs-websocket",
+    "pipewire",
+    "qml",
+    "qt6",
+    "quickshell",
+    "rust",
+    "screen-recorder",
+    "screen-recording",
+    "screencast",
+    "status-bar",
+    "wayland",
+    "xdg-desktop-portal"
+   ],
+   "license": "MIT",
+   "homepage": "https://lunanoir21.github.io/obscura/",
+   "created": "2026-10-08T19:37:18Z",
+   "pushed": "2026-10-09T00:51:10Z",
+   "size": 12
+  },
+  {
    "name": "scribe",
    "description": "Select and copy text from anywhere on your Hyprland screen, like Google Lens. A Quickshell module.",
    "stars": 1,
@@ -432,8 +464,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-10-08T10:38:30Z",
-   "size": 460
+   "pushed": "2026-10-08T18:52:28Z",
+   "size": 464
   },
   {
    "name": "lunanoir21.github.io",
