@@ -7,7 +7,7 @@
 <text x="254" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">public repos</text>
 <line x1="448" y1="26" x2="448" y2="86" stroke="#d0d7de"/>
 <text x="472" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#0a0a0a">v0.4.0</text>
-<text x="472" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">Scribe · yesterday</text>
+<text x="472" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">Scribe · 2 days ago</text>
 <line x1="666" y1="26" x2="666" y2="86" stroke="#d0d7de"/>
 <text x="690" y="60" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="600" fill="#0a0a0a">today</text>
 <text x="690" y="86" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" fill="#57606a">last push</text>
