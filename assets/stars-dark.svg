@@ -9,14 +9,14 @@
 <rect x="300" y="92" width="520" height="12" rx="6" fill="#21262d"/>
 <rect x="300" y="92" width="208" height="12" rx="6" fill="#ffffff"/>
 <text x="836" y="103" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">6</text>
-<text x="32" y="133" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">Life OS</text>
+<text x="32" y="133" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">Quay</text>
 <rect x="300" y="122" width="520" height="12" rx="6" fill="#21262d"/>
 <rect x="300" y="122" width="208" height="12" rx="6" fill="#ffffff"/>
 <text x="836" y="133" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">6</text>
-<text x="32" y="163" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">Quay</text>
+<text x="32" y="163" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">Life OS</text>
 <rect x="300" y="152" width="520" height="12" rx="6" fill="#21262d"/>
-<rect x="300" y="152" width="208" height="12" rx="6" fill="#ffffff"/>
-<text x="836" y="163" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">6</text>
+<rect x="300" y="152" width="173" height="12" rx="6" fill="#ffffff"/>
+<text x="836" y="163" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">5</text>
 <text x="32" y="193" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#ffffff">Tally</text>
 <rect x="300" y="182" width="520" height="12" rx="6" fill="#21262d"/>
 <rect x="300" y="182" width="173" height="12" rx="6" fill="#ffffff"/>
