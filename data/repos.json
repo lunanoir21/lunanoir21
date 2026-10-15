@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-15T04:43:27Z",
+ "generatedAt": "2026-10-15T11:33:18Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
@@ -168,7 +168,7 @@
   {
    "name": "dynamic-island-omarchy",
    "description": "Dynamic Island packaged as an Omarchy shell plugin",
-   "stars": 3,
+   "stars": 4,
    "forks": 0,
    "issues": 0,
    "language": "QML",
@@ -192,6 +192,29 @@
    "created": "2026-09-23T18:18:23Z",
    "pushed": "2026-10-13T16:18:49Z",
    "size": 726
+  },
+  {
+   "name": "desktop-widget-control-omarchy",
+   "description": "Omarchy plugin packaging for Desktop Widget Control (live desktop widgets + editor for Quickshell)",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "QML",
+   "topics": [
+    "desktop-widgets",
+    "hyprland",
+    "omarchy",
+    "omarchy-marketplace",
+    "omarchy-plugin",
+    "quickshell",
+    "wayland",
+    "widgets"
+   ],
+   "license": "NOASSERTION",
+   "homepage": "",
+   "created": "2026-09-30T20:39:04Z",
+   "pushed": "2026-10-11T11:12:48Z",
+   "size": 1666
   },
   {
    "name": "obscura",
@@ -347,29 +370,6 @@
    "size": 11225
   },
   {
-   "name": "desktop-widget-control-omarchy",
-   "description": "Omarchy plugin packaging for Desktop Widget Control (live desktop widgets + editor for Quickshell)",
-   "stars": 1,
-   "forks": 0,
-   "issues": 0,
-   "language": "QML",
-   "topics": [
-    "desktop-widgets",
-    "hyprland",
-    "omarchy",
-    "omarchy-marketplace",
-    "omarchy-plugin",
-    "quickshell",
-    "wayland",
-    "widgets"
-   ],
-   "license": "NOASSERTION",
-   "homepage": "",
-   "created": "2026-09-30T20:39:04Z",
-   "pushed": "2026-10-11T11:12:48Z",
-   "size": 1666
-  },
-  {
    "name": "hypr-connect",
    "description": "",
    "stars": 1,
@@ -496,8 +496,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-10-14T21:43:39Z",
-   "size": 421
+   "pushed": "2026-10-15T04:43:34Z",
+   "size": 427
   },
   {
    "name": "lunanoir21.github.io",

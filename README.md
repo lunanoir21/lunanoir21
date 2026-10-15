@@ -13,7 +13,7 @@
 
 **I'm not a developer.** I make tools and small projects together with AI, and I publish them so anyone curious can use them, learn from them or make them better. I decide what to build and how it should feel, then I run it, review it and fix what's wrong. Every project says openly that it was built with AI.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img alt="58 stars across 24 public repos" src="assets/stats-light.svg"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img alt="60 stars across 24 public repos" src="assets/stats-light.svg"></picture>
 
 ## What I've made
 
@@ -43,11 +43,11 @@ Six of my projects are packaged as [Omarchy](https://omarchy.org) plugins. One c
 
 | Plugin | What it does | Install | Stars |
 | --- | --- | --- | --- |
-| [Dynamic Island](https://github.com/lunanoir21/dynamic-island-omarchy) | Monochrome Dynamic Island for Hyprland: media, timers, pixel clock, privacy indicators. | `omarchy plugin add https://github.com/lunanoir21/dynamic-island-omarchy.git --enable` | ★ 3 |
+| [Dynamic Island](https://github.com/lunanoir21/dynamic-island-omarchy) | Monochrome Dynamic Island for Hyprland: media, timers, pixel clock, privacy indicators. | `omarchy plugin add https://github.com/lunanoir21/dynamic-island-omarchy.git --enable` | ★ 4 |
 | [Quay](https://github.com/lunanoir21/quay-omarchy) | A vertical, home-screen-style app launcher with live window previews. | `omarchy plugin add https://github.com/lunanoir21/quay-omarchy.git --enable` | ★ 2 |
 | [Flare Notch](https://github.com/lunanoir21/flare-omarchy) | Your AI coding limits on the screen edge. | `omarchy plugin add https://github.com/lunanoir21/flare-omarchy.git --enable` | ★ 3 |
 | [Tally](https://github.com/lunanoir21/tally-omarchy) | Screen time for Hyprland with PNG, PDF and HTML reports. | `omarchy plugin add https://github.com/lunanoir21/tally-omarchy.git --enable` | ★ 2 |
-| [Widget Control](https://github.com/lunanoir21/desktop-widget-control-omarchy) | Live desktop widgets with a full editor. | `omarchy plugin add https://github.com/lunanoir21/desktop-widget-control-omarchy.git --enable` | ★ 1 |
+| [Widget Control](https://github.com/lunanoir21/desktop-widget-control-omarchy) | Live desktop widgets with a full editor. | `omarchy plugin add https://github.com/lunanoir21/desktop-widget-control-omarchy.git --enable` | ★ 2 |
 | [Scribe](https://github.com/lunanoir21/scribe-omarchy) | Select and copy text from anywhere on your Hyprland screen, like Google Lens. | `omarchy plugin add https://github.com/lunanoir21/scribe-omarchy.git --enable` | ★ 1 |
 
 <sub>Plugins run with your user's permissions and are not sandboxed. Mine are open source with no telemetry, but read the code before you enable any plugin.</sub>
