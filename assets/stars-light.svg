@@ -29,7 +29,7 @@
 <rect x="300" y="242" width="520" height="12" rx="6" fill="#eaeef2"/>
 <rect x="300" y="242" width="104" height="12" rx="6" fill="#0a0a0a"/>
 <text x="836" y="253" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#0a0a0a">3</text>
-<text x="32" y="283" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#0a0a0a">desktop-widget-control-omarchy</text>
+<text x="32" y="283" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#0a0a0a">Widget Control</text>
 <rect x="300" y="272" width="520" height="12" rx="6" fill="#eaeef2"/>
 <rect x="300" y="272" width="69" height="12" rx="6" fill="#0a0a0a"/>
 <text x="836" y="283" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="13" fill="#0a0a0a">2</text>

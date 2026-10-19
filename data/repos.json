@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19T13:21:49Z",
+ "generatedAt": "2026-10-19T20:36:30Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
@@ -194,6 +194,39 @@
    "size": 726
   },
   {
+   "name": "desktop-widget-control",
+   "description": "Live widgets for your Wayland desktop with a full editor: clocks, system monitors, music player, weather. One Quickshell config.",
+   "stars": 2,
+   "forks": 0,
+   "issues": 0,
+   "language": "QML",
+   "topics": [
+    "cava",
+    "clock",
+    "customization",
+    "desktop-widget",
+    "desktop-widgets",
+    "hyprland",
+    "linux",
+    "mpris",
+    "niri",
+    "omarchy",
+    "qml",
+    "quickshell",
+    "rice",
+    "sway",
+    "system-monitor",
+    "unixporn",
+    "wayland",
+    "widgets"
+   ],
+   "license": "NOASSERTION",
+   "homepage": "https://lunanoir21.github.io/desktop-widget-control/",
+   "created": "2026-09-30T20:38:15Z",
+   "pushed": "2026-10-11T11:12:47Z",
+   "size": 11225
+  },
+  {
    "name": "desktop-widget-control-omarchy",
    "description": "Omarchy plugin packaging for Desktop Widget Control (live desktop widgets + editor for Quickshell)",
    "stars": 2,
@@ -337,39 +370,6 @@
    "size": 491
   },
   {
-   "name": "desktop-widget-control",
-   "description": "Live widgets for your Wayland desktop with a full editor: clocks, system monitors, music player, weather. One Quickshell config.",
-   "stars": 1,
-   "forks": 0,
-   "issues": 0,
-   "language": "QML",
-   "topics": [
-    "cava",
-    "clock",
-    "customization",
-    "desktop-widget",
-    "desktop-widgets",
-    "hyprland",
-    "linux",
-    "mpris",
-    "niri",
-    "omarchy",
-    "qml",
-    "quickshell",
-    "rice",
-    "sway",
-    "system-monitor",
-    "unixporn",
-    "wayland",
-    "widgets"
-   ],
-   "license": "NOASSERTION",
-   "homepage": "https://lunanoir21.github.io/desktop-widget-control/",
-   "created": "2026-09-30T20:38:15Z",
-   "pushed": "2026-10-11T11:12:47Z",
-   "size": 11225
-  },
-  {
    "name": "hypr-connect",
    "description": "",
    "stars": 1,
@@ -496,8 +496,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-10-19T04:44:22Z",
-   "size": 492
+   "pushed": "2026-10-19T13:21:59Z",
+   "size": 493
   },
   {
    "name": "lunanoir21.github.io",
