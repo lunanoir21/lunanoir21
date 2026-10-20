@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T19:18:32Z",
+ "generatedAt": "2026-10-20T23:54:58Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
@@ -43,40 +43,9 @@
    "size": 8737
   },
   {
-   "name": "flare-notch",
-   "description": "An AI coding usage notch for Quickshell on Hyprland — Claude Code, Codex, Cursor, OpenCode, Antigravity and Kiro limits on the edge of the screen, inspired by Codenotch.",
-   "stars": 6,
-   "forks": 1,
-   "issues": 0,
-   "language": "QML",
-   "topics": [
-    "ai-tools",
-    "claude-code",
-    "codex",
-    "cursor",
-    "dotfiles",
-    "hyprland",
-    "linux",
-    "notch",
-    "opencode",
-    "qml",
-    "qt6",
-    "quickshell",
-    "rust",
-    "usage-tracker",
-    "wayland",
-    "widget"
-   ],
-   "license": "MIT",
-   "homepage": "https://lunanoir21.github.io/flare-notch/",
-   "created": "2026-09-15T18:39:52Z",
-   "pushed": "2026-10-13T16:18:42Z",
-   "size": 9554
-  },
-  {
    "name": "quickshell-quay",
    "description": "A vertical, home-screen-style app launcher for Quickshell — pinned apps, folders and live window previews in one rail that moves one row per wheel notch.",
-   "stars": 6,
+   "stars": 7,
    "forks": 0,
    "issues": 0,
    "language": "QML",
@@ -106,6 +75,37 @@
    "created": "2026-09-12T22:59:59Z",
    "pushed": "2026-10-11T11:13:11Z",
    "size": 3265
+  },
+  {
+   "name": "flare-notch",
+   "description": "An AI coding usage notch for Quickshell on Hyprland — Claude Code, Codex, Cursor, OpenCode, Antigravity and Kiro limits on the edge of the screen, inspired by Codenotch.",
+   "stars": 6,
+   "forks": 1,
+   "issues": 0,
+   "language": "QML",
+   "topics": [
+    "ai-tools",
+    "claude-code",
+    "codex",
+    "cursor",
+    "dotfiles",
+    "hyprland",
+    "linux",
+    "notch",
+    "opencode",
+    "qml",
+    "qt6",
+    "quickshell",
+    "rust",
+    "usage-tracker",
+    "wayland",
+    "widget"
+   ],
+   "license": "MIT",
+   "homepage": "https://lunanoir21.github.io/flare-notch/",
+   "created": "2026-09-15T18:39:52Z",
+   "pushed": "2026-10-13T16:18:42Z",
+   "size": 9554
   },
   {
    "name": "Life-os-project",
@@ -496,8 +496,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-10-20T14:19:58Z",
-   "size": 506
+   "pushed": "2026-10-20T19:18:44Z",
+   "size": 511
   },
   {
    "name": "lunanoir21.github.io",
