@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-22T17:13:12Z",
+ "generatedAt": "2026-10-22T21:38:28Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
-  "publicRepos": 24,
+  "publicRepos": 22,
   "joined": "2025-01-27T13:18:31Z"
  },
  "repos": [
@@ -336,20 +336,6 @@
    "size": 977
   },
   {
-   "name": "connectible-project",
-   "description": "",
-   "stars": 1,
-   "forks": 0,
-   "issues": 0,
-   "language": "Dart",
-   "topics": [],
-   "license": "MIT",
-   "homepage": "https://lunanoir21.github.io/connectible-project/",
-   "created": "2026-07-10T23:11:31Z",
-   "pushed": "2026-10-11T11:12:43Z",
-   "size": 1146
-  },
-  {
    "name": "dep-lens",
    "description": "Scan dependencies across 9 ecosystems, classify licenses, score commercial-use risk, and browse results in a fast ASCII TUI. Rust core + Node.js/Ink wrapper.",
    "stars": 1,
@@ -496,8 +482,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-10-22T11:56:53Z",
-   "size": 543
+   "pushed": "2026-10-22T17:13:24Z",
+   "size": 547
   },
   {
    "name": "lunanoir21.github.io",
@@ -512,20 +498,6 @@
    "created": "2026-10-03T12:25:22Z",
    "pushed": "2026-10-11T11:13:00Z",
    "size": 42
-  },
-  {
-   "name": "orca-project",
-   "description": "",
-   "stars": 0,
-   "forks": 0,
-   "issues": 0,
-   "language": "Rust",
-   "topics": [],
-   "license": "MIT",
-   "homepage": "",
-   "created": "2026-06-18T18:48:02Z",
-   "pushed": "2026-10-11T11:13:04Z",
-   "size": 397
   },
   {
    "name": "petty",
