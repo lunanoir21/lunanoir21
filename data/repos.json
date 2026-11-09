@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T22:09:12Z",
+ "generatedAt": "2026-11-09T06:37:28Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 6,
@@ -43,40 +43,6 @@
    "size": 8737
   },
   {
-   "name": "quickshell-quay",
-   "description": "A vertical, home-screen-style app launcher for Quickshell — pinned apps, folders and live window previews in one rail that moves one row per wheel notch.",
-   "stars": 7,
-   "forks": 0,
-   "issues": 0,
-   "language": "QML",
-   "topics": [
-    "app-launcher",
-    "arch-linux",
-    "customization",
-    "desktop-widget",
-    "dock",
-    "dotfiles",
-    "hyprland",
-    "launcher",
-    "layer-shell",
-    "linux",
-    "linux-desktop",
-    "qml",
-    "quickshell",
-    "ricing",
-    "taskbar",
-    "unixporn",
-    "wayland",
-    "window-manager",
-    "wlroots"
-   ],
-   "license": "MIT",
-   "homepage": "https://lunanoir21.github.io/quickshell-quay/",
-   "created": "2026-09-12T22:59:59Z",
-   "pushed": "2026-10-11T11:13:11Z",
-   "size": 3265
-  },
-  {
    "name": "flare-notch",
    "description": "An AI coding usage notch for Quickshell on Hyprland — Claude Code, Codex, Cursor, OpenCode, Antigravity and Kiro limits on the edge of the screen, inspired by Codenotch.",
    "stars": 6,
@@ -108,10 +74,44 @@
    "size": 9554
   },
   {
+   "name": "quickshell-quay",
+   "description": "A vertical, home-screen-style app launcher for Quickshell — pinned apps, folders and live window previews in one rail that moves one row per wheel notch.",
+   "stars": 6,
+   "forks": 0,
+   "issues": 0,
+   "language": "QML",
+   "topics": [
+    "app-launcher",
+    "arch-linux",
+    "customization",
+    "desktop-widget",
+    "dock",
+    "dotfiles",
+    "hyprland",
+    "launcher",
+    "layer-shell",
+    "linux",
+    "linux-desktop",
+    "qml",
+    "quickshell",
+    "ricing",
+    "taskbar",
+    "unixporn",
+    "wayland",
+    "window-manager",
+    "wlroots"
+   ],
+   "license": "MIT",
+   "homepage": "https://lunanoir21.github.io/quickshell-quay/",
+   "created": "2026-09-12T22:59:59Z",
+   "pushed": "2026-10-11T11:13:11Z",
+   "size": 3265
+  },
+  {
    "name": "Life-os-project",
    "description": "An open-source, local-first personal life OS — habits, finance, notes, workouts, recipes & more. Built with Next.js 14 & TypeScript.",
    "stars": 5,
-   "forks": 2,
+   "forks": 3,
    "issues": 0,
    "language": "TypeScript",
    "topics": [
@@ -482,8 +482,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-11-08T17:56:46Z",
-   "size": 587
+   "pushed": "2026-11-08T22:09:18Z",
+   "size": 434
   },
   {
    "name": "lunanoir21.github.io",
