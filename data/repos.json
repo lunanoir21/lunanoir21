@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T11:46:58Z",
+ "generatedAt": "2026-11-18T20:35:07Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 7,
@@ -46,7 +46,7 @@
    "name": "Life-os-project",
    "description": "An open-source, local-first personal life OS — habits, finance, notes, workouts, recipes & more. Built with Next.js 14 & TypeScript.",
    "stars": 7,
-   "forks": 3,
+   "forks": 4,
    "issues": 0,
    "language": "TypeScript",
    "topics": [
@@ -482,7 +482,7 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-11-18T00:58:44Z",
+   "pushed": "2026-11-18T11:47:10Z",
    "size": 531
   },
   {
