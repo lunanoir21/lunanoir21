@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-17T16:03:55Z",
+ "generatedAt": "2026-11-18T00:58:38Z",
  "user": "lunanoir21",
  "profile": {
   "followers": 7,
@@ -43,6 +43,31 @@
    "size": 8737
   },
   {
+   "name": "Life-os-project",
+   "description": "An open-source, local-first personal life OS — habits, finance, notes, workouts, recipes & more. Built with Next.js 14 & TypeScript.",
+   "stars": 7,
+   "forks": 3,
+   "issues": 0,
+   "language": "TypeScript",
+   "topics": [
+    "life",
+    "life-os",
+    "local-first",
+    "open-source",
+    "opensource-projects",
+    "personal-dashboard",
+    "react",
+    "security",
+    "self-hosted",
+    "tauri"
+   ],
+   "license": "MIT",
+   "homepage": "https://lunanoir21.github.io/Life-os-project/",
+   "created": "2026-06-03T12:31:00Z",
+   "pushed": "2026-10-11T11:12:58Z",
+   "size": 1595
+  },
+  {
    "name": "flare-notch",
    "description": "An AI coding usage notch for Quickshell on Hyprland — Claude Code, Codex, Cursor, OpenCode, Antigravity and Kiro limits on the edge of the screen, inspired by Codenotch.",
    "stars": 6,
@@ -72,31 +97,6 @@
    "created": "2026-09-15T18:39:52Z",
    "pushed": "2026-10-13T16:18:42Z",
    "size": 9554
-  },
-  {
-   "name": "Life-os-project",
-   "description": "An open-source, local-first personal life OS — habits, finance, notes, workouts, recipes & more. Built with Next.js 14 & TypeScript.",
-   "stars": 6,
-   "forks": 3,
-   "issues": 0,
-   "language": "TypeScript",
-   "topics": [
-    "life",
-    "life-os",
-    "local-first",
-    "open-source",
-    "opensource-projects",
-    "personal-dashboard",
-    "react",
-    "security",
-    "self-hosted",
-    "tauri"
-   ],
-   "license": "MIT",
-   "homepage": "https://lunanoir21.github.io/Life-os-project/",
-   "created": "2026-06-03T12:31:00Z",
-   "pushed": "2026-10-11T11:12:58Z",
-   "size": 1595
   },
   {
    "name": "quickshell-quay",
@@ -482,8 +482,8 @@
    "license": "MIT",
    "homepage": "https://lunanoir21.github.io/lunanoir21/",
    "created": "2026-06-13T23:40:42Z",
-   "pushed": "2026-11-17T03:55:42Z",
-   "size": 523
+   "pushed": "2026-11-17T16:04:06Z",
+   "size": 524
   },
   {
    "name": "lunanoir21.github.io",
